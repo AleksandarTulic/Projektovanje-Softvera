@@ -1,0 +1,65 @@
+﻿Dodatni zahtjevi: klasa klasa
+*  Podrška za različite tipove korisničkih naloga
+   * Postoje tri vrste naloga koje sam implementirao, i to sljedeći:
+      * Administrator
+      * Zubar
+      * Ostali (pri čemu pod ostalima prvobitno mislim na osobe koje su zadužene za naručivanje i izdavanje računa)
+   * Vrsta naloga Ostali je podskup mogućnosti koje ima Zubar
+   * Primjeri za korištenje:
+      * Administrator
+         * Name: lasta
+         * Password: lasta
+      * Zubar
+         * Name: venera
+         * Password: venera
+      * Dentist
+         * Name: jelena
+         * Password: jelena
+   * Paziti da se ne ostavlja nigdje white space
+*  Internacionalizacija
+   * Implementirao sam 3 jezika, i to sljedeća:
+      * Srpski
+      * Engleski
+      * Njemacki
+   * prilikom prevoda koristio sam google translate
+   * u nekim slučajevima sam riječi koje su na engleskom ostavio u tom obliku i kod drugih jezika jer nisam pronašao adekvatan način prevoda (potrebno je napomenut da je to veoma malen broj)
+      * trenutno rijec koje se sjecam da nisam preveo jeste hover
+   * Nacin realizacije je sljedeći:
+      * svaka klasa koju koristim kao windows forms ili kao form koju koristim na nekom windows forms implementira 2 interfejsa
+         * jedan se odnosi na promjenu Teme (pri čemu to je objašnjeno u sljedećem dijelu “Korisnička podešavanja”)
+         * drugi se odnosi na promjenu Jezika
+      * promjena Jezika može da se izazove na početku rada aplikacije prije nego što se korisnik ulogovao (ukoliko se izvrši promjena, ona se odmah sačuvava u odgovarajući folder), ili u prozoru Podešavanja (eng. Settings)
+      * Promjena neke riječi (odnosno rečenice) u drugi jezik se radi tako što u ranije opisanoj metodi pozivamo metodu koja će da nam za datu trenutnu vrijednost nekog teksta kao i Default-nog jezika i jezika koga želimo vratiti prevod riječi (odnosno rečenice) u odgovarajući jezik
+      * ukoliko se desi greška da nemamo prevod neke riječi odnosno neke rečenice onda se vraća riječ ili rečenica koja je tražena da se prevede
+
+
+Način na koji se pamti odgovarajući prevod neke riječi ili rečenice (pri čemu se ovo sve čuva u jednom dokumentu language.txt):
+        na_srpskom;na_engleskom;na_njemackom
+
+
+
+
+
+
+*  Korisnička podešavanja
+   * Ranije smo napisali da postoji metoda koju svaka klasa implementira koja se odnosi na promjenu Teme:
+      * promjene koju su obuhvaćene ovim jesu sljedeće:
+         * promjena boje pisma
+         * promjena boje pozadine, pri čemu razlikujemo nekoliko pozadina:
+            * base panel - prva pozadina tj. cijeli background za neki windows form na kome se nalaze ostali paneli koji sadrže neke elemente u sebi 
+            * other panels - druga pozadina, jeste pozadina na kome se nalaze elementi kao što su comboBox, textBox, listBox itd.
+         * hover boja - kada se predje preko nekog elementa
+      * potrebno je napomenut da nije stalno isti princip farbanja elemenata iskorišten u svakoj formi, npr. button se nalazi u nekim slučajevima unutar other panels-a pa onda nema smisla da farbamo sa bojom koja je od other panels već samo (jer ne bi mogli primjetiti granice button-a) bojom base panel-a
+      * takođe kada govorimo o promjeni teme tada možemo promijeniti pismo, pri čemu se može koristiti 10 pisama.
+      * Način na koji sam implementirao čuvanje odgovarajućih tema (mislim na boje) jeste na sljedeći način:
+                        
+        Naziv_teme;boja_BasePanel;boja_OtherPanels;boja_Hover;boja_Pisma
+
+
+                primjer: Dark Theme;#121212;#404040;#AAAAAA;#FFFFFF
+
+
+
+
+*  Korisničko uputstvo
+   * nije implementirano
