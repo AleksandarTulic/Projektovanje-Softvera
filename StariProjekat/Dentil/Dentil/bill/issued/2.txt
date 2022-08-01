@@ -1,0 +1,8 @@
+#########################################
+# Naziv: Bijeljenje Zuba, Trošak: 49.19 #
+# Naziv: Vjestacki zub, Trošak: 119.99  #
+# izdato od: Jordan, Rush               #
+# Datum: 2021-12-28                     #
+# Vrijeme: 17:1:29                      #
+# Ukupni troškovi: 169.18               #
+#########################################

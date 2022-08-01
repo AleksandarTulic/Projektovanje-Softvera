@@ -1,0 +1,152 @@
+﻿SER;ENG;GER
+Korisnicko ime;User name;Nutzername
+Šifra;Password;Passwort
+Ulogovati se;Log In;Einloggen
+SRP;SER;SER
+ENG;ENG;ENG
+NJE;GER;DEU
+Pogled;View;Aussicht
+Zaposleni;Employees;Mitarbeiter
+Elementi;Elements;Elemente
+Dodati;Add;Hinzufügen
+Izmijeniti;Modify;Ändern
+Brisanje;Delete;Löschen
+Zubar;Dentist;Zahnarzt
+Asistent;Assistent;Assistent
+Raspored;Schedule;Zeitplan
+Profil;Profile;Profil
+Podesavanja;Settings;Einstellungen
+Odjaviti se;Log Out;Ausloggen
+Naziv;Name;Name
+Putanja Slike;Picture Path;Bildpfad
+Trošak;Cost;Kostet
+Tip Elementa;Type of Element;Elementtyp
+Opis;Description;Beschreibung
+Unos;Input;Eingang
+Izmijeni;Modify;Ändern
+Uspješna operacija;Successful operation;Erfolgreicher Betrieb
+Unesi Element;Input Element;Eingabeelement
+Promijeni Element;Modify Element;Element ändern
+Operacija nije uspjela;Operation not successful;Vorgang nicht erfolgreich
+Izaberi sliku;Select picture;Bild auswählen
+Odabrana stavka nije važeća;Selected item is not valid;Ausgewählter Artikel ist ungültig
+stavka;item;Artikel
+usluga;service;Service
+Predmeti i usluge;Items and Services;Artikel und Dienstleistungen
+Slika;Picture;Bild
+Pretraga;Search;Suche
+Tip;Type;Typ
+Jmb;ID;ID
+Odaberite više od jednog;Select More Than One;Wählen Sie mehr als eine aus
+Morate odabrati element za brisanje;You need to select an element to delete;Sie müssen ein Element zum Löschen auswählen
+Brisanje nije moguće;Delete not possible;Löschen nicht möglich
+Operacija uspješna;Operation successful;Operation erfolgreich
+Brisanje uspješno;Delete successful;Löschen erfolgreich
+Uspješno ste izbrisali nula ili više elemenata;You deleted successfully zero or more elements;Sie haben null oder mehr Elemente erfolgreich gelöscht
+Delimično moguće brisanje;Delete partially possible;Teilweise löschen möglich
+Operacija nije moguća;Operation not possible;Bedienung nicht möglich
+Brisanje Elementa;Delete Element;Element löschen
+Minute;Minutes;Minuten
+Sati;Hours;Stunden
+Početak;Start;Anfang
+Kraj;End;Ende
+Unos Smjene;Input Shift;Eingabeverschiebung
+Smjena;Shift;Schicht
+Izbriši Smjenu;Delete Shift;Schicht löschen
+Operacija nije (ili djelimično) uspješna;Operation not(or partially) successful;Vorgang nicht (oder teilweise) erfolgreich
+Odabrani datumi;Selected Dates;Ausgewählte Termine
+Datumi;Dates;Termine
+Radno Osoblje;Working Staff;Arbeitspersonal
+Ako je manji od početka onda traje do drugog dana;If smaller than start then it lasts until the other day;Wenn kleiner als Start dann dauert es bis zum anderen Tag
+Prezime;Surname;Familienname
+Admin;Admin;Admin
+Brisanje Rasporeda;Delete Schedule;Zeitplan löschen
+Izbrišite člana osoblja;Delete staff member;Mitarbeiter löschen
+Rang;Rank;Rang
+Ostali;Other;Andere
+datum početka;Start Date;Startdatum
+Datum završetka;End Date;Endtermin
+Naziv posla;Job title;Berufsbezeichnung
+Naziv posla;Title;Berufsbezeichnung
+Mjesto obrzovanja;Education place;Bildungsort
+Mjesto obrzovanja;Education Place;Bildungsort
+Banka;Bank;Bank
+Bankovni račun;Bank account;Bankkonto
+Bankovni račun;Bank Account;Bankkonto
+Bankovni podaci;Bank Info;Bankverbindung
+Informacije o poslu;Work Info;Arbeitsinfo
+Ime;Name;Name
+Prezime;Surname;Familienname
+Korisničko ime;Username;Nutzername
+Pol;Gender;Geschlecht
+Grad;City;Stadt
+Ulica;Street;Straße
+Broj ulice;Street number;Hausnummer
+Email;Email;Email
+Telefon;Phone;Telefon
+Informacije;Information;Informationen
+Bivši radni kadar;Former Working Staff;Ehemaliger Arbeitsstab
+Unesi novog član osoblja;Input new staff member;Neuen Mitarbeiter eingeben
+Informacije o računu;Account Info;Kontoinformation
+Izmijenite podatke o članu osoblja;Modify staff member info;Mitarbeiterinfo ändern
+Tema u boji;Color Theme;Farbthema
+Izabrana Tema;Selected Color Theme;Ausgewähltes Farbthema
+Pismo;Font;Schriftart
+Odabrani tekst;Chosen Text;Ausgewählter Text
+Jezik;Language;Sprache
+Sačuvaj;Save;Speichern
+Boja pozadine;Background Color;Hintergrundfarbe
+Boja Elemenata;Elements Color;Elementfarbe
+Hover Boja;Hover Color;Hover-Farbe
+Boja Pisma;Font Color;Schriftfarbe
+tip fonta koji koristite;the type of font you use;die Art der Schriftart, die Sie verwenden
+Plava Tema;Blue Theme;Blaues Thema
+Zelena Tema;Green Theme;Grünes Thema
+Tamna Tema;Dark Theme;Dunkles Thema
+Unos novog pacijenta;Input new Patient;Neuen Patienten eingeben
+Izmijenite podatke o pacijentu;Modify Patient Info;Patienteninformationen ändern
+Pacijenti;Patients;Patienten
+Traži po;Search By;Suche nach
+Info;Info;Info
+Pogledaj termin;View Appointment;Termin ansehen
+Dodaj Termin;Add Appointment;Termin hinzufügen
+Vrsta Problema;Type of Problem;Art des Problems
+Unos Vrste Problema;Input Type Problem;Eingabetyp-Problem
+Odabrani datum;Selected Date;Ausgewähltes Datum
+Datum;Date;Datum
+Termini;Appointments;Termine
+Pogled;View;Aussicht
+Pogledaj termin;View Appointment;Termin ansehen
+Bilješka;Note;Notiz
+Ostale informacije;Other Information;Andere Informationen
+Trajanje;Duration;Dauer
+Broj Minuta;Number of Minutes;Anzahl der Minuten
+Unos Termina;Input Appointment;Termin eingeben
+Odaberite Zubara;Select Dentist;Zahnarzt auswählen
+Koliko Dugo;How Long;Wie lange
+Brisanje Termina;Delete Appointment;Termin löschen
+Pacijent;Patient;Patient
+Minuta;Minutes;Minuten
+Pogledaj Posjete;View Visits;Besuche anzeigen
+Dodaj Posjet;Add Visit;Besuch hinzufügen
+Dodavanje Pacijentinog Posjeta;Add Patient Visit;Patientenbesuch hinzufügen
+Izbriši sa liste problema;Delete From Problem List;Aus Problemliste löschen
+Vrijeme;Time;Zeit
+Poslednje Viđeno;Last Seen;Zuletzt gesehen
+Problemi;Problems;Probleme
+Posjeti;Visits;Besuche
+Pogledaj Posjete;View Visits;Besuche ansehen
+Zubi;Teeth;Zähne
+Izdato od;issued by;Ausgestellt durch
+Ukupni troškovi;Total cost;Gesamtkosten
+Izbriši račun;Delete Bill;Rechnung löschen
+Dodaj račun;Add Bill;Rechnung hinzufügen
+Neuspješna validacija;Failed validation;Validierung fehlgeschlagen
+Stavke računa ili usluge;Bill Items or Services;Rechnungspositionen oder Dienstleistungen
+Više informacija;More Info;Mehr Info
+Opste Informacije;Main Information;Hauptinformation
+Opste Informacije;Main Info;Hauptinformation
+Bankovne Informacije;Bank Information;Bank Informationen
+Ostale Informacije;Other info;Andere Information
+Brisanje Pacijenta;Delete Patient;Patient löschen
+ID posjeta;ID Visit;Visit ID

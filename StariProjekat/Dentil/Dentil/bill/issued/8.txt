@@ -1,0 +1,9 @@
+########################################
+# Naziv: Dedahitris, Trošak: 99.71     #
+# Naziv: Vjestacki zub, Trošak: 119.99 #
+# Naziv: Pregled Zuba, Trošak: 19.99   #
+# izdato od: Danijela, Danijelovic     #
+# Datum: 2021-12-20                    #
+# Vrijeme: 12:50:45                    #
+# Ukupni troškovi: 239.69              #
+########################################
