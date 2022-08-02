@@ -1,0 +1,23 @@
+Ovo moze da se koristi kao Decorator Design Pattern ukoliko bude potrebno.
+	- npr Dentist ima neki dodatni atribut kao sto je educationPlace i sada kada radimo check bilo bi potrebno da provjerimo 
+da li vjerujemo toj ustanovi(provjerimo u nekoj listi nama dostupnoj) ukoliko jeste vrsimo sljedece:
+	public class DentistValidation{
+		private IValidation validation;
+		
+		public DentistValdiation(...){
+			...
+		}
+
+		public boolean check(DentistDTO dto){
+			currentCheck(dto) && validation.check(dto);
+		}
+		
+		private boolean currentCheck(DentistDTO dto){
+			...
+		} 
+	}
+	
+Ako promijeni se npr dentist onda nema smisla da mijenjam IValidationLEngth samo zbog njega, jer imamo jos 2 dodatne klase, pa onda one nece moci da 
+se validisu ili kako se kaze
+
+Zato napravimo dodatne klase koje prosiruju njegovu funkcionalnost ali i one opet mogu da se validisu
