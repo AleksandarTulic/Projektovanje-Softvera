@@ -42,6 +42,9 @@ public class ValidationLength implements IValidation{
 	}
 
 	private boolean checkLength(String value, int maxLength, int minLength) {
+		if (value == null)
+			return false;
+		
 		return value.length() >= minLength && value.length() <= maxLength; 
 	}
 }

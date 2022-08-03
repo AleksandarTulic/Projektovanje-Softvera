@@ -55,11 +55,11 @@ public class UserDAO {
 		}
 	}
 	
-	public boolean update(UserDTO dto, String old_id) {
+	public boolean update(UserDTO dto, String oldID) {
 		boolean res = false;
 		Connection conn = null;
 		Object []values = new Object[] {dto.getId(), dto.getName(), dto.getSurname(), dto.getEmail(), dto.getPhone(),
-				dto.getAddress(), dto.getUsername(), dto.getPassword(), dto.getRole_name()};
+				dto.getAddress(), dto.getUsername(), dto.getPassword(), dto.getRole_name(), oldID};
 		
 		try {
 			conn = connectionPool.checkOut();

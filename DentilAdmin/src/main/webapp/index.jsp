@@ -13,5 +13,9 @@
 			<p>Password: <input type="password" class="form-control" name="j_password"/></p>
 			<p>  <input type="submit" value="Login"/></p>
 		</form>
+		
+		<a href="Operation?what=insert">INSERT</a><br>
+		<a href="Operation?what=update&idOld=9999999999999">UPDATE</a><br>
+		<a href="Operation?what=delete&idOld=2402999100005">DELETE</a><br>
 	</body>
 </html>

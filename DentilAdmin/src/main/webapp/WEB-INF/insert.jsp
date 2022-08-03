@@ -7,7 +7,8 @@
 		<title>Dentil</title>
 	</head>
 	<body>
-		<form action="Operation" method="POST">
+		<h2>Insert</h2>
+		<form action="Operation?what=insert&operation=do" method="POST">
 			<input type="text" name="id" maxlength="13" pattern="[0-9]{13}">
 			<input type="text" name="name" maxlength="100" pattern="[a-zA-Z]{2,}">
 			<input type="text" name="surname" maxlength="100" pattern="[a-zA-Z]{2,}">

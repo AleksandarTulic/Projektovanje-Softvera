@@ -9,14 +9,4 @@
     <welcome-file>default.jsp</welcome-file>
     <welcome-file>default.htm</welcome-file>
   </welcome-file-list>
-  <servlet>
-    <description></description>
-    <display-name>Operation</display-name>
-    <servlet-name>Operation</servlet-name>
-    <servlet-class>controller.Operation</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>Operation</servlet-name>
-    <url-pattern>/Operation</url-pattern>
-  </servlet-mapping>
 </web-app>
