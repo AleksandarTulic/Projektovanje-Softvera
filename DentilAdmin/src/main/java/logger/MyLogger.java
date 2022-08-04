@@ -8,7 +8,8 @@ import java.util.logging.Logger;
 
 public class MyLogger {
 	public final static Logger logger = Logger.getLogger( Logger.GLOBAL_LOGGER_NAME );
-	private static final String LOG_PATH = System.getProperty("catalina.home") + File.separator + "Dentil" + File.separator 
+	private static final String LOG_PATH = System.getProperty("catalina.home") 
+			+ File.separator + "Dentil" + File.separator + "Admin" + File.separator
 		 + System.currentTimeMillis() + ".log";
 	
 	static {

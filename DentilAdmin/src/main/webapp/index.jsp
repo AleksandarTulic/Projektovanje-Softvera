@@ -17,5 +17,6 @@
 		<a href="Operation?what=insert">INSERT</a><br>
 		<a href="Operation?what=update&idOld=9999999999999">UPDATE</a><br>
 		<a href="Operation?what=delete&idOld=2402999100005">DELETE</a><br>
+		<a href="Operation?what=qr">QR</a><br>
 	</body>
 </html>

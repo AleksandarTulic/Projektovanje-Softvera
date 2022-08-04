@@ -8,13 +8,12 @@ import dto.AdminDTO;
 public class AdminDAO {
 	private static ConnectionPool connectionPool = ConnectionPool.getConnectionPool();
 	private static final String SQL_DELETE = "delete from admin as w where w.id=?;";
-	private static final String SQL_INSERT = "insert into admin(id) values(?);";
+	private static final String SQL_INSERT = "insert into admin(id, secretKey) values(?, ?);";
 	
 	public boolean insert(AdminDTO dto) {
 		boolean res = false;
 		Connection conn = null;
-		Object []values = new Object[] {dto.getId(), dto.getName(), dto.getSurname(), dto.getEmail(), dto.getPhone(),
-				dto.getAddress(), dto.getUsername(), dto.getPassword(), dto.getRole_name()};
+		Object []values = new Object[] {dto.getId(), dto.getSecretKey()};
 		
 		try {
 			conn = connectionPool.checkOut();

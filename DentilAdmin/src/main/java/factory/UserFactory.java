@@ -6,40 +6,11 @@ import dto.*;
 import jakarta.servlet.http.HttpServletRequest;
 import validation.*;
 
-public class UserFactory {
-	protected List<IValidation> arrValidation = Arrays.asList(new ValidationLength(), new ValidationRegex());
-
-	private static UserFactory uFactory = new UserFactory();
+public abstract class UserFactory {
+	protected List<IValidation> arrValidation = new ArrayList<IValidation>();
+	//Arrays.asList(new ValidationLength(), new ValidationRegex());
 	
-	private UserFactory() {
-	}
-	
-	public UserDTO get(HttpServletRequest request) {
-		String id = request.getParameter("id");
-		String name = request.getParameter("name");
-		String surname = request.getParameter("surname");
-		String email = request.getParameter("email");
-		String phone = request.getParameter("phone");
-		String address = request.getParameter("address");
-		String username = request.getParameter("username");
-		String password = request.getParameter("password");
-		String role_name = request.getParameter("role_name");
-		
-		UserDTO dto = null;
-		if ("admin".equals(role_name)) {
-			dto = new AdminDTO(id, name, surname, address, phone, email, username, password, role_name);
-		}else if ("dentist".equals(role_name)) {
-			dto = new DentistDTO(id, name, surname, address, phone, email, username, password, role_name);
-		}else if ("counter".equals(role_name)){
-			dto = new CounterDTO(id, name, surname, address, phone, email, username, password, role_name);
-		}
-
-		if (check(dto)) {
-			return dto;
-		}
-		
-		return null;
-	}
+	public abstract UserDTO get(HttpServletRequest request);
 	
 	protected boolean check(UserDTO dto) {
 		for (IValidation i : arrValidation) {
@@ -51,7 +22,21 @@ public class UserFactory {
 		return true;
 	}
 	
-	public static UserFactory getInstance() {
-		return uFactory;
+	protected List<String> getElements(HttpServletRequest request){
+		List<String> arr = new ArrayList<String>();
+		arr.add(request.getParameter("id"));
+		arr.add(request.getParameter("name"));
+		arr.add(request.getParameter("surname"));
+		arr.add(request.getParameter("address"));
+		arr.add(request.getParameter("phone"));
+		arr.add(request.getParameter("email"));
+		arr.add(request.getParameter("username"));
+		arr.add(request.getParameter("password"));
+		arr.add(request.getParameter("role_name"));
+		arr.add(request.getParameter("jobStart"));
+		arr.add(request.getParameter("jobEnd"));
+		arr.add(request.getParameter("secretKey"));
+		
+		return arr;
 	}
 }

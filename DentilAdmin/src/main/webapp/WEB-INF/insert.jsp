@@ -18,6 +18,7 @@
 			<input type="text" name="username" maxlength="100" pattern=".{2,}">
 			<input type="text" name="password" maxlength="100" pattern=".{6, 30}">
 			<input type="text" name="role_name"  maxlength="100">
+			<input type="date" name="jobStart">
 			<input type="submit" value="Input">
 		</form>
 	</body>

@@ -9,17 +9,23 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import logger.MyLogger;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.logging.Level;
 import dto.*;
-import factory.UserFactory;
+import factory.*;
 import service.*;
 
 @WebServlet("/Operation")
 public class Operation extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private static UserFactory factory = UserFactory.getInstance();
-	private static UserService service = UserService.getInstance();
+	private static AdminService adminService = new AdminService();
+	private static EmailService email = new EmailService();
+	private static DentistService dentistService = new DentistService();
+	private static CounterService counterService = new CounterService();
+	private static AdminFactory aFactory = AdminFactory.getInstance();
+	private static DentistFactory dFactory = DentistFactory.getInstance();
+	private static CounterFactory cFactory = CounterFactory.getInstance();
        
     public Operation() {
         super();
@@ -27,6 +33,7 @@ public class Operation extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) {
 		String address = "";
+		String message = "";
 		String where = request.getParameter("what");
 		
 		try {
@@ -34,49 +41,69 @@ public class Operation extends HttpServlet {
 				address = "/WEB-INF/insert.jsp";
 				
 				if ("do".equals(request.getParameter("operation"))) {
-					UserDTO dto = factory.get(request);
-					String message = "";
 					
-					if (dto == null) {
-						message = "Operation not possible.";
-					}else {
-						service.insert(dto);
-						message = "Operation successful.";
+					if ("admin".equals(request.getParameter("role_name"))) {
+						AdminDTO dto = (AdminDTO) aFactory.get(request);
+						
+						if (dto == null) {
+							message = "Operation not possible.";
+						}else {
+							boolean flag = adminService.insert(dto);
+							
+							if (flag) {
+								message = "Operation not possible.";
+							}else {
+								message = "Operation successful.";
+							}
+						}
+					}else if ("dentist".equals(request.getParameter("role_name"))) {
+						DentistDTO dto = (DentistDTO) dFactory.get(request);
+						
+						if (dto == null) {
+							message = "Operation not possible.";
+						}else {
+							boolean flag = dentistService.insert(dto);
+							
+							if (flag) {
+								message = "Operation not possible.";
+							}else {
+								message = "Operation successful.";
+							}
+						}
+					}else if ("counter".equals(request.getParameter("role_name"))) {
+						CounterDTO dto = (CounterDTO) cFactory.get(request);
+						
+						if (dto == null) {
+							message = "Operation not possible.";
+						}else {
+							boolean flag = counterService.insert(dto);
+							
+							if (flag) {
+								message = "Operation not possible.";
+							}else {
+								message = "Operation successful.";
+							}
+						}
 					}
-					
-					HttpSession session = request.getSession();
-					session.setAttribute("message", message);
 				}
 			}else if ("delete".equals(where) && request.getParameter("idOld") != null) {
 				address = "index.jsp";
-				String message = "";
 				
-				if (service.delete(request.getParameter("idOld"))) {
-					message = "Operation successful.";
-				}else {
-					message = "Operation not possible.";
-				}
-				
-				HttpSession session = request.getSession();
-				session.setAttribute("message", message);
+				counterService.delete("9999999999999");
 			}else if ("update".equals(where)) {
 				address = "/WEB-INF/update.jsp";
-				
 				if ("do".equals(request.getParameter("operation"))) {
-					UserDTO dto = factory.get(request);
-					String message = "";
-					
-					if (dto == null || request.getParameter("idOld") == null) {
-						message = "Operation not possible.";
-					}else {
-						service.update(dto, request.getParameter("idOld"));
-						message = "Operation successful.";
-					}
-					
-					HttpSession session = request.getSession();
-					session.setAttribute("message", message);
+					CounterDTO dto = (CounterDTO) cFactory.get(request);
+				
+					counterService.update(dto, "9999999999999");
 				}
+			}else if ("qr".equals(where)) {
+				System.out.println("EMAIL: " + email.send("", System.getProperty("catalina.home") 
+						+ File.separator + "Dentil" + File.separator + "qr" + File.separator + "slika.png"));
 			}
+			
+			HttpSession session = request.getSession();
+			session.setAttribute("message", message);
 			
 			RequestDispatcher dispatcher = request.getRequestDispatcher(address);
 			dispatcher.forward(request, response);
