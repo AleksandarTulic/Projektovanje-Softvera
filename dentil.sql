@@ -16,6 +16,7 @@ create table if not exists Working(
 
 create table if not exists Admin(
 	id char(13) not null,
+    secretKey varchar(100) not null check(length(secretKey)>=2),
     foreign key(id) references Working(id)
     on update cascade
     on delete restrict
@@ -66,13 +67,13 @@ create table if not exists Schedule(
 	idShift int not null,
     date DATE not null,
     idPersonal char(13) not null,
-    idAdmin char(13) not null,
+    idAdmin char(13), #if he/she is deleted the shift will stand
     foreign key(idShift) references Shift(id)
     on update cascade
     on delete restrict,
     foreign key(idAdmin) references Admin(id)
     on update cascade
-    on delete restrict,
+    on delete set null,
     foreign key(idPersonal) references Personal(id)
     on update cascade
     on delete restrict,
@@ -182,7 +183,7 @@ insert into Patient(id, name, surname, email, phone, address) values('4444444444
 insert into Personal values('2222222222222', '2019-02-05', null);
 insert into Personal values('3333333333333', '2020-05-02', null);
 
-insert into admin values('1111111111111');
+insert into admin values('1111111111111', 'aaaaaaaaaaaaa');
 insert into counter values('2222222222222');
 insert into dentist values('3333333333333');
 
