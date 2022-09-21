@@ -42,7 +42,7 @@ Mjesto gdje se na serveru skladiste tokeni je:
 public static final String SAVE_PATH = System.getProperty("catalina.home") + File.separator + "Dentil" + File.separator + "qr"
 ```
 <br />
-Mozemo da vidimo da ovde ulogu ima varijabla **CATALINA_HOME**, pa je samim tim potrebno da je ona definisana. Ukoliko niste sigurni da li je onda definisana ili zelite da postavite njenu vrijednost onda mozete da pratite korake sa sljedece stranice <a href="https://docs.oracle.com/en/database/oracle/machine-learning/oml4r/1.5.1/oread/creating-and-modifying-environment-variables-on-windows.html#GUID-DD6F9982-60D5-48F6-8270-A27EC53807D0">here</a>.
+Mozemo da vidimo da ovde ulogu ima varijabla <b>CATALINA_HOME</b>, pa je samim tim potrebno da je ona definisana. Ukoliko niste sigurni da li je onda definisana ili zelite da postavite njenu vrijednost onda mozete da pratite korake sa sljedece stranice <a href="https://docs.oracle.com/en/database/oracle/machine-learning/oml4r/1.5.1/oread/creating-and-modifying-environment-variables-on-windows.html#GUID-DD6F9982-60D5-48F6-8270-A27EC53807D0">here</a>.
 
 <br />
 Pogledajte vise na <a href="https://en.wikipedia.org/wiki/QR_code">here</a>.
