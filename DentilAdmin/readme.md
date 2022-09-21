@@ -20,6 +20,8 @@ Pogledajte vise na [here](https://docs.oracle.com/cd/E19798-01/821-1841/6nmq2cpk
 ### QR token
 
 Kada se kreira nalog za tipa korisnika **_admin_** onda se takodje kreira i QR token koji se salje na njihovu email adresu. Koristeci aplikaciju [**_Google Authenticator_**](https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2&hl=en&gl=US) skenirate QR token i dobijete vrijednost koja se mijenja svakih 30s. Ta vrijednost je kod od 6 cifara. Ukoliko vrijednost koju vi unesete je pogresna onda ponovo morate da prodjete [prvi korak](#form-based-authentication). Ukoliko i ovaj korak uspjesno prodjete onda mozete da koristite funkcionalnosti koje vam aplikacija nudi.
+
+<br />
 <br />
 Da bi QR token koji se generise za svakog korisnika tipa admin bio jedinstven koristimo sljedecu funkcionalnost:
 
@@ -32,7 +34,8 @@ private String generateSecretKey() {
     return base32.encodeToString(bytes);
 }
 ```
-
+- [SecureRandom](https://docs.oracle.com/javase/8/docs/api/java/security/SecureRandom.html)
+- [Base32](https://commons.apache.org/proper/commons-codec/apidocs/org/apache/commons/codec/binary/BaseNCodec.html#encodeToString-byte:A-)
 
 
 <br />
