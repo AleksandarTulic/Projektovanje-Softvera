@@ -55,6 +55,37 @@ Da bi se koristili authentication mehanizmi apache tomcat servera potrebno je da
 </div>
 ```
 
+Pored toga potrebno je u fajlu **_web.xml_** da postavimo sljedece vrijednosti:
+```xml
+<security-constraint>
+    <display-name>Form-Based Authentication Constraint</display-name>
+    <web-resource-collection>
+        <web-resource-name>Form-Based Authentication</web-resource-name>
+        <description></description>
+        <url-pattern>/*</url-pattern>
+    </web-resource-collection>
+    <auth-constraint>
+        <description></description>
+        <role-name>admin</role-name>
+    </auth-constraint>
+    <user-data-constraint>
+        <transport-guarantee>CONFIDENTIAL</transport-guarantee>
+    </user-data-constraint>
+</security-constraint>
+<login-config>
+    <auth-method>FORM</auth-method>
+    <realm-name>Form-Based Authentication</realm-name>
+    <form-login-config>
+        <form-login-page>/login.jsp</form-login-page>
+        <form-error-page>/error.jsp</form-error-page>
+    </form-login-config>
+</login-config>
+<security-role>
+    <description></description>
+    <role-name>admin</role-name>
+</security-role>
+```
+
 <br />
 <br />
 Pogledajte vise na [here](https://docs.oracle.com/cd/E19798-01/821-1841/6nmq2cpki/index.html).
