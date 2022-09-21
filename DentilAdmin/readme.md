@@ -26,6 +26,35 @@ Ove vrijednosti se postavljaju unutar fajla **_C:Program Files\apache-tomcat-10.
 <br />
 <br />
 Mozemo da vidimo na osnovu **_Credential Handlera_** da vrijednost koju vi unesete u textbox forme login se zapravo prevodi u njegovu **_SHA256_** ekvivalentnu vrijednost. Pa se onda poredi sa odgovarajucim poljem unutar baze podataka. Kazem ekvivalentnu jer nije koristen [salt](https://en.wikipedia.org/wiki/Salt_(cryptography)).
+
+Da bi se koristili authentication mehanizmi apache tomcat servera potrebno je da imamo standardnu formu za login samo sto moramo postaviti sljedece vrijednosti unutar odgovarajucih atributa:
+- j_security_check
+- j_username
+- j_password
+```html
+<div class="container">
+    <div class="row">
+        <div class="col-sm-2">
+        </div>
+        <div class="col-sm-8">
+            <h2>Login Admin</h2>
+            <form name="loginForm" method="POST" action="j_security_check">
+                <div class="form-group">
+                    <p>Username: <input type="text" name="j_username" class="form-control"/></p>
+                </div>
+                
+                <div class="form-group">
+                    <p>Password: <input type="password" class="form-control" name="j_password"/></p>
+                </div>
+                <p>  <input style="width: 50%;margin-right: 25%;margin-left: 25%;" type="submit" value="Login" class="btn btn-default"/></p>
+            </form>
+        </div>
+        <div class="col-sm-2">
+        </div>
+    </div>
+</div>
+```
+
 <br />
 <br />
 Pogledajte vise na [here](https://docs.oracle.com/cd/E19798-01/821-1841/6nmq2cpki/index.html).
