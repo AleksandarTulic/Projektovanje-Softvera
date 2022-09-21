@@ -22,7 +22,7 @@ Za implementaciju **_Form based Authentication_** koristio sam postojece mehaniz
         </Realm>
     </Realm>
 ```
-Ove vrijednosti se postavljaju unutar fajla C:Program Files\apache-tomcat-10.0.21\conf\server.xml, pri cemu C:Program Files\apache-tomcat-10.0.21 je u mom slucajumjesto gdje sam instalirao apache tomcat server.
+Ove vrijednosti se postavljaju unutar fajla **_C:Program Files\apache-tomcat-10.0.21\conf\server.xml_**, pri cemu **_C:Program Files\apache-tomcat-10.0.21_** je u mom slucaju mjesto gdje sam instalirao apache tomcat server. Takodje odavde mozete da vidite da smo ovu aplikaciju razvijali sa verzijom **_apache tomcat 10.0.21_**, tako da bi bilo pozeljno da i vi ukoliko zelite da koristite ovu aplikaciju da koristite ovu verziju apache tomcat servera.
 <br />
 <br />
 Pogledajte vise na [here](https://docs.oracle.com/cd/E19798-01/821-1841/6nmq2cpki/index.html).
