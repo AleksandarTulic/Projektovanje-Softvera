@@ -36,6 +36,14 @@ private String generateSecretKey() {
 - [SecureRandom](https://docs.oracle.com/javase/8/docs/api/java/security/SecureRandom.html)
 - [Base32](https://commons.apache.org/proper/commons-codec/apidocs/org/apache/commons/codec/binary/BaseNCodec.html#encodeToString-byte:A-)
 
+Mjesto gdje se na serveru skladiste tokeni je:
+
+```java
+public static final String SAVE_PATH = System.getProperty("catalina.home") + File.separator + "Dentil" + File.separator + "qr"
+```
+<br />
+Mozemo da vidimo da ovde ulogu ima varijabla **_CATALINA_HOME_**, pa je samim tim potrebno da je ona definisana. Ukoliko niste sigurni da li je onda definisana ili zelite da postavite njenu vrijednost onda mozete da pratite korake sa sljedece stranice [here](https://docs.oracle.com/en/database/oracle/machine-learning/oml4r/1.5.1/oread/creating-and-modifying-environment-variables-on-windows.html#GUID-DD6F9982-60D5-48F6-8270-A27EC53807D0).
+
 <br />
 Pogledajte vise na [here](https://en.wikipedia.org/wiki/QR_code).
 
