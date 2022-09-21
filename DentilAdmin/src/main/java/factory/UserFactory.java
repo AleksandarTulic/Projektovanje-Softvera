@@ -1,5 +1,7 @@
 package factory;
 
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
 import java.util.*;
 
 import dto.*;
@@ -8,6 +10,9 @@ import validation.*;
 
 public abstract class UserFactory {
 	protected List<IValidation> arrValidation = new ArrayList<IValidation>();
+	private static List<String> headers = Arrays.asList("id", "name", "surname", "address", "phone", 
+			"email", "username", "password", "role_name", "jobStart", "jobEnd", "secretKey", "idShift", "begin", 
+			"end", "date", "idAdmin");
 	//Arrays.asList(new ValidationLength(), new ValidationRegex());
 	
 	public abstract UserDTO get(HttpServletRequest request);
@@ -36,6 +41,25 @@ public abstract class UserFactory {
 		arr.add(request.getParameter("jobStart"));
 		arr.add(request.getParameter("jobEnd"));
 		arr.add(request.getParameter("secretKey"));
+		
+		return arr;
+	}
+	
+	protected List<String> getElements(ResultSet rs){
+		List<String> arr = new ArrayList<String>();
+		try {
+			ResultSetMetaData rsmd = rs.getMetaData();
+			List<String> columnNames = new ArrayList<>();
+			for (int i=1;i<=rsmd.getColumnCount();i++)
+				columnNames.add(rsmd.getColumnLabel(i));
+			
+			for (String i : headers) {
+				arr.add(columnNames.contains(i) ? rs.getString(i) : null);
+			}
+			
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
 		
 		return arr;
 	}

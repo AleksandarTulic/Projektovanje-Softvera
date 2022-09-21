@@ -1,0 +1,13 @@
+tr{
+	min-width: 100%;
+}
+
+#labelSearchBy{
+	display: inline;
+}
+
+@media only screen and (max-width: 768px) {
+  .centerThem {
+  	text-align: center !important;
+  }
+}

@@ -4,7 +4,7 @@ import java.sql.Date;
 import java.util.Objects;
 
 public class ScheduleDTO {
-	private String idShift;
+	private Integer idShift;
 	private Date date;
 	private String idPersonal;
 	private String idAdmin;
@@ -12,14 +12,20 @@ public class ScheduleDTO {
 	public ScheduleDTO() {
 	}
 	
-	public ScheduleDTO(String idShift, Date date, String idPersonal) {
+	public ScheduleDTO(Date date, String idAdmin) {
+		super();
+		this.date = date;
+		this.idAdmin = idAdmin;
+	}
+	
+	public ScheduleDTO(Integer idShift, Date date, String idPersonal) {
 		super();
 		this.idShift = idShift;
 		this.date = date;
 		this.idPersonal = idPersonal;
 	}
 	
-	public ScheduleDTO(String idShift, Date date, String idPersonal, String idAdmin) {
+	public ScheduleDTO(Integer idShift, Date date, String idPersonal, String idAdmin) {
 		super();
 		this.idShift = idShift;
 		this.date = date;
@@ -27,11 +33,11 @@ public class ScheduleDTO {
 		this.idAdmin = idAdmin;
 	}
 
-	public String getIdShift() {
+	public Integer getIdShift() {
 		return idShift;
 	}
 
-	public void setIdShift(String idShift) {
+	public void setIdShift(Integer idShift) {
 		this.idShift = idShift;
 	}
 
@@ -75,7 +81,7 @@ public class ScheduleDTO {
 		ScheduleDTO other = (ScheduleDTO) obj;
 		return Objects.equals(date, other.date)
 				&& Objects.equals(idPersonal, other.idPersonal) 
-				&& Objects.equals(idShift, other.idShift);
+				&& idShift == other.idShift;
 	}
 
 	@Override

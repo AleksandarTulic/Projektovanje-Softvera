@@ -2,8 +2,10 @@ package dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.util.logging.Level;
 
 import dto.DentistDTO;
+import logger.MyLogger;
 
 public class DentistDAO {
 	private static ConnectionPool connectionPool = ConnectionPool.getConnectionPool();
@@ -13,8 +15,7 @@ public class DentistDAO {
 	public boolean insert(DentistDTO dto) {
 		boolean res = false;
 		Connection conn = null;
-		Object []values = new Object[] {dto.getId(), dto.getName(), dto.getSurname(), dto.getEmail(), dto.getPhone(),
-				dto.getAddress(), dto.getUsername(), dto.getPassword(), dto.getRole_name()};
+		Object []values = new Object[] {dto.getId()};
 		
 		try {
 			conn = connectionPool.checkOut();
@@ -24,7 +25,7 @@ public class DentistDAO {
 			res = result == 1 ? true : false;
 			pre.close();
 		}catch (Exception e) {
-			e.printStackTrace();
+			MyLogger.logger.log(Level.SEVERE, e.getMessage());
 		}finally {
 			connectionPool.checkIn(conn);
 		}
@@ -45,7 +46,7 @@ public class DentistDAO {
 			res = result == 1 ? true : false;
 			pre.close();
 		}catch (Exception e) {
-			e.printStackTrace();
+			MyLogger.logger.log(Level.SEVERE, e.getMessage());
 		}finally {
 			connectionPool.checkIn(conn);
 		}

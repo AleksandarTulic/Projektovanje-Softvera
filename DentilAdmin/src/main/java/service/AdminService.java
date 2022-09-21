@@ -1,31 +1,32 @@
 package service;
 
 import java.io.File;
+import java.util.List;
+
 import dao.AdminDAO;
 import dto.AdminDTO;
 import security.QR;
 
-public class AdminService {
+public class AdminService extends UserService{
 	private AdminDAO dao = new AdminDAO();
-	private UserService service = UserService.getInstance();
 	private EmailService email = new EmailService();
+	private ScheduleService scheduleService = new ScheduleService();
 	private QR qr = new QR();
 	
 	public boolean insert(AdminDTO dto) {
-		boolean flag1 = service.insert(dto);
+		boolean flag1 = super.insert(dto);
 		String value = null;
 		boolean flag2 = false;
 		
 		if (flag1) {
 			value = qr.generateQR(dto.getId());
 			dto.setSecretKey(value);
-			System.out.println("Secret Key: " + value);
 			
 			flag2 = dao.insert(dto);
 		}
 		
 		if (flag1 && flag2 && value != null) {
-			email.send("", 
+			email.send(dto.getEmail(), 
 				System.getProperty("catalina.home") 
 				+ File.separator + "Dentil" 
 				+ File.separator + "qr" 
@@ -38,17 +39,22 @@ public class AdminService {
 	}
 	
 	public boolean update(AdminDTO dto, String oldID) {
-		return service.update(dto, oldID);
+		return super.update(dto, oldID);
 	}
 	
 	public boolean delete(String id) {
-		boolean flag1 = dao.delete(id);
-		boolean flag2 = false;
+		scheduleService.deleteScheduleWithIdAdmin(id);
+		dao.delete(id);
+		boolean flag = super.delete(id);
 		
-		if (flag1) {
-			flag2 = service.delete(id);
-		}
-		
-		return flag1 && flag2;
+		return flag;
+	}
+	
+	public List<AdminDTO> select(){
+		return dao.select();
+	}
+	
+	public AdminDTO selectAdminWithUsername(String username) {
+		return dao.selectAdminWithUsername(username);
 	}
 }

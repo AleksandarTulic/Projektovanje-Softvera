@@ -1,42 +1,48 @@
 package service;
 
 import dao.DentistDAO;
-import dao.PersonalDAO;
 import dto.DentistDTO;
 
-public class DentistService {
+public class DentistService extends UserService{
 	private DentistDAO dao = new DentistDAO();
-	private PersonalDAO personalDAO = new PersonalDAO();
-	private UserService service = UserService.getInstance();
+	private PersonalService personalService = new PersonalService();
+	private LastSeenService lastSeenService = new LastSeenService();
+	private AppointmentService appointmentService = new AppointmentService();
+	private ScheduleService scheduleService = new ScheduleService();
+	private VisitTreatmentService visitTreatmentService = new VisitTreatmentService();
+	private ProblemService problemService = new ProblemService();
+	private VisitService visitService = new VisitService();
 	
 	public boolean insert(DentistDTO dto) {
-		boolean flag1 = service.insert(dto);
-		boolean flag2 = personalDAO.insert(dto);
+		boolean flag1 = super.insert(dto);
+		boolean flag2 = personalService.insert(dto);
 		boolean flag3 = false;
 		
 		if (flag1 && flag2) {
 			flag3 = dao.insert(dto);
 		}
 		
-		return flag1 && flag2 && flag3;
+		return flag3;
 	}
 	
 	public boolean update(DentistDTO dto, String oldID) {
-		boolean flag1 = personalDAO.update(dto);
-		boolean flag2 = service.update(dto, oldID);
+		boolean flag1 = super.update(dto, oldID);
+		boolean flag2 = personalService.update(dto);
 		
 		return flag1 && flag2;
 	}
 	
 	public boolean delete(String id) {
-		boolean flag1 = dao.delete(id);
-		boolean flag2 = personalDAO.delete(id);
-		boolean flag3 = false;
+		lastSeenService.deleteWithIdDentist(id);
+		appointmentService.deleteWithIdPersonal(id);
+		scheduleService.deleteScheduleWithIdPersonal(id);
+		visitTreatmentService.deleteWithIdDentist(id);
+		problemService.deleteProblemWithIdDentist(id);
+		visitService.deleteVisitWithIdDentist(id);
+		dao.delete(id);
+		personalService.delete(id);
+		boolean flag = super.delete(id);
 		
-		if (flag1 && flag2) {
-			flag3 = service.delete(id);
-		}
-		
-		return flag1 && flag2 && flag3;
+		return flag;
 	}
 }

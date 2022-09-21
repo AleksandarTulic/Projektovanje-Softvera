@@ -2,13 +2,14 @@ package dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import java.util.logging.Level;
 
 import dto.UserDTO;
+import logger.MyLogger;
 
 public class UserDAO {
 	private static ConnectionPool connectionPool = ConnectionPool.getConnectionPool();
-	private static final String SQL_SELECT = "select * from working";
+	//private static final String SQL_SELECT = "select * from working";
 	private static final String SQL_DELETE = "delete from working as w where w.id=?;";
 	private static final String SQL_UPDATE = "update working as w set w.id=?,w.name=?,w.surname=?, w.address=?, w.phone=?, w.email=?, w.username=?, w.password=?, w.role_name=? where w.id=?";
 	private static final String SQL_INSERT = "insert into Working(id, name, surname, email, phone, address, username, password, role_name) values(?, ?, ?, ?, ?, ?, ?, ?, ?);";
@@ -26,7 +27,7 @@ public class UserDAO {
 			res = result == 1 ? true : false;
 			pre.close();
 		}catch (Exception e) {
-			e.printStackTrace();
+			MyLogger.logger.log(Level.SEVERE, e.getMessage());
 		}finally {
 			connectionPool.checkIn(conn);
 		}
@@ -34,6 +35,7 @@ public class UserDAO {
 		return res;
 	}
 	
+	/*
 	public void get(){
 		Connection conn = null;
 		ResultSet rs = null;
@@ -53,13 +55,13 @@ public class UserDAO {
 		}finally {
 			connectionPool.checkIn(conn);
 		}
-	}
+	}*/
 	
 	public boolean update(UserDTO dto, String oldID) {
 		boolean res = false;
 		Connection conn = null;
-		Object []values = new Object[] {dto.getId(), dto.getName(), dto.getSurname(), dto.getEmail(), dto.getPhone(),
-				dto.getAddress(), dto.getUsername(), dto.getPassword(), dto.getRole_name(), oldID};
+		Object []values = new Object[] {dto.getId(), dto.getName(), dto.getSurname(), dto.getAddress(), dto.getPhone(),
+				dto.getEmail(), dto.getUsername(), dto.getPassword(), dto.getRole_name(), oldID};
 		
 		try {
 			conn = connectionPool.checkOut();
@@ -69,7 +71,7 @@ public class UserDAO {
 			res = result == 1 ? true : false;
 			pre.close();
 		}catch (Exception e) {
-			e.printStackTrace();
+			MyLogger.logger.log(Level.SEVERE, e.getMessage());
 		}finally {
 			connectionPool.checkIn(conn);
 		}
@@ -91,7 +93,7 @@ public class UserDAO {
 			res = result == 1 ? true : false;
 			pre.close();
 		}catch (Exception e) {
-			e.printStackTrace();
+			MyLogger.logger.log(Level.SEVERE, e.getMessage());
 		}finally {
 			connectionPool.checkIn(conn);
 		}

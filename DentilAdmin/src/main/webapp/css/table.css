@@ -1,0 +1,7 @@
+td, th{
+	text-align: center !important;
+}
+
+#myTable:hover{
+	cursor: pointer;
+}

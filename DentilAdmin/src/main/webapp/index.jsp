@@ -4,19 +4,20 @@
 <html>
 	<head>
 		<meta charset="ISO-8859-1">
-		<title>Dentil</title>
+		<title>Dentil Admin</title>
+		
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<link rel="stylesheet" href="css/button.css">
+		<link rel="stylesheet" href="css/table.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  		<script src="js/pagination.js"></script>
 	</head>
 	<body>
-		<h2>Login</h2>
-		<form name="loginForm" method="POST" action="Controller">
-			<p>Username: <input type="text" name="j_username" class="form-control"/></p>
-			<p>Password: <input type="password" class="form-control" name="j_password"/></p>
-			<p>  <input type="submit" value="Login"/></p>
-		</form>
-		
-		<a href="Operation?what=insert">INSERT</a><br>
-		<a href="Operation?what=update&idOld=9999999999999">UPDATE</a><br>
-		<a href="Operation?what=delete&idOld=2402999100005">DELETE</a><br>
-		<a href="Operation?what=qr">QR</a><br>
+		<%@ include file="WEB-INF/header.jsp" %>
 	</body>
 </html>

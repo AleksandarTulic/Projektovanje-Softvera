@@ -4,12 +4,11 @@ import dto.*;
 import security.Crypt;
 import dao.UserDAO;
 
-public class UserService {
+public abstract class UserService {
 	private Crypt crypt = new Crypt();
 	private UserDAO dao = new UserDAO();
-	private static UserService service = new UserService();
 	
-	private UserService() {
+	public UserService() {
 	}
 	
 	public boolean insert(UserDTO dto) {
@@ -24,9 +23,5 @@ public class UserService {
 	
 	public boolean delete(String id) {
 		return dao.delete(id);
-	}
-	
-	public static UserService getInstance() {
-		return service;
 	}
 }

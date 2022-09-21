@@ -48,7 +48,7 @@ public class ConnectionPool {
 		try {
 			connectionPool = new ConnectionPool(jdbcURL, username, password, preconnectCount, maxIdleConnections, maxConnections);
 		} catch (Exception ex) {
-			ex.printStackTrace();
+			MyLogger.logger.log(Level.SEVERE, ex.getMessage());
 		}
 	 }
 	

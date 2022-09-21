@@ -2,41 +2,44 @@ package service;
 
 import dao.CounterDAO;
 import dto.CounterDTO;
-import dao.PersonalDAO;
 
-public class CounterService {
+public class CounterService extends UserService{
 	private CounterDAO dao = new CounterDAO();
-	private PersonalDAO personalDAO = new PersonalDAO();
-	private UserService service = UserService.getInstance();
+	private PersonalService personalService = new PersonalService();
+	private ScheduleService scheduleService = new ScheduleService();
+	private AppointmentService appointmentService = new AppointmentService();
 	
 	public boolean insert(CounterDTO dto) {
-		boolean flag1 = service.insert(dto);
-		boolean flag2 = personalDAO.insert(dto);
+		boolean flag1 = super.insert(dto);
+		boolean flag2 = personalService.insert(dto);
 		boolean flag3 = false;
 		
 		if (flag1 && flag2) {
 			flag3 = dao.insert(dto);
 		}
 		
-		return flag1 && flag2 && flag3;
+		return flag3;
 	}
 	
 	public boolean update(CounterDTO dto, String oldID) {
-		boolean flag1 = personalDAO.update(dto);
-		boolean flag2 = service.update(dto, oldID);
+		boolean flag1 = super.update(dto, oldID);
+		boolean flag2 = personalService.update(dto);
 		
 		return flag1 && flag2;
 	}
 	
 	public boolean delete(String id) {
-		boolean flag1 = dao.delete(id);
-		boolean flag2 = personalDAO.delete(id);
-		boolean flag3 = false;
+		//delete from Counter table
+		dao.delete(id);
+		//delete from Schedule table
+		scheduleService.deleteScheduleWithIdPersonal(id);
+		//delete from Appointment table
+		appointmentService.deleteWithIdPersonal(id);
+		//delete from Personal table
+		personalService.delete(id);
+		//delete from Working table
+		boolean flag = super.delete(id);
 		
-		if (flag1 && flag2) {
-			flag3 = service.delete(id);
-		}
-		
-		return flag1 && flag2 && flag3;
+		return flag;
 	}
 }
