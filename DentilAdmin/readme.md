@@ -36,8 +36,6 @@ private String generateSecretKey() {
 - [SecureRandom](https://docs.oracle.com/javase/8/docs/api/java/security/SecureRandom.html)
 - [Base32](https://commons.apache.org/proper/commons-codec/apidocs/org/apache/commons/codec/binary/BaseNCodec.html#encodeToString-byte:A-)
 
-
-<br />
 <br />
 Pogledajte vise na [here](https://en.wikipedia.org/wiki/QR_code).
 
