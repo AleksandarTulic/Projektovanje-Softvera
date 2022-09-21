@@ -48,6 +48,25 @@ Mozemo da vidimo da ovde ulogu ima varijabla <b>CATALINA_HOME</b>, pa je samim t
     <li>qr</li>
 </ul>
 
+Metoda koja se poziva iz ostalih servisa aplikacije za kreiranje QR koda jeste sljedeca:
+```java
+public String generateQR(String id) {
+    String secretKey = "AAAAAAAAAAAAAAAAAAAAAAAAAA";
+    try {
+        secretKey = generateSecretKey();
+        String email = "test@gmail.com";
+        String companyName = "Korisnici";
+        String barCodeUrl = getGoogleAuthenticatorBarCode(secretKey, email, companyName);
+        createQRCode(barCodeUrl, SAVE_PATH + File.separator + id + ".png", 400, 400);
+    }catch (Exception e) {
+        MyLogger.logger.log(Level.SEVERE, e.getMessage());
+    }
+
+    return secretKey;
+}
+```
+Vrijednosti kao sto su <i>"AAAAAAAAAAAAAAAAAAAAAAAAAA"</i>, <i>"test@gmail.com"</i> i <i>"Korisnici"</i> su samo neke default vrijednosti u nasem slucaju nisu nam trenutno vazne.
+
 <br />
 <br />
 Pogledajte vise na <a href="https://en.wikipedia.org/wiki/QR_code">here</a>.
