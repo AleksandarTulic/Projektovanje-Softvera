@@ -89,3 +89,12 @@ Pogledajte vise na <a href="https://en.wikipedia.org/wiki/QR_code">here</a>.
 
 ### Sertifikat
 
+Da bi korisnici koji dolaze na nasu stranicu preneseno receno "mogli vjerovari" da smo mi kao aplikacija zapravo prava verzija a ne neka kopija potrebno je da se korisnickom pretrazivacu prestavimo koristeci sertifikat: 
+```xml
+<Connector SSLEnabled="true" clientAuth="false" maxThreads="500" port="8443" protocol="org.apache.coyote.http11.Http11NioProtocol">
+    <SSLHostConfig>
+        <Certificate certificateKeystoreFile="${catalina.home}\server.jks" certificateKeystorePassword="sigurnost" type="RSA"/>
+    </SSLHostConfig>
+</Connector>
+```
+Sertifikat koji smo ovdje koristili prethodno je samopotpisani sto naravno predstavlja problem za vise pogledajte [ovde](https://en.wikipedia.org/wiki/Public_key_infrastructure)
