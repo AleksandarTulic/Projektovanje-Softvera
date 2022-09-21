@@ -2,7 +2,7 @@
 
 1. [Login](#login)
 2. [Kreiranje Naloga](#kreiranje-naloga)
-3. [Sigurnosne mjere](#sigurnosne-mjere)
+3. [Sertifikat](#sertifikat)
 
 ## Login
 
@@ -23,6 +23,7 @@ Za implementaciju **_Form based Authentication_** koristio sam postojece mehaniz
     </Realm>
 ```
 Ove vrijednosti se postavljaju unutar fajla **_C:Program Files\apache-tomcat-10.0.21\conf\server.xml_**, pri cemu **_C:Program Files\apache-tomcat-10.0.21_** je u mom slucaju mjesto gdje sam instalirao apache tomcat server. Takodje odavde mozete da vidite da smo ovu aplikaciju razvijali sa verzijom **_apache tomcat 10.0.21_**, tako da bi bilo pozeljno da i vi ukoliko zelite da koristite ovu aplikaciju, da koristite ovu verziju apache tomcat servera.
+<br />
 <br />
 Mozemo da vidimo na osnovu **_Credential Handlera_** da vrijednost koju vi unesete u textbox forme login se zapravo prevodi u njegovu **_SHA256_** ekvivalentnu vrijednost. Pa se onda poredi sa odgovarajucim poljem unutar baze podataka. Kazem ekvivalentnu jer nije koristen [salt](https://en.wikipedia.org/wiki/Salt_(cryptography)).
 <br />
@@ -86,4 +87,5 @@ Pogledajte vise na <a href="https://en.wikipedia.org/wiki/QR_code">here</a>.
 ### Kreiranje Naloga
 
 
-### Sigurnosne mjere
+### Sertifikat
+
