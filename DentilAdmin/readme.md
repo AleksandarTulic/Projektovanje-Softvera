@@ -13,6 +13,16 @@ Za implementaciju funkcionalnosti Login koristen je [2fa authentication](https:/
 ### Form based authentication
 
 Potrebno je da imate odgovarajuci **_username_** i **_password_**(kao i da se nalaze u istoj n-torki). Ukoliko se ove vrijednosti nalaze u bazi podataka **_Dentil_**, tabeli **_Working_** tada ste prosli prvi korak autentifikacije. Naravno ukoliko ovakve vrijednosti nisu pronadjene onda se od vas ponovo trazi da unesete te vrijednosti. Ukoliko ste 3 puta uzastopno pogrijesili pri unosu vrijednosti onda morate odgovarajuce vrijeme da sacekate kako biste mogli ponovo da pokusate.
+
+Za implementaciju **_Form based Authentication_** koristio sam postojece mehanizme apache tomcat servera:
+```xml
+    <Realm className="org.apache.catalina.realm.LockOutRealm" failureCount="3" lockOutTime="180">
+        <Realm className="org.apache.catalina.realm.DataSourceRealm" dataSourceName="jdbc/dms" roleNameCol="role_name" userCredCol="password" userNameCol="username" userRoleTable="Working" userTable="Working">
+            <CredentialHandler algorithm="sha256" className="org.apache.catalina.realm.MessageDigestCredentialHandler"/>
+        </Realm>
+    </Realm>
+```
+Ove vrijednosti se postavljaju unutar fajla C:Program Files\apache-tomcat-10.0.21\conf\server.xml, pri cemu C:Program Files\apache-tomcat-10.0.21 je u mom slucajumjesto gdje sam instalirao apache tomcat server.
 <br />
 <br />
 Pogledajte vise na [here](https://docs.oracle.com/cd/E19798-01/821-1841/6nmq2cpki/index.html).
