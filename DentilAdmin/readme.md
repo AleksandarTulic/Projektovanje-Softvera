@@ -84,10 +84,10 @@ Vrijednosti kao sto su <i>"AAAAAAAAAAAAAAAAAAAAAAAAAA"</i>, <i>"test@gmail.com"<
 <br />
 Pogledajte vise na <a href="https://en.wikipedia.org/wiki/QR_code">here</a>.
 
-### Kreiranje Naloga
+## Kreiranje Naloga
 
 
-### Sertifikat
+## Sertifikat
 
 Da bi korisnici koji dolaze na nasu stranicu preneseno receno "mogli vjerovari" da smo mi kao aplikacija zapravo prava verzija a ne neka kopija potrebno je da se korisnickom pretrazivacu kao i samom korisniku prestavimo koristeci sertifikat: 
 ```xml
