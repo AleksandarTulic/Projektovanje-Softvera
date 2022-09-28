@@ -3,6 +3,7 @@ package service;
 import dto.AppointmentDTO;
 import dao.AppointmentDAO;
 import java.util.*;
+import java.sql.Date;
 
 public class AppointmentService {
 	private AppointmentDAO dao = new AppointmentDAO();
@@ -21,5 +22,13 @@ public class AppointmentService {
 	
 	public List<AppointmentDTO> select(){
 		return dao.select();
+	}
+	
+	public List<AppointmentDTO> selectSameDayAndDentist(Date date, String idDentist) {
+		return dao.selectSameDayAndDentist(date, idDentist);
+	}
+	
+	public boolean deleteWithIdPatient(String id) {
+		return dao.deleteWithIdPatient(id);
 	}
 }

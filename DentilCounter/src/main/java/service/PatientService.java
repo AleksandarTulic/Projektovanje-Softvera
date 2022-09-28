@@ -16,10 +16,26 @@ public class PatientService {
 	}
 	
 	public boolean delete(String ID) {
+		ProblemService pService = new ProblemService();
+		LastSeenService lsService = new LastSeenService();
+		VisitTreatmentService vtService = new VisitTreatmentService();
+		VisitService vService = new VisitService();
+		AppointmentService aService = new AppointmentService();
+
+		pService.deleteProblemWithIdDentist(ID);
+		lsService.deleteWithIdDentist(ID);
+		vtService.deleteWithIdDentist(ID);
+		vService.deleteVisitWithIdDentist(ID);
+		aService.deleteWithIdPatient(ID);
+
 		return dao.delete(ID);
 	}
 	
 	public List<PatientDTO> select(){
 		return dao.select();
+	}
+	
+	public PatientDTO selectWithIdPatient(String id) {
+		return dao.selectWithIdPatient(id);
 	}
 }

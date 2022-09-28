@@ -3,17 +3,27 @@ package dto;
 import java.util.Objects;
 
 public abstract class UserDTO {
-	private String id;
-	private String name;
-	private String surname;
-	private String address;
-	private String phone;
-	private String email;
-	private String username;
-	private String password;
-	private String role_name;
+	protected String id;
+	protected String name;
+	protected String surname;
+	protected String address;
+	protected String phone;
+	protected String email;
+	protected String username;
+	protected String password;
+	protected String role_name;
 	
 	public UserDTO() {
+	}
+	
+	public UserDTO(String id, String name, String surname, String address, String phone, String email) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.surname = surname;
+		this.address = address;
+		this.phone = phone;
+		this.email = email;
 	}
 
 	public UserDTO(String id, String name, String surname, String address, String phone, String email, String username,

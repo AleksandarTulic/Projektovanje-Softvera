@@ -10,25 +10,20 @@
 	<head>
 		<meta charset="ISO-8859-1">
 		<title>Dentil</title>
+		
+		<link rel="stylesheet" href="css/center.css">
+		<link rel="stylesheet" href="css/button.css">
+		
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  		
+  		<script src="js/pagination.js"></script>
 	</head>
 	
 	<body>
-		<h2>INDEX</h2>
-		<a href="Operation?what=insertPatient">INSERT PATIENT</a><br><br>
-		<a href="Operation?what=insertAppointment">INSERT APPOINTMENT</a><br><br>
-		<a href="Operation?what=updatePatient">UPDATE Patient</a><br><br>
-		<a href="Operation?what=updateAppointment">UPDATE APPOINTMENT</a><br><br>
+		<%@ include file="/WEB-INF/header.jsp" %>
 	</body>
-	
-	<%
-	
-		List<AppointmentDTO> arr = Arrays.asList(
-				new AppointmentDTO("", null, Time.valueOf("10:15:00"), "", 30, ""),
-				new AppointmentDTO("", null, Time.valueOf("11:00:00"), "", 45, ""),
-				new AppointmentDTO("", null, Time.valueOf("14:15:00"), "", 120, ""),
-				new AppointmentDTO("", null, Time.valueOf("16:45:00"), "", 15, ""),
-				new AppointmentDTO("", null, Time.valueOf("20:45:00"), "", 30, "")
-				);
-	
-	%>
 </html>
