@@ -2,7 +2,13 @@
 
 1. [Login](#login)
 2. [Kreiranje Naloga](#kreiranje-naloga)
-3. [Sertifikat](#sertifikat)
+3. [Brisnaje Naloga](#brisanje-naloga)
+4. [Azuriranje Naloga](#azuriranje-naloga)
+5. [Dodavanje Rasporeda](#dodavanje-rasporeda)
+6. [Brisanje Rasporeda](#brisanje-rasporeda)
+7. [Dodavanje Smjene](#dodavanje-smjene)
+8. [Brisanje Smjene](#brisanje-smjene)
+9. [Sertifikat](#sertifikat)
 
 ## Login
 
@@ -163,7 +169,19 @@ Selektovan Admin           |  Selektovan Counter
 :-------------------------:|:-------------------------:
 ![](https://github.com/AleksandarTulic/Projektovanje-Softvera/blob/main/DentilAdmin/images/sl1.png)  |  ![](https://github.com/AleksandarTulic/Projektovanje-Softvera/blob/main/DentilAdmin/images/sl2.png)
 
-Kada se uspjesno kreira nalog tipa _Admin_ tada se na njegovu email adresu posalje QR token koji onda on treba da skenira sa **_Google Authenticator_** mobilnom aplikacijom. Nakon toga dobije kod koji se vremenski mijenja i koji mu je potreban za autentikaciju. Za vise pogledajte [prethodno](#form-based-authentication).
+Kada se uspjesno kreira nalog tipa _Admin_ tada se na njegovu email adresu posalje QR token koji onda treba da se skenira sa **_Google Authenticator_** mobilnom aplikacijom. Nakon toga dobijete kod koji se vremenski mijenja i koji vam je potreban za autentikaciju. Za vise pogledajte [prethodno](#form-based-authentication).
+
+## Brisanje Naloga
+
+## Azuriranje Naloga
+
+## Dodavanje Rasporeda
+
+## Brisanje Rasporeda
+
+## Dodavanje Smjene
+
+## Brisanje Smjene
 
 ## Sertifikat
 
