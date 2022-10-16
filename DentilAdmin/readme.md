@@ -177,6 +177,34 @@ Kada se uspjesno kreira nalog tipa _Admin_ tada se na njegovu email adresu posal
 
 ## Dodavanje Rasporeda
 
+Da bismo dodali raspored potrebno je da odradimo sljedece:
+- Potrebno je da cekiranjem checkBox-ova odaberemo kojim korisnicima zelimo da dodamo raspored
+- Potrebno je da odaberemo koju smjenu rade
+- Potrebno je da odaberemo dan na koji primjenjujemo odabranu smjenu
+
+Vazno je da napomenemo da jedan korisnik moze maksimalno da ima jednu smjenu u jednom danu sto se moze primjetiti iz analiziranjem koda baze podataka.
+
+SQL Kod Tabele Schedule    |  Forma Za Unos
+:-------------------------:|:-------------------------:
+```sql 
+    create table if not exists Schedule(
+	idShift int not null,
+    date DATE not null,
+    idPersonal char(13) not null,
+    idAdmin char(13), #if he/she is deleted the shift will stand
+    foreign key(idShift) references Shift(id)
+    on update cascade
+    on delete restrict,
+    foreign key(idAdmin) references Admin(id)
+    on update cascade
+    on delete set null,
+    foreign key(idPersonal) references Personal(id)
+    on update cascade
+    on delete restrict,
+    primary key(idShift, date, idPersonal)
+);
+``` |  ![](https://github.com/AleksandarTulic/Projektovanje-Softvera/blob/main/DentilAdmin/images/sl2.png)
+
 ## Brisanje Rasporeda
 
 ## Dodavanje Smjene
