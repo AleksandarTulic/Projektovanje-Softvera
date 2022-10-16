@@ -186,8 +186,8 @@ Vazno je da napomenemo da jedan korisnik moze maksimalno da ima jednu smjenu u j
 
 SQL Kod Tabele Schedule    |  Forma Za Unos
 :-------------------------:|:-------------------------:
-```sql 
-    create table if not exists Schedule(
+[```sql 
+create table if not exists Schedule(
 	idShift int not null,
     date DATE not null,
     idPersonal char(13) not null,
@@ -203,7 +203,7 @@ SQL Kod Tabele Schedule    |  Forma Za Unos
     on delete restrict,
     primary key(idShift, date, idPersonal)
 );
-``` |  ![](https://github.com/AleksandarTulic/Projektovanje-Softvera/blob/main/DentilAdmin/images/sl2.png)
+```] |  ![](https://github.com/AleksandarTulic/Projektovanje-Softvera/blob/main/DentilAdmin/images/sl3.png)
 
 ## Brisanje Rasporeda
 
