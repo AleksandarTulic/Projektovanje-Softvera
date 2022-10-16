@@ -174,9 +174,22 @@ Kada se uspjesno kreira nalog tipa _Admin_ tada se na njegovu email adresu posal
 
 ## Brisanje Naloga
 
+Prije nego sto zapravo obrisete nekog korisnika od vas se trazi da potvrdite tu operaciju. Ovo radimo jer operacija brisanja korisnika je veoma destruktivna(_od korisnika zavisi mnogo drugih elemenata_).
+
 Prije                      |  Poslije
 :-------------------------:|:-------------------------:
 ![](https://github.com/AleksandarTulic/Projektovanje-Softvera/blob/main/DentilAdmin/images/sl13.png)  |  ![](https://github.com/AleksandarTulic/Projektovanje-Softvera/blob/main/DentilAdmin/images/sl14.png)
+
+Kod koji zahtijeva potvrdu:
+```js
+function areYouSure(){
+	if (confirm("Are you sure?") == true){
+		return true;
+	}else{
+		return false;
+	}
+}
+```
 
 ## Azuriranje Naloga
 
