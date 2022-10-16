@@ -184,9 +184,11 @@ Da bismo dodali raspored potrebno je da odradimo sljedece:
 
 Vazno je da napomenemo da jedan korisnik moze maksimalno da ima jednu smjenu u jednom danu sto se moze primjetiti iz analiziranjem koda baze podataka.
 
-SQL Kod Tabele Schedule    |  Forma Za Unos
-:-------------------------:|:-------------------------:
-[```sql 
+|Forma Za Unos|
+|-------------|
+|![](https://github.com/AleksandarTulic/Projektovanje-Softvera/blob/main/DentilAdmin/images/sl3.png)|
+
+```sql
 create table if not exists Schedule(
 	idShift int not null,
     date DATE not null,
@@ -203,7 +205,7 @@ create table if not exists Schedule(
     on delete restrict,
     primary key(idShift, date, idPersonal)
 );
-```] |  ![](https://github.com/AleksandarTulic/Projektovanje-Softvera/blob/main/DentilAdmin/images/sl3.png)
+```
 
 ## Brisanje Rasporeda
 
