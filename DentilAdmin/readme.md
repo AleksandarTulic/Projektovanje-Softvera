@@ -10,6 +10,7 @@
 8. [Brisanje Smjene](#brisanje-smjene)
 9. [Sertifikat](#sertifikat)
 10. [Potvrda Operacije](#potvrda-operacije)
+11. [Opste](#opste)
 
 ## Login
 
@@ -276,3 +277,7 @@ Kada odradimo neku operaciju potrebno je da potvrdimo korisniku da li je uspjesn
 Uspjesno Izvrsavanje Operacije                                                                          |  Neuspjesno Izvrsavanje Operacije
 :------------------------------------------------------------------------------------------------------:|:-----------------------------------------:
 ![](https://github.com/AleksandarTulic/Projektovanje-Softvera/blob/main/DentilAdmin/images/sl9.png)     |    ![](https://github.com/AleksandarTulic/Projektovanje-Softvera/blob/main/DentilAdmin/images/sl10.png)
+
+## Opste
+
+Mogli ste sa prethodnih slika vidjeti da postoji red koji je roze/crvene boje. Taj red oznacava vas kao korisnika koji se ulogovao u aplikaciju.
