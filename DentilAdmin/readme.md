@@ -174,6 +174,10 @@ Kada se uspjesno kreira nalog tipa _Admin_ tada se na njegovu email adresu posal
 
 ## Brisanje Naloga
 
+Prije                      |  Poslije
+:-------------------------:|:-------------------------:
+![](https://github.com/AleksandarTulic/Projektovanje-Softvera/blob/main/DentilAdmin/images/sl13.png)  |  ![](https://github.com/AleksandarTulic/Projektovanje-Softvera/blob/main/DentilAdmin/images/sl14.png)
+
 ## Azuriranje Naloga
 
 Kada pritisnete dugme **_Update_** onda vam se pojavi _Form-Modal_ u kome su vec polja forme popunjena vrijednosti korisnika koga update-ujete. Jedino _password_ nije popunjen i vi morate da za to unesete vrijednost ako zelite da izvrsite azuriranje. Naravno vi mozete da unesete staru sifru. Sad se mozda pitate zasto je ovo ovako radjeno? Pa zato sto mi ne znamo koja je sifra korisnika mi samo znamo njenu hash vrijednost, a i predstavlja sigurnosni rizik da mi ucitavamo tu vrijednost unutar ove aplikacije. Za vise pogledajte <a href="#login">ovde</a>.
