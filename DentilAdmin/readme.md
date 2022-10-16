@@ -163,6 +163,8 @@ Selektovan Admin           |  Selektovan Counter
 :-------------------------:|:-------------------------:
 ![](https://github.com/AleksandarTulic/Projektovanje-Softvera/blob/main/DentilAdmin/images/sl1.png)  |  ![](https://github.com/AleksandarTulic/Projektovanje-Softvera/blob/main/DentilAdmin/images/sl2.png)
 
+Kada se uspjesno kreira nalog tipa _Admin_ tada se na njegovu email adresu posalje QR token koji onda on treba da skenira sa **_Google Authenticator_** mobilnom aplikacijom. Nakon toga dobije kod koji se vremenski mijenja i koji mu je potreban za autentikaciju. Za vise pogledajte [prethodno](#form-based-authentication).
+
 ## Sertifikat
 
 Da bi korisnici koji dolaze na nasu stranicu preneseno receno "mogli vjerovati" da smo mi kao aplikacija zapravo prava verzija a ne neka kopija potrebno je da se korisnickom pretrazivacu kao i samom korisniku prestavimo koristeci sertifikat: 
