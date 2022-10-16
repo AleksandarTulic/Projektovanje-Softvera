@@ -245,7 +245,15 @@ Selektovanje Pojedinih Rasporeda                                                
 
 ## Dodavanje Smjene
 
+Prije                      |  Poslije
+:-------------------------:|:-------------------------:
+![](https://github.com/AleksandarTulic/Projektovanje-Softvera/blob/main/DentilAdmin/images/sl11.png)     |    ![](https://github.com/AleksandarTulic/Projektovanje-Softvera/blob/main/DentilAdmin/images/sl12.png)
+
 ## Brisanje Smjene
+
+Prije                      |  Poslije
+:-------------------------:|:-------------------------:
+![](https://github.com/AleksandarTulic/Projektovanje-Softvera/blob/main/DentilAdmin/images/sl11.png)     |    ![](https://github.com/AleksandarTulic/Projektovanje-Softvera/blob/main/DentilAdmin/images/sl12.png)
 
 ## Sertifikat
 
