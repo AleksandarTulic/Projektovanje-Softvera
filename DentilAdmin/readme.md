@@ -193,7 +193,7 @@ create table if not exists Schedule(
 	idShift int not null,
     date DATE not null,
     idPersonal char(13) not null,
-    idAdmin char(13), #if he/she is deleted the shift will stand
+    idAdmin char(13),
     foreign key(idShift) references Shift(id)
     on update cascade
     on delete restrict,
@@ -208,6 +208,11 @@ create table if not exists Schedule(
 ```
 
 ## Brisanje Rasporeda
+
+Da biste obrisali neki raspored potrebno je da selektujete checkBox i da onda pritisnete dugme delete. Takodje mozete vise checkBox-ova da selektujete i da istovremeno obrisete sve selektovane rasporede. Pored toga mozete klikom na checkBox _Select All_ da selektujete sve rasporede rada.
+
+|Selektovanje Pojedinih Rasporeda|Selektovanje Koristenjem _Select All_|
+|![](https://github.com/AleksandarTulic/Projektovanje-Softvera/blob/main/DentilAdmin/images/sl4.png)|![](https://github.com/AleksandarTulic/Projektovanje-Softvera/blob/main/DentilAdmin/images/sl4.png)|
 
 ## Dodavanje Smjene
 
