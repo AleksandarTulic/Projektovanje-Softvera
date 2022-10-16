@@ -159,6 +159,10 @@ Bezobzira koju vrstu naloga kreiramo **potrebno** je da unesemo sljedece vrijedn
 
 Ukoliko je usertype tipa _counter_ ili _dentist_ onda je potrebno da unesemo i jobStartDate atribut. Forma za njihovo popunjavanje je data u nastavku.
 
+Selektovan Admin           |  Selektovan Counter
+:-------------------------:|:-------------------------:
+![](https://github.com/AleksandarTulic/Projektovanje-Softvera/blob/main/DentilAdmin/images/sl1.png)  |  ![](https://github.com/AleksandarTulic/Projektovanje-Softvera/blob/main/DentilAdmin/images/sl2.png)
+
 ## Sertifikat
 
 Da bi korisnici koji dolaze na nasu stranicu preneseno receno "mogli vjerovati" da smo mi kao aplikacija zapravo prava verzija a ne neka kopija potrebno je da se korisnickom pretrazivacu kao i samom korisniku prestavimo koristeci sertifikat: 
