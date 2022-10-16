@@ -5,7 +5,7 @@
 
 <%@ include file="../../index.jsp" %>
 <script src="js/schedule.js"></script>
-<script src="js/sortByTableColumns.js"></script>
+<script src="js/sort.js"></script>
 <link rel="stylesheet" href="css/schedule.css">
 
 <%
@@ -78,7 +78,7 @@
 				  <%
 				  	  int counter = 0;
 					  for (PersonalDTO dto : arr){
-					    out.println("<tr>");
+					    out.println("<tr class=\"paintInGrey\">");
 					    out.println("<td>" + dto.getName() + " " + dto.getSurname() + "</td>");
 					    out.println("<td>" + dto.getRole_name() + "</td>");
 					    out.println("<td>" + dto.getSchedule().getDate() + "</td>");
@@ -125,11 +125,9 @@
 					elements[i].checked = flag ? true : false;
 				}
 			}
-			
-			function changePerPage(element){
-				$('#myTableBody').pageMe({pagerSelector:'#myPager',showPrevNext:true,hidePageNumbers:false,perPage:element});
-			}
 		</script>
+		
+		<script src="js/changePerPage.js"></script>
     </div>
     
     <div id="menu2" class="tab-pane fade">
@@ -236,15 +234,7 @@
     						</div>
     					</form>
     					
-    					<script>
-							function areYouSure(){
-								if (confirm("Are you sure?") == true){
-									return true;
-								}else{
-									return false;
-								}
-							}
-						</script>
+    					<script src="js/areYouSure.js"></script>
     				</div>
 	    		</div>
     	</div>

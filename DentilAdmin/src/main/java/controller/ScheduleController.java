@@ -7,6 +7,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import logger.MyLogger;
+import other.Notification;
 import service.ScheduleService;
 
 import java.io.IOException;
@@ -17,6 +18,7 @@ import java.util.List;
 import java.util.logging.Level;
 
 import dto.ScheduleDTO;
+import dto.UserDTO;
 
 @WebServlet("/ScheduleController")
 public class ScheduleController extends HttpServlet {
@@ -29,23 +31,25 @@ public class ScheduleController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String address = "index.jsp";
 		String where = request.getParameter("what");
+		boolean flag = false;
 		
 		try {
 			if ("addSchedule".equals(where)) {
 				address = "/WEB-INF/schedule/schedule.jsp";
 				List<String> arr = getCheckValues(request);
 				
+				UserDTO userDTO = (UserDTO)request.getSession().getAttribute("aaaa");
 				ScheduleService service = new ScheduleService();
 				for (String i : arr) {
 					try {
 						ScheduleDTO dto = new ScheduleDTO(Integer.valueOf(request.getParameter("idShift")), 
 								Date.valueOf(request.getParameter("date")), 
 								i, 
-								"1111111111111");
+								userDTO.getId());
 						
-						service.insert(dto);
+						flag = service.insert(dto);
 					}catch (Exception e) {
-						e.printStackTrace();
+						MyLogger.logger.log(Level.SEVERE, e.getMessage());
 					}
 				}
 				
@@ -62,10 +66,11 @@ public class ScheduleController extends HttpServlet {
 					String date = sp[2];
 					
 					ScheduleDTO dto = new ScheduleDTO(Integer.valueOf(idShift), Date.valueOf(date), idPersonal);
-					
-					service.delete(dto);
+					flag = service.delete(dto);
 				}
 			}
+			
+			Notification.setMessage(request, flag);
 			
 			RequestDispatcher dispatcher = request.getRequestDispatcher(address);
 			dispatcher.forward(request, response);

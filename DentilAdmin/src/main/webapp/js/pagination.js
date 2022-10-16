@@ -3,7 +3,7 @@ $.fn.pageMe = function(opts){
 	
     var $this = this,
         defaults = {
-            perPage: 7,
+            perPage: 8,
             showPrevNext: false,
             hidePageNumbers: false
         },
@@ -23,8 +23,20 @@ $.fn.pageMe = function(opts){
     }
 
     var numItems = children.length;
-    var numPages = Math.ceil(numItems/perPage);
+    var numPages = 0;
+	var paintInGreyNum = 0;
+	
+	const elements = [];
+    for (let i=0;i<children.length;i++){
+		if (children[i].className.includes("paintInGrey")){
+			numPages++;
+			paintInGreyNum++;
+			elements.push(i);
+		}
+	}
 
+	numPages = Math.ceil(numPages/perPage);
+	
     pager.data("curr",0);
 
     if (settings.showPrevNext){
@@ -48,9 +60,20 @@ $.fn.pageMe = function(opts){
     }
     pager.children().eq(1).addClass("active");
 
+	/*
     children.hide();
     children.slice(0, perPage).show();
-
+	*/
+	
+	for (let i=0;i<children.length;i++){
+		children[i].setAttribute("hidden", "");
+	}
+	
+	//Math.min(numItems, perPage);
+	for (let i=0;i<Math.min(perPage, elements.length);i++){
+		children[elements[i]].removeAttribute("hidden");
+	}
+	
     pager.find('li .page_link').click(function(){
         var clickedPage = $(this).html().valueOf()-1;
         goTo(clickedPage,perPage);
@@ -77,9 +100,26 @@ $.fn.pageMe = function(opts){
 
     function goTo(page){
         var startAt = page * perPage,
-            endOn = startAt + perPage;
+            endOn = Math.min(startAt + perPage, paintInGreyNum);
 
-        children.css('display','none').slice(startAt, endOn).show();
+		for (let i=0;i<startAt;i++){
+			children[elements[i]].setAttribute("hidden", "");
+			for (let j=elements[i] + 1;j<elements[i + 1];j++){
+				children[j].setAttribute("hidden", "");
+			}
+		}
+		
+		for (let i=endOn;i<paintInGreyNum;i++){
+			children[elements[i]].setAttribute("hidden", "");
+			
+			for (let j=elements[i] + 1;j<elements[i + 1];j++){
+				children[j].setAttribute("hidden", "");
+			}
+		}
+		
+		for (let i=startAt;i<endOn;i++){
+			children[elements[i]].removeAttribute("hidden");
+		}
 
         if (page>=1) {
             pager.find('.prev_link').show();

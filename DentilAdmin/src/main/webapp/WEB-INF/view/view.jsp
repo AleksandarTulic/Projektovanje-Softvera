@@ -6,7 +6,8 @@
 <%@ include file="../../index.jsp" %>
 
 <script src="js/view.js"></script>
-<script src="js/sortByTableColumns.js"></script>
+<!-- <script src="js/sortByTableColumns.js"></script> -->
+<script src="js/sort.js"></script>
 <script src="js/areYouSure.js"></script>
 <link rel="stylesheet" href="css/view.css">
 
@@ -68,7 +69,7 @@
 	    			</tr>
 	    		</thead>
 	    		
-	    		<tbody>
+	    		<tbody id="myTableBody">
 	    			<%
 	    			
 	    				int counter = 0;
@@ -194,6 +195,22 @@
 	    			%>
 	    		</tbody>
 	    	</table>
+    		
+	    	<div class="col-md-12 text-center">
+	           <ul class="pagination pagination-lg pager" id="myPager"></ul>
+	        </div>
+	        
+	        <div class="col-sm-3">
+    			<label>How many</label>
+   				<input onchange="changePerPage(this.value)" type="number" value="8" style="max-width: 40px" min="4" max="20">
+    		</div>
+	        <div class="col-sm-9">
+	        	&nbsp;
+    		</div>
+	       
+	        <script>
+	       		$('#myTableBody').pageMe({pagerSelector:'#myPager',showPrevNext:true,hidePageNumbers:false,perPage:8});
+	       	</script>
 	    	
 	    	<script>
 	    		function showMore(someClassName){
@@ -222,8 +239,10 @@
 	    		
 	    		$(document).ready(function(){
 	    			  $('[data-toggle="tooltip"]').tooltip();   
-	    			});
+    			});
 	    	</script>
+	    	
+	    	<script src="js/changePerPage.js"></script>
 		</div>
 	</div>
 </div>

@@ -9,7 +9,7 @@ public class ShiftService {
 	private ScheduleService scheduleService = new ScheduleService();
 	
 	public boolean insert(ShiftDTO dto) {
-		return dao.insert(dto);
+		return dto.getBegin().compareTo(dto.getEnd()) <= 0 ? dao.insert(dto) : false;
 	}
 	
 	public boolean delete(Integer id) {
