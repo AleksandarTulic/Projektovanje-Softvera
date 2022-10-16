@@ -9,6 +9,7 @@
 7. [Dodavanje Smjene](#dodavanje-smjene)
 8. [Brisanje Smjene](#brisanje-smjene)
 9. [Sertifikat](#sertifikat)
+10. [Potvrda Operacije](#potvrda-operacije)
 
 ## Login
 
@@ -240,3 +241,11 @@ Da bi korisnici koji dolaze na nasu stranicu preneseno receno "mogli vjerovati" 
 </Connector>
 ```
 Sertifikat koji smo ovdje koristili je samopotpisani sto naravno predstavlja problem za vise pogledajte [ovde](https://en.wikipedia.org/wiki/Public_key_infrastructure). Ovo se sve nalazi u fajlu **_C:Program Files\apache-tomcat-10.0.21\conf\server.xml_**, pri cemu **_C:Program Files\apache-tomcat-10.0.21_** je u mom slucaju mjesto gdje sam instalirao apache tomcat server.
+
+## Potvrda Operacije
+
+Kada odradimo neku operaciju potrebno je da potvrdimo korisniku da li je uspjesno ili neuspjesno izvrsio operaciju. Jer zamislimo da dodajemo neki raspored za nekog korisnika a vec postoji stotine rasporeda. Nije lako da se uoci u listi da li smo uspjesno dodali raspored za nekog korisnika.
+
+Uspjesno Izvrsavanje Operacije                                                                          |  Neuspjesno Izvrsavanje Operacije
+:------------------------------------------------------------------------------------------------------:|:-----------------------------------------:
+![](https://github.com/AleksandarTulic/Projektovanje-Softvera/blob/main/DentilAdmin/images/sl9.png)     |    ![](https://github.com/AleksandarTulic/Projektovanje-Softvera/blob/main/DentilAdmin/images/sl10.png)
