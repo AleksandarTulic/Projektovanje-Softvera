@@ -245,6 +245,8 @@ Selektovanje Pojedinih Rasporeda                                                
 
 ## Dodavanje Smjene
 
+Potrebno je da odaberete vrijeme kada smjena pocinje kao i vrijeme kada smjena zavrsava. Vrsi se provjera da li je vrijeme zavrsavanja poslije vremena pocinjanja(_na serverskoj strani_)
+
 Prije                      |  Poslije
 :-------------------------:|:-------------------------:
 ![](https://github.com/AleksandarTulic/Projektovanje-Softvera/blob/main/DentilAdmin/images/sl11.png)     |    ![](https://github.com/AleksandarTulic/Projektovanje-Softvera/blob/main/DentilAdmin/images/sl12.png)
@@ -253,7 +255,7 @@ Prije                      |  Poslije
 
 Prije                      |  Poslije
 :-------------------------:|:-------------------------:
-![](https://github.com/AleksandarTulic/Projektovanje-Softvera/blob/main/DentilAdmin/images/sl11.png)     |    ![](https://github.com/AleksandarTulic/Projektovanje-Softvera/blob/main/DentilAdmin/images/sl12.png)
+![](https://github.com/AleksandarTulic/Projektovanje-Softvera/blob/main/DentilAdmin/images/sl15.png)     |    ![](https://github.com/AleksandarTulic/Projektovanje-Softvera/blob/main/DentilAdmin/images/sl16.png)
 
 ## Sertifikat
 
