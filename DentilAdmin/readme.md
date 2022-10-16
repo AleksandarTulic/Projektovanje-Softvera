@@ -88,7 +88,7 @@ Pored toga potrebno je u fajlu **_web.xml_** da postavimo sljedece vrijednosti:
 
 <br />
 <br />
-Pogledajte vise na [here](https://docs.oracle.com/cd/E19798-01/821-1841/6nmq2cpki/index.html).
+Pogledajte vise na <a href="https://docs.oracle.com/cd/E19798-01/821-1841/6nmq2cpki/index.html">here</a>.
 
 ### QR token
 
