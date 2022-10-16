@@ -175,6 +175,14 @@ Kada se uspjesno kreira nalog tipa _Admin_ tada se na njegovu email adresu posal
 
 ## Azuriranje Naloga
 
+Prije                      |  Poslije
+:-------------------------:|:-------------------------:
+![](https://github.com/AleksandarTulic/Projektovanje-Softvera/blob/main/DentilAdmin/images/sl6.png)  |  ![](https://github.com/AleksandarTulic/Projektovanje-Softvera/blob/main/DentilAdmin/images/sl8.png)
+
+|Forma Za Azuriranje|
+|-------------------|
+|![](https://github.com/AleksandarTulic/Projektovanje-Softvera/blob/main/DentilAdmin/images/sl7.png)|
+
 ## Dodavanje Rasporeda
 
 Da bismo dodali raspored potrebno je da odradimo sljedece:
