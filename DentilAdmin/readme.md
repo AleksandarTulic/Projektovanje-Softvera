@@ -213,7 +213,7 @@ Da biste obrisali neki raspored potrebno je da selektujete checkBox i da onda pr
 
 Selektovanje Pojedinih Rasporeda                                                                        |  Selektovanje Koristenjem _Select All_
 :------------------------------------------------------------------------------------------------------:|:-----------------------------------------:
-![](https://github.com/AleksandarTulic/Projektovanje-Softvera/blob/main/DentilAdmin/images/sl4.png)     |    ![](https://github.com/AleksandarTulic/Projektovanje-Softvera/blob/main/DentilAdmin/images/sl4.png)
+![](https://github.com/AleksandarTulic/Projektovanje-Softvera/blob/main/DentilAdmin/images/sl4.png)     |    ![](https://github.com/AleksandarTulic/Projektovanje-Softvera/blob/main/DentilAdmin/images/sl5.png)
 
 ## Dodavanje Smjene
 
