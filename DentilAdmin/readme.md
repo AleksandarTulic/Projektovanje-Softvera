@@ -146,10 +146,22 @@ Pogledajte vise na <a href="https://en.wikipedia.org/wiki/QR_code">here</a>.
 
 ## Kreiranje Naloga
 
+Bezobzira koju vrstu naloga kreiramo **potrebno** je da unesemo sljedece vrijednosti:
+- id
+- name
+- surname
+- email
+- phone
+- address
+- username
+- password
+- usertype
+
+Ukoliko je usertype tipa _counter_ ili _dentist_ onda je potrebno da unesemo i jobStartDate atribut. Forma za njihovo popunjavanje je data u nastavku.
 
 ## Sertifikat
 
-Da bi korisnici koji dolaze na nasu stranicu preneseno receno "mogli vjerovari" da smo mi kao aplikacija zapravo prava verzija a ne neka kopija potrebno je da se korisnickom pretrazivacu kao i samom korisniku prestavimo koristeci sertifikat: 
+Da bi korisnici koji dolaze na nasu stranicu preneseno receno "mogli vjerovati" da smo mi kao aplikacija zapravo prava verzija a ne neka kopija potrebno je da se korisnickom pretrazivacu kao i samom korisniku prestavimo koristeci sertifikat: 
 ```xml
 <Connector SSLEnabled="true" clientAuth="false" maxThreads="500" port="8443" protocol="org.apache.coyote.http11.Http11NioProtocol">
     <SSLHostConfig>
@@ -157,4 +169,4 @@ Da bi korisnici koji dolaze na nasu stranicu preneseno receno "mogli vjerovari" 
     </SSLHostConfig>
 </Connector>
 ```
-Sertifikat koji smo ovdje koristili je samopotpisani sto naravno predstavlja problem za vise pogledajte [ovde](https://en.wikipedia.org/wiki/Public_key_infrastructure). Ovo se nalazi u fajlu **_C:Program Files\apache-tomcat-10.0.21\conf\server.xml_**, pri cemu **_C:Program Files\apache-tomcat-10.0.21_** je u mom slucaju mjesto gdje sam instalirao apache tomcat server.
+Sertifikat koji smo ovdje koristili je samopotpisani sto naravno predstavlja problem za vise pogledajte [ovde](https://en.wikipedia.org/wiki/Public_key_infrastructure). Ovo se sve nalazi u fajlu **_C:Program Files\apache-tomcat-10.0.21\conf\server.xml_**, pri cemu **_C:Program Files\apache-tomcat-10.0.21_** je u mom slucaju mjesto gdje sam instalirao apache tomcat server.
