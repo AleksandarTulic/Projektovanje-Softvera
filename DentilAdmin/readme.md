@@ -173,6 +173,14 @@ Selektovan Admin           |  Selektovan Counter
 
 Kada se uspjesno kreira nalog tipa _Admin_ tada se na njegovu email adresu posalje QR token koji onda treba da se skenira sa **_Google Authenticator_** mobilnom aplikacijom. Nakon toga dobijete kod koji se vremenski mijenja i koji vam je potreban za autentikaciju. Za vise pogledajte [prethodno](#form-based-authentication).
 
+Da bi se vrsilo slanje poruka koristimo **_Google Mail Servere_**, pri cemu informacije potrebne za uspjesno slanje poruke nalaze se u fajlu EmailService.java i to sljedece linije koda:
+```java
+    private static final String EMAIL_FROM = "";
+	private static final String EMAIL_FROM_PASSWORD = "";
+	private static final String HOST = "smtp.gmail.com";
+	private static final String Port = "587";
+```
+
 ## Brisanje Naloga
 
 Prije nego sto zapravo obrisete nekog korisnika od vas se trazi da potvrdite tu operaciju. Ovo radimo jer operacija brisanja korisnika je veoma destruktivna(_od korisnika zavisi mnogo drugih elemenata_).
