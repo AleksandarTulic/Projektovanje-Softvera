@@ -56,14 +56,4 @@
       <secure>true</secure>
     </cookie-config>
   </session-config>
-  <servlet>
-    <description></description>
-    <display-name>ShiftController</display-name>
-    <servlet-name>ShiftController</servlet-name>
-    <servlet-class>controller.ShiftController</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>ShiftController</servlet-name>
-    <url-pattern>/ShiftController</url-pattern>
-  </servlet-mapping>
 </web-app>

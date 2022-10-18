@@ -1,5 +1,7 @@
 package controller;
 
+import java.util.logging.Level;
+
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.annotation.WebFilter;
@@ -7,6 +9,7 @@ import jakarta.servlet.http.HttpFilter;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import logger.MyLogger;
 
 @WebFilter("/*")
 public class TokenFilter extends HttpFilter {
@@ -34,7 +37,7 @@ public class TokenFilter extends HttpFilter {
 				dispatcher.forward(request, response);
 			}
 		}catch (Exception e) {
-			e.printStackTrace();
+			MyLogger.logger.log(Level.SEVERE, e.getMessage());
 		}
 	}
 	
