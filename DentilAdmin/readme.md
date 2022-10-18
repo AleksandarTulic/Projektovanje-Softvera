@@ -316,7 +316,7 @@ public void run() {
 }
 ```
 
-- SAVE_PATH - gdje se cuva backup, na osnovu zapisanog potrebno je da imamo definisanu Environment variable catalina.home i da se unutar tog foldera nalazi sljedeca file struktura Dentil\Backup. Unutar Dentil\Backup foldera potrebno je da se nalazi "password.txt" fajl ciji sadrzaj je:
+- SAVE_PATH - gdje se cuva backup, na osnovu zapisanog potrebno je da imamo definisanu **_Environment variable catalina.home_** i da se unutar tog foldera nalazi sljedeca file struktura **_Dentil\Backup_**. Unutar Dentil\Backup foldera potrebno je da se nalazi "password.txt" fajl ciji sadrzaj je:
 ```txt
 [mysqldump]
 # The following password will be sent to mysqldump
@@ -325,7 +325,7 @@ password="localhost"
 - DB_NAME - koji je naziv baze podataka ciji backup zelimo da izvrsimo
 - DB_USER - vrsta mysql korisnika s'kojim vrsimo ovu operaciju(znamo da svaki korisnik ima negranicene odnosno neogranicene mogucnosti)
 
-Sami backup fajlovi, sa prethodnog koda moze se vidjeti da, su smjesteni u fajlove formata naziva: "yyyy-MM-dd_hh-mm-ss"; Pri cemu vrijednosti ove zavise od trenutnog vremena kada se ova operacija radi. Posto je ovo vrsta operacije koja bi se trebalo periodicno izvrsavati onda je potrebno da i to programerski i uradimo, pa imamo sljedeci kod:
+Sami backup fajlovi, sa prethodnog koda moze se vidjeti da, su smjesteni u fajlove formata naziva: **_"yyyy-MM-dd_hh-mm-ss"_**. Pri cemu vrijednosti ove zavise od trenutnog vremena kada se ova operacija radi. Posto je ovo vrsta operacije koja bi se trebalo periodicno izvrsavati onda je potrebno da i to programerski i uradimo, pa imamo sljedeci kod:
 
 ```java
 @WebListener
