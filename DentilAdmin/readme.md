@@ -10,7 +10,8 @@
 8. [Brisanje Smjene](#brisanje-smjene)
 9. [Sertifikat](#sertifikat)
 10. [Potvrda Operacije](#potvrda-operacije)
-11. [Opste](#opste)
+11. [Backup](#backup)
+12. [Opste](#opste)
 
 ## Login
 
