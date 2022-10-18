@@ -286,6 +286,66 @@ Uspjesno Izvrsavanje Operacije                                                  
 :------------------------------------------------------------------------------------------------------:|:-----------------------------------------:
 ![](https://github.com/AleksandarTulic/Projektovanje-Softvera/blob/main/DentilAdmin/images/sl9.png)     |    ![](https://github.com/AleksandarTulic/Projektovanje-Softvera/blob/main/DentilAdmin/images/sl10.png)
 
+## Backup
+
+Da bismo zastitili podatke, ukoliko dodje do nekog oktaza koji uzrokuje narusavanje integriteta baze podataka, mi smo napravili backup koji koristi funkcionalnosti **_mysqldump-a MYSQLL servera_**.
+Kod koji vrsi cuvanje ovih podataka nalazi se u fajlu Backup.java:
+```java
+private static final String SAVE_PATH = System.getProperty("catalina.home") 
+			+ File.separator + "Dentil" + File.separator + "Backup";
+private static final String DB_NAME = "dentil";
+private static final String DB_USER = "root";
+
+@SuppressWarnings("deprecation")
+@Override
+public void run() {
+    try {
+        Date date = new Date(System.currentTimeMillis());
+        String []query = new String[] {"cmd.exe", "/c", 
+                "mysqldump --defaults-extra-file=" + SAVE_PATH + File.separator + "password.txt -u " + DB_USER + " --databases " + DB_NAME + " > " + SAVE_PATH + File.separator + (date.getYear() + 1900) + "-" + (date.getMonth() + 1) + "-" + date.getDate() + "_" + date.getHours() + "-" + date.getMinutes() + "-" + date.getSeconds() + ".sql"};
+
+        Process runtimeProcess = Runtime.getRuntime().exec(query);
+        
+        if (runtimeProcess.waitFor() == 1) {
+            MyLogger.logger.log(Level.WARNING, "Problem with database backup.");
+        }
+    }catch (Exception e) {
+        MyLogger.logger.log(Level.SEVERE, e.getMessage());
+    }
+}
+```
+
+- SAVE_PATH - gdje se cuva backup, na osnovu zapisanog potrebno je da imamo definisanu Environment variable catalina.home i da se unutar tog foldera nalazi sljedeca file struktura Dentil\Backup. Unutar Dentil\Backup foldera potrebno je da se nalazi "password.txt" fajl ciji sadrzaj je:
+```txt
+[mysqldump]
+# The following password will be sent to mysqldump
+password="localhost"
+```
+- DB_NAME - koji je naziv baze podataka ciji backup zelimo da izvrsimo
+- DB_USER - vrsta mysql korisnika s'kojim vrsimo ovu operaciju(znamo da svaki korisnik ima negranicene odnosno neogranicene mogucnosti)
+
+Sami backup fajlovi, sa prethodnog koda moze se vidjeti da, su smjesteni u fajlove formata naziva: "yyyy-MM-dd_hh-mm-ss"; Pri cemu vrijednosti ove zavise od trenutnog vremena kada se ova operacija radi. Posto je ovo vrsta operacije koja bi se trebalo periodicno izvrsavati onda je potrebno da i to programerski i uradimo, pa imamo sljedeci kod:
+
+```java
+@WebListener
+public class BackupManager implements ServletContextListener {
+	private ScheduledExecutorService scheduler;
+	
+	@Override
+	public void contextInitialized(ServletContextEvent event) {
+		scheduler = Executors.newSingleThreadScheduledExecutor();
+		scheduler.scheduleAtFixedRate(new Backup(), 0, 7, TimeUnit.SECONDS);
+	}
+	
+	@Override
+	public void contextDestroyed(ServletContextEvent event) {
+		scheduler.shutdownNow();
+	}
+}
+```
+
+Mozemo vidjeti da svakih 7 sekundi, se vrsi backup trenutnog stanja baze podataka ali ovo u praksi treba da se stavi na veci vremenski rok, kao sto je 1 dan pa nadalje.
+
 ## Opste
 
 Mogli ste sa prethodnih slika vidjeti da postoji red koji je roze/crvene boje. Taj red oznacava vas kao korisnika koji se ulogovao u aplikaciju.
