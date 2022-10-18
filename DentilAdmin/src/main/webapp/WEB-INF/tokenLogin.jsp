@@ -22,7 +22,7 @@
 				<div class="col-sm-2">
 				</div>
 				<div class="col-sm-8">
-					<h2>Token verification</h2>
+					<h2>Token Login</h2>
 					<form method="POST" action="TokenController">
 						<div class="form-group">
 							<p>Token: <input type="password" class="form-control" name="tokenValue"/></p>

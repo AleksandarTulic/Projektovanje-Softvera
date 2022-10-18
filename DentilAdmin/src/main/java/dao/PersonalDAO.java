@@ -25,7 +25,7 @@ public class PersonalDAO {
 	public boolean insert(PersonalDTO dto) {
 		boolean res = false;
 		Connection conn = null;
-		Object []values = new Object[] {dto.getId(), dto.getJobStart(), dto.getJobEnd()};
+		Object []values = new Object[] {dto.getId(), dto.getJobStart() + "", dto.getJobEnd() == null ? null : dto.getJobEnd() + ""};
 		
 		try {
 			conn = connectionPool.checkOut();
