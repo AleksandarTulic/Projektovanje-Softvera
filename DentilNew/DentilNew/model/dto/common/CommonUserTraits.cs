@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DentilNew.model.dto.common
 {
-    internal abstract class CommonUserTraits
+    public abstract class CommonUserTraits
     {
         protected string id;
         protected string name;

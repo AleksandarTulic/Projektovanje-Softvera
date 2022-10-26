@@ -1,0 +1,5 @@
+
+Log Entry : 3:25:22 PM Thursday, October 20, 2022
+Message: Procedure or function 'insert into tooth values(@id)' cannot be found in database ''. Verify that user 'root'@'localhost' has enough privileges to execute.
+================================================================================================
+

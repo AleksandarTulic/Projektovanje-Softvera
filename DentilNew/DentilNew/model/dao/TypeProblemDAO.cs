@@ -13,10 +13,10 @@ namespace DentilNew.model.dao
     internal class TypeProblemDAO
     {
         private static readonly string SQL_SELECT = "select id, name from typeproblem";
-        private static readonly string SQL_INSERT = "insert into treatment(name) values(@name)";
-        private static readonly string SQL_DELETE = "delete from treatment as t where t.id=@id";
+        private static readonly string SQL_INSERT = "insert into typeproblem(name) values(@name)";
+        private static readonly string SQL_DELETE = "delete from typeproblem as t where t.id=@id";
 
-        public static List<TypeProblemDTO> select()
+        public List<TypeProblemDTO> select()
         {
             List<TypeProblemDTO> arr = new List<TypeProblemDTO>();
             try
@@ -27,7 +27,7 @@ namespace DentilNew.model.dao
 
                     using (MySqlCommand cmd = con.CreateCommand())
                     {
-                        cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                        cmd.CommandType = System.Data.CommandType.Text;
                         cmd.CommandText = SQL_SELECT;
                         MySqlDataReader reader = cmd.ExecuteReader();
 
@@ -49,7 +49,7 @@ namespace DentilNew.model.dao
             return arr;
         }
 
-        public static bool insert(string name)
+        public bool insert(string name)
         {
             bool flag = false;
             try
@@ -60,7 +60,7 @@ namespace DentilNew.model.dao
 
                     using (MySqlCommand cmd = con.CreateCommand())
                     {
-                        cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                        cmd.CommandType = System.Data.CommandType.Text;
                         cmd.CommandText = SQL_INSERT;
                         cmd.Parameters.AddWithValue("@name", name);
                         cmd.Parameters["@name"].Direction = System.Data.ParameterDirection.Input;
@@ -76,7 +76,7 @@ namespace DentilNew.model.dao
             return flag;
         }
 
-        public static bool delete(int id)
+        public bool delete(int id)
         {
             bool flag = false;
             try
@@ -87,7 +87,7 @@ namespace DentilNew.model.dao
 
                     using (MySqlCommand cmd = con.CreateCommand())
                     {
-                        cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                        cmd.CommandType = System.Data.CommandType.Text;
                         cmd.CommandText = SQL_DELETE;
                         cmd.Parameters.AddWithValue("@id", id);
                         cmd.Parameters["@id"].Direction = System.Data.ParameterDirection.Input;

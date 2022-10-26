@@ -17,7 +17,7 @@ namespace DentilNew.model.dao
         private static readonly string SQL_UPDATE = "update patient as p set p.id=@idNew,p.name=@name,p.surname=@surname,p.address=@address,p.phone=@phone,p.email=@email where p.id=@idOld";
         private static readonly string SQL_DELETE = "delete from patient as p where p.id=@id";
 
-        public static List<PatientDTO> select()
+        public List<PatientDTO> select()
         {
             List<PatientDTO> arr = new List<PatientDTO>();
             try
@@ -28,7 +28,7 @@ namespace DentilNew.model.dao
 
                     using (MySqlCommand cmd = con.CreateCommand())
                     {
-                        cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                        cmd.CommandType = System.Data.CommandType.Text;
                         cmd.CommandText = SQL_SELECT;
                         MySqlDataReader reader = cmd.ExecuteReader();
 
@@ -50,7 +50,7 @@ namespace DentilNew.model.dao
             return arr;
         }
 
-        public static bool insert(PatientDTO dto)
+        public bool insert(PatientDTO dto)
         {
             bool flag = false;
             try
@@ -61,7 +61,7 @@ namespace DentilNew.model.dao
 
                     using (MySqlCommand cmd = con.CreateCommand())
                     {
-                        cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                        cmd.CommandType = System.Data.CommandType.Text;
                         cmd.CommandText = SQL_INSERT;
                         cmd.Parameters.AddWithValue("@id", dto.Id);
                         cmd.Parameters["@id"].Direction = System.Data.ParameterDirection.Input;
@@ -87,7 +87,7 @@ namespace DentilNew.model.dao
             return flag;
         }
 
-        public static bool update(PatientDTO dto, string oldId)
+        public bool update(PatientDTO dto, string oldId)
         {
             bool flag = false;
             try
@@ -98,7 +98,7 @@ namespace DentilNew.model.dao
 
                     using (MySqlCommand cmd = con.CreateCommand())
                     {
-                        cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                        cmd.CommandType = System.Data.CommandType.Text;
                         cmd.CommandText = SQL_UPDATE;
                         cmd.Parameters.AddWithValue("@idNew", dto.Id);
                         cmd.Parameters["@idNew"].Direction = System.Data.ParameterDirection.Input;
@@ -114,6 +114,7 @@ namespace DentilNew.model.dao
                         cmd.Parameters["@email"].Direction = System.Data.ParameterDirection.Input;
                         cmd.Parameters.AddWithValue("@idOld", oldId);
                         cmd.Parameters["@idOld"].Direction = System.Data.ParameterDirection.Input;
+                        Console.WriteLine(cmd);
                         flag = cmd.ExecuteNonQuery() >= 1;
                     }
                 }
@@ -126,7 +127,7 @@ namespace DentilNew.model.dao
             return flag;
         }
 
-        public static bool delete(int id)
+        public bool delete(string id)
         {
             bool flag = false;
             try
@@ -137,7 +138,7 @@ namespace DentilNew.model.dao
 
                     using (MySqlCommand cmd = con.CreateCommand())
                     {
-                        cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                        cmd.CommandType = System.Data.CommandType.Text;
                         cmd.CommandText = SQL_DELETE;
                         cmd.Parameters.AddWithValue("@id", id);
                         cmd.Parameters["@id"].Direction = System.Data.ParameterDirection.Input;

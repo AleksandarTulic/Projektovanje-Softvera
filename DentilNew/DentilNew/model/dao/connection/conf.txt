@@ -1,5 +1,5 @@
 ﻿Server=localhost;
 Port=3306;
 Database=Dentil;
-UserId=;
-Password=;
+UserId=root;
+Password=localhost;

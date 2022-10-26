@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace DentilNew.model.dto
 {
-    internal class PatientDTO : CommonUserTraits
+    public class PatientDTO : CommonUserTraits
     {
-        public PatientDTO(string id, string name, string surname, string address, string phone, string email) : base(id, name, surname, address, phone, email)
+        public PatientDTO(string id, string name, string surname, string email, string phone, string address) : base(id, name, surname, address, phone, email)
         {
         }
     }

@@ -33,3 +33,9 @@ C:\Users\Aleksandar\source\repos\DentilNew\DentilNew\obj\Debug\DentilNew.csproj.
 C:\Users\Aleksandar\source\repos\DentilNew\DentilNew\obj\Debug\DentilNew.csproj.CopyComplete
 C:\Users\Aleksandar\source\repos\DentilNew\DentilNew\obj\Debug\DentilNew.exe
 C:\Users\Aleksandar\source\repos\DentilNew\DentilNew\obj\Debug\DentilNew.pdb
+C:\Users\Aleksandar\source\repos\DentilNew\DentilNew\bin\Debug\MaterialSkin.dll
+C:\Users\Aleksandar\source\repos\DentilNew\DentilNew\obj\Debug\DentilNew.Tooth.resources
+C:\Users\Aleksandar\source\repos\DentilNew\DentilNew\obj\Debug\DentilNew.Treatment.resources
+C:\Users\Aleksandar\source\repos\DentilNew\DentilNew\obj\Debug\DentilNew.TypeProblem.resources
+C:\Users\Aleksandar\source\repos\DentilNew\DentilNew\obj\Debug\DentilNew.Main.resources
+C:\Users\Aleksandar\source\repos\DentilNew\DentilNew\obj\Debug\DentilNew.view.modal_input.AddPatient.resources

@@ -48,6 +48,9 @@
     <Reference Include="K4os.Hash.xxHash, Version=1.0.6.0, Culture=neutral, PublicKeyToken=32cd54395057cec3, processorArchitecture=MSIL">
       <HintPath>..\packages\K4os.Hash.xxHash.1.0.6\lib\net46\K4os.Hash.xxHash.dll</HintPath>
     </Reference>
+    <Reference Include="MaterialSkin, Version=2.3.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialSkin.2.2.3.1\lib\net461\MaterialSkin.dll</HintPath>
+    </Reference>
     <Reference Include="MySql.Data, Version=8.0.30.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <HintPath>..\packages\MySql.Data.8.0.30\lib\net452\MySql.Data.dll</HintPath>
     </Reference>
@@ -60,6 +63,7 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Configuration.Install" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
     <Reference Include="System.Management" />
     <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
@@ -89,11 +93,22 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="controller\PatientController.cs" />
+    <Compile Include="controller\ProblemController.cs" />
+    <Compile Include="controller\ToothController.cs" />
+    <Compile Include="controller\TreatmentController.cs" />
+    <Compile Include="controller\TypeProblemController.cs" />
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main.Designer.cs">
+      <DependentUpon>Main.cs</DependentUpon>
     </Compile>
     <Compile Include="model\dao\connection\Connection.cs" />
     <Compile Include="model\dao\DentistDAO.cs" />
@@ -119,10 +134,41 @@
     <Compile Include="model\dto\VisitDTO.cs" />
     <Compile Include="model\fileManagement\FileOperations.cs" />
     <Compile Include="model\logger\MyLogger.cs" />
+    <Compile Include="model\notification\Notification.cs" />
+    <Compile Include="model\validation\IValidation.cs" />
+    <Compile Include="model\validation\PatientValidation.cs" />
+    <Compile Include="model\validation\Validation.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="view\modal_input\AddPatient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\modal_input\AddPatient.Designer.cs">
+      <DependentUpon>AddPatient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\modal_input\Tooth.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\modal_input\Tooth.Designer.cs">
+      <DependentUpon>Tooth.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\modal_input\Treatment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\modal_input\Treatment.Designer.cs">
+      <DependentUpon>Treatment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\modal_input\TypeProblem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\modal_input\TypeProblem.Designer.cs">
+      <DependentUpon>TypeProblem.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main.resx">
+      <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -132,7 +178,20 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="view\modal_input\AddPatient.resx">
+      <DependentUpon>AddPatient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\modal_input\Tooth.resx">
+      <DependentUpon>Tooth.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\modal_input\Treatment.resx">
+      <DependentUpon>Treatment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\modal_input\TypeProblem.resx">
+      <DependentUpon>TypeProblem.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -148,12 +207,26 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="controller\" />
     <Folder Include="model\logger\history\" />
     <Folder Include="model\security\" />
-    <Folder Include="view\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="images\addPatient\email.png" />
+    <Content Include="images\addPatient\address.png" />
+    <Content Include="images\addPatient\phone.png" />
+    <Content Include="images\dentist.png" />
+    <Content Include="images\menu_10.png" />
+    <Content Include="images\menu_11.png" />
+    <Content Include="images\menu_9.png" />
+    <Content Include="images\menu_8.png" />
+    <Content Include="images\menu_7.png" />
+    <Content Include="images\menu_6.png" />
+    <Content Include="images\menu_1.png" />
+    <Content Include="images\menu_2.png" />
+    <Content Include="images\menu_3.png" />
+    <Content Include="images\menu_4.png" />
+    <Content Include="images\menu_5.png" />
+    <Content Include="images\tooth.ico" />
     <Content Include="model\dao\connection\conf.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
