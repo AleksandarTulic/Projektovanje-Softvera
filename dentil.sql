@@ -19,7 +19,8 @@ create table if not exists Admin(
     secretKey varchar(100) not null check(length(secretKey)>=2),
     foreign key(id) references Working(id)
     on update cascade
-    on delete restrict
+    on delete restrict,
+    primary key(id)
 );
 
 create table if not exists Personal(
@@ -36,14 +37,16 @@ create table if not exists Dentist(
 	id char(13) not null,
     foreign key(id) references Personal(id)
     on update cascade
-    on delete restrict
+    on delete restrict,
+    primary key(id)
 );
 
 create table if not exists Counter(
 	id char(13) not null,
     foreign key(id) references Personal(id)
     on update cascade
-    on delete restrict
+    on delete restrict,
+    primary key(id)
 );
 
 create table if not exists Patient(
@@ -84,7 +87,7 @@ create table if not exists Appointment(
 	idDentist char(13) not null,
     startDate DATE not null,
     startTime TIME not null,
-    IdPatient char(13) not null,
+    idPatient char(13) not null,
     howLong int unsigned not null check(howLong>0),
     idPersonal char(13) not null,
     foreign key(idPersonal) references Personal(id)
@@ -128,20 +131,20 @@ create table if not exists LastSeen(
 );
 
 create table if not exists Tooth(
-	id int auto_increment not null,
+	id int unsigned not null,
     #babyTooth tinyint not null default(false),
     primary key(id)
 );
 
 create table if not exists TypeProblem(
-	id int not null,
+	id int auto_increment not null,
     name varchar(200) not null check(length(name)>=2),
     primary key(id)
 );
 
 create table if not exists Problem(
 	idTypeProblem int not null,
-    idTooth int not null,
+    idTooth int not null, #ovo cu vjerojatno morati promijeniti da je moguce null
     IdVisit int not null,
     foreign key(idVisit) references Visit(id)
     on update cascade
