@@ -1,15 +1,18 @@
 <%@ include file="../../index.jsp" %>
 
-<jsp:useBean id='dentistService' class='service.DentistService' scope='application'></jsp:useBean>  
+<jsp:useBean id='dentistService' class='service.DentistService' scope='application'></jsp:useBean>
 <%@ page import="java.util.*" %>
 <%@ page import="dto.*" %>
 <%
 
 	List<DentistDTO> arr = dentistService.select();
-
 %>
 
+<script src="js/help.js"></script>
 <script src="js/appointment.js"></script>
+<script src="js/paginationView.js"></script>
+<script src="js/sortView.js"></script>
+<script src="js/areYouSure.js"></script>
 
 <div class="container">
 	<h2>Appointment</h2>
@@ -20,8 +23,105 @@
   	</ul>
   	
 	<div class="tab-content">
-    	<div id="menu1" class="tab-pane fade">
-    		<h3>Menu 1</h3>
+    	<div id="menu1" class="tab-pane fade" style="margin-top: 20px;">
+    		<div class="row">
+    			<div class="col-sm-12">
+					<div class="panel panel-default">
+					  <div class="panel-heading">
+					  	<div class="row">
+					  		<div class="col-sm-3">Search Options</div>
+					  		<div class="col-sm-8"></div>
+					  		<div class="col-sm-1" style="text-align: right;"><b data-toggle="collapse" data-target="#demo" style="cursor: grab;">&plus;</b></div>
+					  	</div>
+					  </div>
+					  <div class="panel-body collapse" id="demo">
+					  	<div class="row">
+					  		<div class="col-sm-4">
+					  			<h3 style="margin-top: 0px;margin-bottom: 30px;">Patient</h3>
+					  			<div class="form-group">
+			    					<label for="idView">ID:</label>
+						        	<input type="text" class="form-control" id="patientIdView" name="idpatientIdView">
+			    				</div>
+			    				
+			    				<div class="form-group">
+			    					<label for="idName">Name:</label>
+						        	<input type="text" class="form-control" id="patientNameView" name="patientNameView">
+			    				</div>
+			    				
+			    				<div class="form-group">
+			    					<label for="idSurname">Surname:</label>
+						        	<input type="text" class="form-control" id="patientSurnameView" name="patientSurnameView">
+			    				</div>
+					  		</div>
+					  		
+					  		<div class="col-sm-4">
+					  			<h3 style="margin-top: 0px;margin-bottom: 30px;">Dentist</h3>
+			    				<div class="form-group">
+			    					<label for="idName">Name:</label>
+						        	<input type="text" class="form-control" id="dentistNameView" name="dentistNameView">
+			    				</div>
+			    				
+			    				<div class="form-group">
+			    					<label for="idSurname">Surname:</label>
+						        	<input type="text" class="form-control" id="dentistSurnameView" name="dentistSurnameView">
+			    				</div>
+					  		</div>
+					  		
+					  		<div class="col-sm-4">
+					  			<h3 style="margin-top: 0px;margin-bottom: 30px;">Date</h3>
+					  			<div class="form-group">
+					  				<label for="idName">&nbsp;</label>
+						        	<input type="date" class="form-control" id="dateView" name="dateView">
+			    				</div>
+					  		</div>
+					  	</div>
+					  	
+					  	<div class="row">
+					  		<div class="col-sm-12" style="text-align: center;">
+					  			<button class="btn normalButton" onclick="loadAppointments()">Search</button>
+					  		</div>
+					  	</div>
+					  </div>
+					</div>
+    			</div>
+    		</div>
+    		
+    		<div class="row">
+				<div class="col-sm-12" id="messageDeleteAppointment">
+					
+				</div>
+			</div>
+    		
+    		<div class="row">
+    			<div class="col-sm-12">
+    				<h3>View Appointment</h3>
+    			</div>
+    			
+    			<div class="col-sm-12">
+    				<table class="table table-striped" id="myTable2">
+    					<thead>
+    						<tr>
+	    						<th class="hoverSortButton" onclick="sortTable(0, 'myTable2')">Patient</th>
+	    						<th class="hoverSortButton" onclick="sortTable(1, 'myTable2')">Dentist</th>
+	    						<th class="hoverSortButton" onclick="sortTable(2, 'myTable2')">Date</th>
+	    						<th class="hoverSortButton" onclick="sortTable(3, 'myTable2')">Time Range</th>
+	    						<th>Delete</th>
+    						</tr>
+    					</thead>
+    					
+    					<tbody id="ViewAppointmentTableBody">
+    					</tbody>
+    				</table>
+    				
+    				<div class="col-sm-12" style="text-align: center;">
+			    		<ul class="pagination pagination-lg pager" id="myPager"></ul>
+			    	</div>
+			    	
+			    	<script>
+			       		$('#ViewAppointmentTableBody').pageMe({pagerSelector:'#myPager',showPrevNext:true,hidePageNumbers:false,perPage:8});
+			       	</script>
+    			</div>
+    		</div>
     	</div>
     	<div id="menu2" class="tab-pane fade" style="margin-top: 10px;">
     		<form action="Appointment" method="POST">

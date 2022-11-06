@@ -39,11 +39,20 @@ public class DataController extends HttpServlet {
 				response.setContentType("application/json");
 				response.setCharacterEncoding("UTF-8");
 				response.getWriter().write(json);
+			}else if ("getDentists".equals(what)){
+				DentistService dService = new DentistService();
+				List<DentistDTO> dto = dService.select();
+				
+				String json = new Gson().toJson(dto);
+				
+				response.setContentType("application/json");
+				response.setCharacterEncoding("UTF-8");
+				response.getWriter().write(json);
 			}else if ("getAppointmentsSameDayAndDentist".equals(what)) {
 				String date = request.getParameter("date");
 				String idDentist = request.getParameter("idDentist");
 				Date dateValue = null;
-				
+
 				try {
 					dateValue = Date.valueOf(date);
 				}catch (Exception e) {
@@ -69,6 +78,21 @@ public class DataController extends HttpServlet {
 				PatientService pService = new PatientService();
 				String idPatient = request.getParameter("idPatient");
 				PatientDTO dto = pService.selectWithIdPatient(idPatient);
+				String json = new Gson().toJson(dto);
+				
+				response.setContentType("application/json");
+				response.setCharacterEncoding("UTF-8");
+				response.getWriter().write(json);
+			}else if ("getAppointments".equals(what)) {
+				String idPatient = request.getParameter("idPatient");
+				String patientName = request.getParameter("patientName");
+				String patientSurname = request.getParameter("patientSurname");
+				String dentistName = request.getParameter("dentistName");
+				String dentistSurname = request.getParameter("dentistSurname");
+				String date = request.getParameter("date");
+				
+				AppointmentService aService = new AppointmentService();
+				List<AppointmentDTO> dto = aService.selectWithLike(idPatient, patientName, patientSurname, dentistName, dentistSurname, date);
 				String json = new Gson().toJson(dto);
 				
 				response.setContentType("application/json");

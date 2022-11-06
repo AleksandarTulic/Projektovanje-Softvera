@@ -44,6 +44,22 @@ public class AppointmentController extends HttpServlet {
 				response.setContentType("application/json");
 				response.setCharacterEncoding("UTF-8");
 				response.getWriter().write(json);
+			}else if ("deleteAppointment".equals(what)) {
+				request.setAttribute("howLong", "1");
+				AppointmentFactory aFactory = AppointmentFactory.getInstance();
+				AppointmentDTO dto = aFactory.get(request);
+				boolean flag = false;
+				
+				if (dto != null) {
+					AppointmentService aService = new AppointmentService();
+					flag = aService.delete(dto);
+				}
+				
+				String json = new Gson().toJson("{\"message\": \"" + Notification.getMessage(flag) + "\", \"alertType\": \"" + Notification.getAlert(flag) + "\", \"flag\": \"" + flag + "\"}");
+				
+				response.setContentType("application/json");
+				response.setCharacterEncoding("UTF-8");
+				response.getWriter().write(json);
 			}
 		}catch (Exception e) {
 			MyLogger.logger.log(Level.SEVERE, e.getMessage());

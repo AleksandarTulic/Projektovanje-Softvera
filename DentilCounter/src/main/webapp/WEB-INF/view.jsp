@@ -133,8 +133,10 @@
 		<div class="col-sm-12">
 			<table id="myTable2" class="table table-striped" style="text-align: center;">
 				<thead>
-					<th class="hoverSortButton" onclick="sortTable(0, 'myTable2')" style="text-align: center;">Date</th>
-					<th class="hoverSortButton" onclick="sortTable(1, 'myTable2')" style="text-align: center;">Shift</th>
+					<tr>
+						<th class="hoverSortButton" onclick="sortTable(0, 'myTable2')" style="text-align: center;">Date</th>
+						<th class="hoverSortButton" onclick="sortTable(1, 'myTable2')" style="text-align: center;">Shift</th>
+					</tr>
 				</thead>
 	    		<tbody id="myTableBody">
 	    			<%
@@ -156,7 +158,7 @@
     	</div>
     	
     	<script>
-       		$('#myTableBody').pageMe({pagerSelector:'#myPager',showPrevNext:true,hidePageNumbers:false,perPage:3});
+       		$('#myTableBody').pageMe({pagerSelector:'#myPager',showPrevNext:true,hidePageNumbers:false,perPage:8});
        	</script>
 	</div>
 </div>

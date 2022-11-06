@@ -11,8 +11,14 @@ public class AppointmentDTO {
 	private String idPatient;
 	private Integer howLong;
 	private String idPersonal;
+	private DentistDTO dentistDTO;
+	private PatientDTO patientDTO;
 	
-	public AppointmentDTO() {
+	public AppointmentDTO(String idDentist, Date startDate, Time startTime, String idPatient, Integer howLong,
+			String idPersonal, String patientName, String patientSurname, String dentistName, String dentistSurname) {
+		this(idDentist, startDate, startTime, idPatient, howLong, idPersonal);
+		this.dentistDTO = new DentistDTO(dentistName, dentistSurname);
+		this.patientDTO = new PatientDTO(patientName, patientSurname);
 	}
 	
 	public AppointmentDTO(String idDentist, Date startDate, Time startTime, String idPatient, Integer howLong,
@@ -62,6 +68,15 @@ public class AppointmentDTO {
 	public void setIdPersonal(String idPersonal) {
 		this.idPersonal = idPersonal;
 	}
+	
+	public DentistDTO getDentist() {
+		return dentistDTO;
+	}
+	
+	public PatientDTO getPatient() {
+		return patientDTO;
+	}
+	
 	@Override
 	public int hashCode() {
 		return Objects.hash(howLong, idDentist, idPatient, idPersonal, startDate, startTime);

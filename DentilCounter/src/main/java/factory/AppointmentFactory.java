@@ -16,36 +16,6 @@ public class AppointmentFactory extends AFactory{
 	private AppointmentFactory() {
 	}
 	
-	/*
-	@Override
-	public AppointmentDTO get(HttpServletRequest request) {
-		Date startDate = null;
-		Time startTime = null;
-		String idDentist = request.getParameter("idDentist");
-		
-		try {
-			startDate = Date.valueOf(request.getParameter("startDate"));
-			startTime = Time.valueOf(request.getParameter("startTime"));
-		}catch (Exception e) {
-			startDate = null;
-			startTime = null;
-			e.printStackTrace();
-		}
-		
-		if (startDate == null || startTime == null)
-			return null;
-		
-		String idPersonal = request.getParameter("idPersonal");
-		String idPatient = request.getParameter("idPatient");
-		Integer howLong = Integer.parseInt(request.getParameter("howLong"));
-		
-		AppointmentDTO dto = new AppointmentDTO(idDentist, startDate, startTime, idPatient, howLong, idPersonal);
-		
-		return super.check(dto);
-	}
-	
-	*/
-	
 	@Override
 	public AppointmentDTO get(HttpServletRequest request) {
 		List<String> arr = super.getElements(request);
@@ -66,8 +36,15 @@ public class AppointmentFactory extends AFactory{
 	@Override
 	public AppointmentDTO get(ResultSet rs) {
 		List<String> arr = super.getElements(rs);
-		
-		if (arr.size() >= 6) {
+
+		if (arr.size() >= 10) {
+			try {
+				return new AppointmentDTO(arr.get(0), Date.valueOf(arr.get(1)), Time.valueOf(arr.get(2)), arr.get(3), Integer.valueOf(arr.get(4)), arr.get(5),
+						arr.get(6), arr.get(7), arr.get(8), arr.get(9));
+			}catch (Exception e) {
+				MyLogger.logger.log(Level.SEVERE, e.getMessage());
+			}
+		}else if (arr.size() >= 6) {
 			try {
 				return new AppointmentDTO(arr.get(0), Date.valueOf(arr.get(1)), Time.valueOf(arr.get(2)), arr.get(3), Integer.valueOf(arr.get(4)), arr.get(5));
 			}catch (Exception e) {

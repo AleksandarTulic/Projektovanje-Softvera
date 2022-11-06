@@ -52,5 +52,5 @@ function sortTable(n, whichTable) {
     }
   }
   
-  $('#myTableBody').pageMe({pagerSelector:'#myPager',showPrevNext:true,hidePageNumbers:false,perPage:3});
+  $("#" + table.tBodies[0].id).pageMe({pagerSelector:'#myPager',showPrevNext:true,hidePageNumbers:false,perPage:8});
 }

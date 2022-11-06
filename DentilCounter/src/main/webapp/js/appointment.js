@@ -65,26 +65,6 @@ function dentistChange(value){
 	});
 }
 
-function convertTime12To24(time) {
-    var hours   = Number(time.match(/^(\d+)/)[1]);
-    var minutes = Number(time.match(/:(\d+)/)[1]);
-    var AMPM    = time.match(/\s(.*)$/)[1];
-    if (AMPM === "PM" && hours < 12) hours = hours + 12;
-    if (AMPM === "AM" && hours === 12) hours = hours - 12;
-    var sHours   = hours.toString();
-    var sMinutes = minutes.toString();
-    if (hours < 10) sHours = "0" + sHours;
-    if (minutes < 10) sMinutes = "0" + sMinutes;
-    return (sHours + ":" + sMinutes + ":00");
-}
-
-function convertToRightFormat(value){
-	if (value < 10)
-		return "0" + value;
-		
-	return "" + value;
-}
-
 function hoursChanged(value){
 	var idDentist = document.getElementById("idDentist").value;
 	var date = document.getElementById("date").value;
@@ -201,6 +181,41 @@ function setInsertPatientValeus(responseJson){
 	document.getElementById("insertEmail").value = responseJson.email;
 	document.getElementById("insertAddress").value = responseJson.address;
 	document.getElementById("checkIfPatientInputed").checked = true;
+}
+
+function loadAppointments(){
+	patientID = document.getElementById("patientIdView").value;
+	patientName = document.getElementById("patientNameView").value;
+	patientSurname = document.getElementById("patientSurnameView").value;
+	dentistName = document.getElementById("dentistNameView").value;
+	dentistSurname = document.getElementById("dentistSurnameView").value;
+	date = document.getElementById("dateView").value;
+	
+	$.get("Data?what=getAppointments&idPatient=" + patientID + "&patientName=" + patientName + 
+	"&patientSurname=" + patientSurname + "&dentistName=" + dentistName + 
+	"&dentistSurname=" + dentistSurname + "&date=" + date, function(responseJson){
+		var table = document.getElementById("ViewAppointmentTableBody");
+		table.innerHTML = "";
+		
+		for (let i=0;i<responseJson.length;i++){
+			var row = table.insertRow(0);
+			var cell1 = row.insertCell(0);
+			var cell2 = row.insertCell(1);
+			var cell3 = row.insertCell(2);
+			var cell4 = row.insertCell(3);
+			var cell5 = row.insertCell(4);
+			cell1.innerHTML = responseJson[i].patientDTO.name + " " + responseJson[i].patientDTO.surname;
+			cell2.innerHTML = responseJson[i].dentistDTO.name + " " + responseJson[i].dentistDTO.surname;
+			cell3.innerHTML = responseJson[i].startDate;
+			var timeEnd = new Date(new Date().toDateString() + " " + responseJson[i].startTime);
+			timeEnd.setMinutes(timeEnd.getMinutes() + Number(responseJson[i].howLong));
+			cell4.innerHTML = convertTime12To24(responseJson[i].startTime) + " - " + convertToRightFormat(timeEnd.getHours()) + ":" + convertToRightFormat(timeEnd.getMinutes()) + ":" + convertToRightFormat(timeEnd.getSeconds());
+			cell5.innerHTML = "<button class=\"btn btn-danger\" onclick=\"areYouSureDeleteAppointment('" + responseJson[i].idDentist + "', '" + responseJson[i].startDate + "', '" + convertTime12To24(responseJson[i].startTime) + "', 'ViewAppointment_" + i + "')\">Delete</button>";
+			row.id = "ViewAppointment_" + i;
+		}
+		
+		$('#ViewAppointmentTableBody').pageMe({pagerSelector:'#myPager',showPrevNext:true,hidePageNumbers:false,perPage:8});
+	});
 }
 
 var current = document.getElementsByClassName("active");

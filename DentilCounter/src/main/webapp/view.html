@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Rubik:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/public/style.css" />
+    <title>Dentil</title>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="js/paginationView.js"></script>
+    <script src="js/help.js"></script>
+  </head>
+  <body>
+    <header class="header" id="header">
+      <div class="logo-name">
+        <a href="#footer">
+          <img class="logo" alt="Dentil logo" src="imgs/logo-trans.png"
+        /></a>
+        <a class="name" href="#footer">dentil</a>
+      </div>
+      <div class="main-navigation">
+        <nav class="main-nav">
+          <ul class="main-nav-list">
+            <li><a id="oNama" class="main-nav-link" href="#about-us" style="width: 140px;">O nama</a></li>
+            <li><a class="main-nav-link" href="#serveces">Usluge</a></li>
+            <li><a class="main-nav-link" href="#gallery">Galerija</a></li>
+            <li><a class="main-nav-link" href="#footer">Kontakt</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="nav-btn">
+        <button class="mobile-nav-buttin">
+          <ion-icon class="icon-mobile-nav" name="menu-outline"></ion-icon>
+        </button>
+        <button class="mobile-nav-buttin btnX">
+          <ion-icon class="close-mobile-nav" name="close-outline"></ion-icon>
+        </button>
+      </div>
+    </header>
+    <main>
+      <section class="section-hero col">
+        <div class="hero">
+          <div class="hero-text">
+            <h2 class="heading">Ukažite nam povjerenje!</h2>
+            <div class="list">
+              <div class="content">
+                <h2 class="sub">Nudimo:</h2>
+
+                <ul class="offers">
+                  <li class="offer">Pristupačne cijene</li>
+                  <li class="offer">Profesionalnu uslugu</li>
+                  <li class="offer">Posvećenost željama pacijenta</li>
+                  <li class="offer spec">
+                    <b>BESPRIJEKORAN OSMIJEH ZA CIJELI ŽIVOT</b>
+                  </li>
+                </ul>
+              </div>
+              <div class="btn-position">
+                <a class="btn" href="#order--1">Naruči se</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-img" style="padding-right: 20px;padding-left: 20px;">
+          	<table style="width: 100%;height: 100%;">
+          		<tr style="vertical-align: middle;">
+          			<td>
+          				<img class="img" src="imgs/hero-img.jpg" alt="Zubarski sto" />
+          			</td>
+          		</tr>
+          	</table>
+          </div>
+        </div>
+      </section>
+      <section class="section-about_us" , id="about-us">
+        <div class="about_us">
+          <div class="about_us-img" style="padding-right: 20px;padding-left: 20px;">
+          	<table style="width: 100%;height: 100%;">
+          		<tr style="vertical-align: middle;">
+          			<td>
+            			<img class="us-img" src="imgs/about_us.jpg" alt="Zubarski tim" />
+            		</td>
+            	</tr>
+            </table>
+          </div>
+          <div class="about_us-text" style="padding-right: 20px;padding-left: 20px;">
+            <h2 class="about_us-heading">O nama</h2>
+            <p class="us-text">
+              Zdravstvena ustanova, stomatološka ordinacija “Dentil”, smještena
+              na atraktivnoj lokaciji, predstavlja simbol kvalitetne i napredne
+              stomatologije. Stalnom edukacijom i implementacijom najnovijih
+              tehnologija postali smo jedan od vodećih pružatelja cjelovitih
+              stomatoloških usluga u gradu.
+            </p>
+            <p class="us-text">
+              Sam proces rada i razvoja ordinacije se zasniva na timskom,
+              multidisciplinarnom pristupu, neprekidnom tehnološkom i stručnom
+              usavršavanju, unapređivanju organizacije rada i komunikacije sa
+              pacijentima, te pouzdanim saradnicima van ordinacije.
+            </p>
+          </div>
+        </div>
+      </section>
+      <section class="section-serveces" id="serveces">
+        <div class="section-service-heading" style="padding-right: 20px;padding-left: 20px;">
+          <h2 class="serveces-heading">Usluge</h2>
+        </div>
+        <div class="services-container" style="padding-right: 20px;padding-left: 20px;">
+          <div class="services-list">
+            <ul class="service-list">
+              <li class="service">
+                <ion-icon
+                  class="service-icon i-size"
+                  name="send-outline"
+                ></ion-icon>
+                Parodontologija
+              </li>
+              <li class="service">
+                <ion-icon class="service-icon" name="send-outline"></ion-icon>
+                Stomatološka protetika
+              </li>
+              <li class="service">
+                <ion-icon class="service-icon" name="send-outline"></ion-icon>
+                Oralna hirurgija
+              </li>
+              <li class="service">
+                <ion-icon class="service-icon" name="send-outline"></ion-icon>
+                Dječija stomatologija
+              </li>
+              <li class="service">
+                <ion-icon class="service-icon" name="send-outline"></ion-icon>
+                Rendgenska dijagnostika
+              </li>
+              <li class="service">
+                <ion-icon class="service-icon" name="send-outline"></ion-icon>
+                Kompozitne fasete
+              </li>
+              <li class="service">
+                <ion-icon class="service-icon" name="send-outline"></ion-icon>
+                Izbjeljivanje zuba
+              </li>
+            </ul>
+          </div>
+          <div class="service-card-1">
+            <img
+              class="card-1-img"
+              src="imgs/implantati.jpg"
+              alt="Keramicki implantati"
+            />
+            <div class="content-container">
+              <p class="card-1-title">Implantati</p>
+              <ul class="card-atributs">
+                <li class="atribut">
+                  <ion-icon
+                    class="service-icon"
+                    name="caret-forward-outline"
+                  ></ion-icon>
+                  Biokompatibilni materijali
+                </li>
+                <li class="atribut">
+                  <ion-icon
+                    class="service-icon"
+                    name="caret-forward-outline"
+                  ></ion-icon>
+                  Titaniumski implant
+                </li>
+                <li class="atribut">
+                  <ion-icon
+                    class="service-icon"
+                    name="caret-forward-outline"
+                  ></ion-icon>
+                  Porculanska krunica
+                </li>
+                <li class="atribut more">Trajanje neograničeno</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="service-card-1">
+            <img
+              class="card-1-img"
+              src="imgs/ortodoncija.webp"
+              alt="Keramicki implantati"
+            />
+            <div class="content-container">
+              <p class="card-1-title">Ortodoncija</p>
+              <ul class="card-atributs">
+                <li class="atribut">
+                  <ion-icon
+                    class="service-icon"
+                    name="caret-forward-outline"
+                  ></ion-icon>
+                  Metalne&nbsp; bravice
+                </li>
+                <li class="atribut">
+                  <ion-icon
+                    class="service-icon"
+                    name="caret-forward-outline"
+                  ></ion-icon>
+                  Providne bravice
+                </li>
+                <li class="atribut">
+                  <ion-icon
+                    class="service-icon"
+                    name="caret-forward-outline"
+                  ></ion-icon>
+                  Samoligirajuće proteze
+                </li>
+                <li class="atribut more">Trajan učinak</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="section-gallery" id="gallery">
+        <h2 class="gallery">Galerija</h2>
+        <div class="gallery-rows">
+          <img
+            class="gallery-photo"
+            src="imgs/galery/benyamin-bohlouli-e7MJLM5VGjY-unsplash.jpg"
+            alt="galery photo"
+          />
+          <img
+            class="gallery-photo"
+            src="imgs/galery/caroline-lm-JiBssiZVPZA-unsplash.jpg"
+            alt="gallery photo"
+          />
+          <img
+            class="gallery-photo"
+            src="imgs/galery/Closeup of a modern dentist tools, burnishers.jpeg"
+            alt="gallery photo"
+          />
+          <img
+            class="gallery-photo"
+            src="imgs/galery/colynary-media-TB8eQjc3_WE-unsplash (1).jpg"
+            alt="gallery photo"
+          />
+          <img
+            class="gallery-photo"
+            src="imgs/galery/elena-mozhvilo-YzyvxfzddzA-unsplash.jpg"
+            alt="gallery photo"
+          />
+
+          <img
+            class="gallery-photo"
+            src="imgs/galery/jonathan-borba-hl6uG9cHW5A-unsplash.jpg"
+            alt="gallery photo"
+          />
+          <img
+            class="gallery-photo"
+            src="imgs/galery/national-cancer-institute-701-FJcjLAQ-unsplash.jpg"
+            alt="gallery photo"
+          />
+          <img
+            class="gallery-photo"
+            src="imgs/galery/Orthodontic2.jpg"
+            alt="gallery photo"
+          />
+          <img
+            class="gallery-photo"
+            src="imgs/galery/ozkan-guner-Pc8lpKJwecM-unsplashfhfhdfhhf.jpg"
+            alt="gallery photo"
+          />
+          <img
+            class="gallery-photo"
+            src="imgs/galery/unnamed.jpg"
+            alt="gallery photo"
+          />
+        </div>
+      </section>
+      <section class="order" , id="order--1">
+        <div class="order-head">
+          <h1 class="order-headding">Termini</h1>
+        </div>
+        <div class="order-main">
+          <!-- ================================================================= -->
+          <div class="calendar">
+            <div class="calendar-header">
+              <span class="month-picker" id="month-picker">Oktobar</span>
+              <div class="year-picker">
+                <!-- <span class="year-change" id="prev-year"><pre> < </pre></span> -->
+                <span id="year">2021</span>
+                <!-- <span class="year-change" id="next-year"><pre>></pre></span> -->
+              </div>
+            </div>
+            <div class="calendar-body">
+              <div class="calendar-week-days">
+                <div>Ned</div>
+                <div>Pon</div>
+                <div>Uto</div>
+                <div>Sri</div>
+                <div>Čet</div>
+                <div>Pet</div>
+                <div>Sub</div>
+              </div>
+              <div class="calendar-days">
+                <div class="day">
+                  1
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+                <div class="day">2</div>
+                <div class="day">3</div>
+                <div class="day">4</div>
+                <div class="day">5</div>
+                <div class="day">6</div>
+                <div class="day">7</div>
+                <div class="day">1</div>
+                <div class="day">2</div>
+                <div class="day">3</div>
+                <div class="day">4</div>
+                <div class="day">5</div>
+                <div class="day">6</div>
+                <div class="day">7</div>
+              </div>
+
+              <div class="month-list"></div>
+            </div>
+          </div>
+          <div class="ord">
+          	<div class="table-headding">
+          		<h2 class="t-h">Odaberite Zubara</h2>
+          	</div>
+          	<div class="table">
+              <table>
+              	<tr>
+              		<td>
+              			<form>
+              				<select name="dentistID" id="dentistID" style="padding: 5px;" onChange="updateListOfAppointments()">
+              					<option value="3333333333333">Option 1</option>
+              					<option value="3333333333333">Option 2</option>
+              					<option value="3333333333333">Option 3</option>
+              				</select>
+              			</form>
+              		</td>
+              	</tr>
+              </table>
+            </div>
+            <div class="table-headding">
+              <h2 class="t-h">Zauzeti termini</h2>
+              <p class="table-date">02.11.2022.</p>
+            </div>
+            <div class="table">
+              <table class="table">
+                <tbody class="table-body" id="myTableBody">
+                </tbody>
+              </table>
+            </div>
+            
+            <div style="text-align: center;">
+				<ul id="myPager" style="list-style-type: none;display: flex;flex-direction: row;"></ul>
+			</div>
+				
+			<script>
+				$('#myTableBody').pageMe({pagerSelector:'#myPager',showPrevNext:true,hidePageNumbers:false,perPage:4});
+			</script>
+          </div>
+        </div>
+        <div class="message">
+          <p class="order-text">Kontaktirajte nas i zakažite vaš termin</p>
+        </div>
+      </section>
+      <section class="section-contact"></section>
+      <script
+        type="module"
+        src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+      ></script>
+      <script
+        nomodule
+        src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+      ></script>
+    </main>
+    <!-- ========================================================================= -->
+    <footer class="footer" id="footer">
+      <div class="container grid">
+        <div class="logo-col">
+          <div class="logo-name">
+            <a href="#header">
+              <img class="logo" alt="Dentil logo" src="imgs/logo-trans.png"
+            /></a>
+            <a class="name" href="#header">dentil</a>
+          </div>
+          <div class="cp">
+            <p class="copyright">Copyright &copy; 2022 by Dentil, Inc.</p>
+            <p class="copyright">All rights reserved.</p>
+          </div>
+        </div>
+        <div class="address-col">
+          <h3 class="contact-heading">Kontaktirajte nas</h3>
+          <address class="contacts">
+            <p>Telefon: 051/376-814</p>
+            <p>E-mail: dentil@gmail.com</p>
+            <p>Addresa: Kralja Petra I Karađorđevića 73</p>
+          </address>
+        </div>
+        <div class="social-col">
+          <ul class="social-links">
+            <li></li>
+            <li>
+              <a class="footer-link" href="#"
+                ><ion-icon class="footer-icon" name="logo-instagram"></ion-icon>
+                Instagram
+              </a>
+            </li>
+            <li>
+              <a class="footer-link" href="#"
+                ><ion-icon class="footer-icon" name="logo-facebook"></ion-icon>
+                Facebook
+              </a>
+            </li>
+            <li>
+              <a class="footer-link" href="#"
+                ><ion-icon class="footer-icon" name="logo-twitter"></ion-icon>
+                Twitter
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+    <script src="js/public/dentil.js"></script>
+  </body>
+</html>

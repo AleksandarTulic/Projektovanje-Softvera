@@ -14,7 +14,13 @@
     <web-resource-collection>
       <web-resource-name>Form-Based Authentication</web-resource-name>
       <description></description>
-      <url-pattern>/*</url-pattern>
+      <url-pattern>/index.jsp</url-pattern>
+      <url-pattern>/error.jsp</url-pattern>
+      <url-pattern>/logout.jsp</url-pattern>
+      <url-pattern>/Appointment/*</url-pattern>
+      <url-pattern>/Data/*</url-pattern>
+      <url-pattern>/Navigation/*</url-pattern>
+      <url-pattern>/Patient/*</url-pattern>
     </web-resource-collection>
     <auth-constraint>
       <description></description>

@@ -15,6 +15,14 @@ public abstract class PersonalDTO extends UserDTO{
 		super();
 	}
 	
+	public PersonalDTO(String name, String surname) {
+		super(name, surname);
+	}
+	
+	public PersonalDTO(String id, String name, String surname) {
+		super(id, name, surname);
+	}
+	
 	public PersonalDTO(String id, String name, String surname, String address, String phone, String email, String username, String password, String role_name, String jobStart, String jobEnd) {
 		super(id, name, surname, address, phone, email, username, password, role_name);
 		

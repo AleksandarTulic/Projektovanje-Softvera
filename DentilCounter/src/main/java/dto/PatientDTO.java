@@ -6,6 +6,10 @@ public class PatientDTO extends UserDTO{
 	public PatientDTO() {
 	}
 	
+	public PatientDTO(String name, String surname) {
+		super(name, surname);
+	}
+	
 	public PatientDTO(String id, String name, String surname, String address, String phone, String email) {
 		super(id, name, surname, address, phone, email);
 	}

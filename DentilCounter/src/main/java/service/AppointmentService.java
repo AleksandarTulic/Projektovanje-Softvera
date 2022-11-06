@@ -24,6 +24,11 @@ public class AppointmentService {
 		return dao.select();
 	}
 	
+	public List<AppointmentDTO> selectWithLike(String idPatient, String patientName, String patientSurname,
+			String dentistName, String dentistSurname, String date){
+		return dao.selectWithLike(idPatient, patientName, patientSurname, dentistName, dentistSurname, date);
+	}
+	
 	public List<AppointmentDTO> selectSameDayAndDentist(Date date, String idDentist) {
 		return dao.selectSameDayAndDentist(date, idDentist);
 	}

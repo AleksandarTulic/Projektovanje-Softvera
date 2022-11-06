@@ -16,6 +16,19 @@ public abstract class UserDTO {
 	public UserDTO() {
 	}
 	
+	public UserDTO(String name, String surname) {
+		super();
+		this.name = name;
+		this.surname = surname;
+	}
+	
+	public UserDTO(String id, String name, String surname) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.surname = surname;
+	}
+	
 	public UserDTO(String id, String name, String surname, String address, String phone, String email) {
 		super();
 		this.id = id;

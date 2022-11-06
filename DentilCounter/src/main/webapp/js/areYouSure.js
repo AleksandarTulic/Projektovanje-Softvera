@@ -1,9 +1,5 @@
 function areYouSure(){
-	if (confirm("Are you sure?") == true){
-		return true;
-	}else{
-		return false;
-	}
+	return confirm("Are you sure?");
 }
 
 function areYouSureDeletePatient(idPatient, idCounter){
@@ -41,6 +37,37 @@ function areYouSureDeletePatient(idPatient, idCounter){
 					}
 					
 					$('#myTableBody').pageMe({pagerSelector:'#myPager',showPrevNext:true,hidePageNumbers:false,perPage:8});
+				}
+			}
+		});
+	}
+}
+
+function areYouSureDeleteAppointment(idDentist, startDate, startTime, viewAppointment){
+	if (areYouSure()){
+		var currDate = new Date(startDate);
+		var obj = {
+			"idDentist": idDentist,
+			"startDate": currDate.getFullYear() + "-" + convertToRightFormat(currDate.getMonth() + 1) + "-" + convertToRightFormat(currDate.getDate()),
+			"startTime": startTime,
+			"howLong": 1 //it does not matter, just to pass AppointmentFactory
+		};
+		
+		$.ajax({
+			url: "Appointment?what=deleteAppointment",
+			type: "POST",
+			data: obj,
+			success: function(res){
+				console.log(res);
+				var obj = JSON.parse(res);
+				var message = document.getElementById("messageDeleteAppointment");
+				message.innerHTML = "<div class=\"" + obj.alertType + "\"> " + obj.message + "</div>";
+				
+				if (obj.flag == "true"){
+					var row = document.getElementById(viewAppointment);
+					row.parentNode.removeChild(row);
+					
+					$('#ViewAppointmentTableBody').pageMe({pagerSelector:'#myPager',showPrevNext:true,hidePageNumbers:false,perPage:8});
 				}
 			}
 		});
