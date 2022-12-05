@@ -18,11 +18,15 @@ namespace DentilNew
         public Tooth()
         {
             InitializeComponent();
+            changeTheme();
+        }
 
+        public void changeTheme()
+        {
             var materialSkinManager = MaterialSkinManager.Instance;
             materialSkinManager.AddFormToManage(this);
-            materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
-            materialSkinManager.ColorScheme = new ColorScheme(Primary.BlueGrey800, Primary.BlueGrey900, Primary.BlueGrey500, Accent.LightBlue200, TextShade.WHITE);
+            materialSkinManager.Theme = Program.theme.DefaultTheme;
+            materialSkinManager.ColorScheme = Program.theme.DefaultColorPalette;
         }
 
         private void tb1_KeyPress(object sender, KeyPressEventArgs e)

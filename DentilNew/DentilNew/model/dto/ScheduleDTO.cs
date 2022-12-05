@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DentilNew.model.dto
 {
-    internal class ScheduleDTO : CommonNameSurname
+    public class ScheduleDTO : CommonNameSurname
     {
         private ShiftDTO shift;
         private string date;

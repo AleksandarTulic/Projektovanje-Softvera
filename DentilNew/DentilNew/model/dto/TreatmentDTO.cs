@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DentilNew.model.dto
 {
-    internal class TreatmentDTO : CommonElementTraits
+    public class TreatmentDTO : CommonElementTraits
     {
         public TreatmentDTO(int id, string name) : base(id, name)
         {

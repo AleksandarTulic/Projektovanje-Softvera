@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DentilNew.model.dto
 {
-    internal class ShiftDTO
+    public class ShiftDTO
     {
         private int id;
         private string begin;

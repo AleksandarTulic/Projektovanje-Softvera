@@ -24,7 +24,19 @@ namespace DentilNew.controller
 
         public bool delete(string id)
         {
+            Program.visitController.deleteWithIdPatient(id);
+            Program.appointmentController.deleteWithIdPatient(id);
             return dao.delete(id);
+        }
+
+        public List<PatientDTO> select()
+        {
+            return dao.select();
+        }
+
+        public PatientDTO selectWithId(string id)
+        {
+            return dao.selectWithId(id);
         }
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DentilNew.model.dto
 {
-    internal abstract class CommonElementTraits
+    public abstract class CommonElementTraits
     {
         protected int id;
         protected string name;

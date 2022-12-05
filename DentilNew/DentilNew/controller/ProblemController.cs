@@ -1,4 +1,5 @@
 ﻿using DentilNew.model.dao;
+using DentilNew.model.dto;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,9 +12,33 @@ namespace DentilNew.controller
     {
         private ProblemDAO dao = new ProblemDAO();
 
+        public List<ProblemDTO> selectWithIdVisit(int idVisit)
+        {
+            return dao.selectWithIdVisit(idVisit);
+        }
+
         public bool deleteWithIdTooth(int id)
         {
             return dao.deleteWithIdTooth(id);
+        }
+
+        public bool insert(List<ProblemDTO> arrProblem)
+        {
+            bool flag = true;
+            foreach (ProblemDTO i in arrProblem)
+                flag = flag && dao.insert(i);
+
+            return flag;
+        }
+
+        public bool deleteWithIdTypeProblem(int id)
+        {
+            return dao.deleteWithIdTypeProblem(id);
+        }
+
+        public bool deleteWithIdVisit(int idVisit)
+        {
+            return dao.deleteWithIdVisit(idVisit);
         }
     }
 }

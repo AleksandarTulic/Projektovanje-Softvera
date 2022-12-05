@@ -12,10 +12,13 @@ namespace DentilNew.model.dao
 {
     internal class VisitDAO
     {
-        private static readonly string SQL_SELECT = "select v.id, v.idPatient, v.date, v.idDentist, d.name, d.surname from visit as v inner join working as d on d.id=v.idDentist where v.idPatient=@idPatient";
-        private static readonly string SQL_INSERT = "insert into patient(id, idPatient, date, idDentist) values(@id, @idPatient, @date, @idDentist)";
+        private static readonly string SQL_SELECT = "select v.id, v.idPatient, v.date, v.idDentist, p.name, p.surname, d.name, d.surname from visit as v inner join working as d on d.id=v.idDentist inner join patient as p on v.idPatient=p.id order by v.date desc";
+        private static readonly string SQL_SELECT_LAST_ID = "select max(v.id) as 'id' from visit as v";
+        private static readonly string SQL_SELECT_WITH_IDPATIENT = "select v.id from visit as v where v.idPatient=@idPatient";
+        private static readonly string SQL_INSERT = "insert into visit(id, idPatient, date, idDentist) values(@id, @idPatient, @date, @idDentist)";
+        private static readonly string SQL_DELETE = "delete from visit as v where v.id=@id";
 
-        public static List<VisitDTO> select()
+        public List<VisitDTO> select()
         {
             List<VisitDTO> arr = new List<VisitDTO>();
             try
@@ -26,7 +29,7 @@ namespace DentilNew.model.dao
 
                     using (MySqlCommand cmd = con.CreateCommand())
                     {
-                        cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                        cmd.CommandType = System.Data.CommandType.Text;
                         cmd.CommandText = SQL_SELECT;
                         MySqlDataReader reader = cmd.ExecuteReader();
 
@@ -34,8 +37,8 @@ namespace DentilNew.model.dao
                         {
                             Object[] values = new Object[reader.FieldCount];
                             int fieldCount = reader.GetValues(values);
-
-                            arr.Add(new VisitDTO((int)values[0], (string)values[1], (string)values[2], (string)values[3], (string)values[4], (string)values[5]));
+                            DateTime dt = (DateTime)values[2];
+                            arr.Add(new VisitDTO((int)values[0], (string)values[1], dt.ToString("yyyy-MM-dd"), (string)values[3], (string)values[4], (string)values[5], (string)values[6], (string)values[7]));
                         }
                     }
                 }
@@ -48,7 +51,74 @@ namespace DentilNew.model.dao
             return arr;
         }
 
-        public static bool insert(VisitDTO dto)
+        public List<int> selectWithIdPatient(string idPatient)
+        {
+            List<int> arr = new List<int>();
+            try
+            {
+                using (MySqlConnection con = new MySqlConnection(Connection.Conn.ConString))
+                {
+                    con.Open();
+
+                    using (MySqlCommand cmd = con.CreateCommand())
+                    {
+                        cmd.CommandType = System.Data.CommandType.Text;
+                        cmd.CommandText = SQL_SELECT_WITH_IDPATIENT;
+                        cmd.Parameters.AddWithValue("@idPatient", idPatient);
+                        cmd.Parameters["@idPatient"].Direction = System.Data.ParameterDirection.Input;
+                        MySqlDataReader reader = cmd.ExecuteReader();
+
+                        while (reader.Read())
+                        {
+                            Object[] values = new Object[reader.FieldCount];
+                            int fieldCount = reader.GetValues(values);
+
+                            arr.Add((int)values[0]);
+                        }
+                    }
+                }
+            }
+            catch (MySqlException ex)
+            {
+                MyLogger.Logger.log(ex.Message);
+            }
+
+            return arr;
+        }
+
+        public int selectLastID()
+        {
+            int res = -1;
+            try
+            {
+                using (MySqlConnection con = new MySqlConnection(Connection.Conn.ConString))
+                {
+                    con.Open();
+
+                    using (MySqlCommand cmd = con.CreateCommand())
+                    {
+                        cmd.CommandType = System.Data.CommandType.Text;
+                        cmd.CommandText = SQL_SELECT_LAST_ID;
+                        MySqlDataReader reader = cmd.ExecuteReader();
+
+                        while (reader.Read())
+                        {
+                            Object[] values = new Object[reader.FieldCount];
+                            int fieldCount = reader.GetValues(values);
+                            res = (int)values[0];
+                        }
+                    }
+                }
+            }
+            catch (MySqlException ex)
+            {
+                MyLogger.Logger.log(ex.Message);
+            }
+
+            return res;
+        }
+
+        public bool insert(VisitDTO dto)
         {
             bool flag = false;
             try
@@ -59,7 +129,7 @@ namespace DentilNew.model.dao
 
                     using (MySqlCommand cmd = con.CreateCommand())
                     {
-                        cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                        cmd.CommandType = System.Data.CommandType.Text;
                         cmd.CommandText = SQL_INSERT;
                         cmd.Parameters.AddWithValue("@id", dto.Id);
                         cmd.Parameters["@id"].Direction = System.Data.ParameterDirection.Input;
@@ -69,6 +139,33 @@ namespace DentilNew.model.dao
                         cmd.Parameters["@date"].Direction = System.Data.ParameterDirection.Input;
                         cmd.Parameters.AddWithValue("@idDentist", dto.IDDentist);
                         cmd.Parameters["@idDentist"].Direction = System.Data.ParameterDirection.Input;
+                        flag = cmd.ExecuteNonQuery() >= 1;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MyLogger.Logger.log(ex.Message);
+            }
+
+            return flag;
+        }
+
+        public bool delete(int id)
+        {
+            bool flag = false;
+            try
+            {
+                using (MySqlConnection con = new MySqlConnection(Connection.Conn.ConString))
+                {
+                    con.Open();
+
+                    using (MySqlCommand cmd = con.CreateCommand())
+                    {
+                        cmd.CommandType = System.Data.CommandType.Text;
+                        cmd.CommandText = SQL_DELETE;
+                        cmd.Parameters.AddWithValue("@id", id);
+                        cmd.Parameters["@id"].Direction = System.Data.ParameterDirection.Input;
                         flag = cmd.ExecuteNonQuery() >= 1;
                     }
                 }

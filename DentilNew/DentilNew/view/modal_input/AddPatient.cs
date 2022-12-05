@@ -25,13 +25,16 @@ namespace DentilNew.view.modal_input
         {
             fillProgressBarValues();
             InitializeComponent();
-
-            var materialSkinManager = MaterialSkinManager.Instance;
-            materialSkinManager.AddFormToManage(this);
-            materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
-            materialSkinManager.ColorScheme = new ColorScheme(Primary.BlueGrey800, Primary.BlueGrey900, Primary.BlueGrey500, Accent.LightBlue200, TextShade.WHITE);
+            changeTheme();
         }
 
+        public void changeTheme()
+        {
+            var materialSkinManager = MaterialSkinManager.Instance;
+            materialSkinManager.AddFormToManage(this);
+            materialSkinManager.Theme = Program.theme.DefaultTheme;
+            materialSkinManager.ColorScheme = Program.theme.DefaultColorPalette;
+        }
         public AddPatient(PatientDTO dto, string oldId) : this()
         {
             this.oldId = oldId;
@@ -45,6 +48,29 @@ namespace DentilNew.view.modal_input
             b1.Text = "Update";
             this.Text = "Update Patient";
             this.flagUpdate = true;
+        }
+
+        public AddPatient(PatientDTO dto) : this()
+        {
+            tb1.Text = dto.Id;
+            tb2.Text = dto.Name;
+            tb3.Text = dto.Surname;
+            tb4.Text = dto.Email == null ? "" : dto.Email;
+            tb5.Text = dto.Phone == null ? "" : dto.Phone;
+            tb6.Text = dto.Address == null ? "" : dto.Address;
+
+            this.Text = "View Patient";
+            this.flagUpdate = true;
+
+            tb1.Enabled = false;
+            tb2.Enabled = false;
+            tb3.Enabled = false;
+            tb4.Enabled = false;
+            tb5.Enabled = false;
+            tb6.Enabled = false;
+
+            mpb1.Hide();
+            b1.Hide();
         }
 
         private void b1_Click(object sender, EventArgs e)

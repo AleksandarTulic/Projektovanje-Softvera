@@ -7,7 +7,7 @@ using DentilNew.model.dto.common;
 
 namespace DentilNew.model.dto
 {
-    internal class DentistDTO : CommonUserTraits
+    public class DentistDTO : CommonUserTraits
     {
         private string username;
         private string jobStart;

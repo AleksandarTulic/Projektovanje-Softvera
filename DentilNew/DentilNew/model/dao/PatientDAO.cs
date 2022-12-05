@@ -12,6 +12,7 @@ namespace DentilNew.model.dao
 {
     internal class PatientDAO
     {
+        private static readonly string SQL_SELECT_WITH_ID = "select id, name, surname, address, phone, email from patient as p where p.id=@id";
         private static readonly string SQL_SELECT = "select id, name, surname, address, phone, email from patient";
         private static readonly string SQL_INSERT = "insert into patient(id, name, surname, address, phone, email) values(@id, @name, @surname, @address, @phone, @email)";
         private static readonly string SQL_UPDATE = "update patient as p set p.id=@idNew,p.name=@name,p.surname=@surname,p.address=@address,p.phone=@phone,p.email=@email where p.id=@idOld";
@@ -34,6 +35,7 @@ namespace DentilNew.model.dao
 
                         while (reader.Read())
                         {
+                           
                             Object[] values = new Object[reader.FieldCount];
                             int fieldCount = reader.GetValues(values);
 
@@ -48,6 +50,42 @@ namespace DentilNew.model.dao
             }
 
             return arr;
+        }
+
+        public PatientDTO selectWithId(string id)
+        {
+            PatientDTO res = null;
+            try
+            {
+                using (MySqlConnection con = new MySqlConnection(Connection.Conn.ConString))
+                {
+                    con.Open();
+
+                    using (MySqlCommand cmd = con.CreateCommand())
+                    {
+                        cmd.CommandType = System.Data.CommandType.Text;
+                        cmd.CommandText = SQL_SELECT_WITH_ID;
+                        cmd.Parameters.AddWithValue("@id", id);
+                        cmd.Parameters["@id"].Direction = System.Data.ParameterDirection.Input;
+                        MySqlDataReader reader = cmd.ExecuteReader();
+
+                        while (reader.Read())
+                        {
+
+                            Object[] values = new Object[reader.FieldCount];
+                            int fieldCount = reader.GetValues(values);
+
+                            res = new PatientDTO((string)values[0], (string)values[1], (string)values[2], (string)values[3], (string)values[4], (string)values[5]);
+                        }
+                    }
+                }
+            }
+            catch (MySqlException ex)
+            {
+                MyLogger.Logger.log(ex.Message);
+            }
+
+            return res;
         }
 
         public bool insert(PatientDTO dto)

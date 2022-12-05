@@ -14,7 +14,7 @@ namespace DentilNew.controller
 
         public List<TreatmentDTO> select()
         {
-            return new List<TreatmentDTO>();
+            return dao.select();
         }
 
         public bool insert(string name)

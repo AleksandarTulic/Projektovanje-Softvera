@@ -1,5 +1,0 @@
-
-Log Entry : 4:14:25 PM Thursday, October 20, 2022
-Message: Procedure or function 'insert into treatment(name) values(@name)' cannot be found in database ''. Verify that user 'root'@'localhost' has enough privileges to execute.
-================================================================================================
-

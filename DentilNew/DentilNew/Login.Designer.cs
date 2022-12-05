@@ -29,74 +29,74 @@
         private void InitializeComponent()
         {
             this.customInstaller1 = new MySql.Data.MySqlClient.CustomInstaller();
-            this.materialTextBox1 = new MaterialSkin.Controls.MaterialTextBox();
-            this.materialTextBox2 = new MaterialSkin.Controls.MaterialTextBox();
-            this.materialButton1 = new MaterialSkin.Controls.MaterialButton();
+            this.tb1 = new MaterialSkin.Controls.MaterialTextBox();
+            this.tb2 = new MaterialSkin.Controls.MaterialTextBox();
+            this.mb1 = new MaterialSkin.Controls.MaterialButton();
             this.pb1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pb1)).BeginInit();
             this.SuspendLayout();
             // 
-            // materialTextBox1
+            // tb1
             // 
-            this.materialTextBox1.AccessibleDescription = "";
-            this.materialTextBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.materialTextBox1.AnimateReadOnly = false;
-            this.materialTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.materialTextBox1.Depth = 0;
-            this.materialTextBox1.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialTextBox1.Hint = "Username";
-            this.materialTextBox1.LeadingIcon = null;
-            this.materialTextBox1.Location = new System.Drawing.Point(48, 247);
-            this.materialTextBox1.MaxLength = 50;
-            this.materialTextBox1.MouseState = MaterialSkin.MouseState.OUT;
-            this.materialTextBox1.Multiline = false;
-            this.materialTextBox1.Name = "materialTextBox1";
-            this.materialTextBox1.Size = new System.Drawing.Size(304, 50);
-            this.materialTextBox1.TabIndex = 13;
-            this.materialTextBox1.Text = "";
-            this.materialTextBox1.TrailingIcon = null;
+            this.tb1.AccessibleDescription = "";
+            this.tb1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tb1.AnimateReadOnly = false;
+            this.tb1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tb1.Depth = 0;
+            this.tb1.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.tb1.Hint = "Username";
+            this.tb1.LeadingIcon = null;
+            this.tb1.Location = new System.Drawing.Point(48, 247);
+            this.tb1.MaxLength = 50;
+            this.tb1.MouseState = MaterialSkin.MouseState.OUT;
+            this.tb1.Multiline = false;
+            this.tb1.Name = "tb1";
+            this.tb1.Size = new System.Drawing.Size(304, 50);
+            this.tb1.TabIndex = 13;
+            this.tb1.Text = "";
+            this.tb1.TrailingIcon = null;
             // 
-            // materialTextBox2
+            // tb2
             // 
-            this.materialTextBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.materialTextBox2.AnimateReadOnly = false;
-            this.materialTextBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.materialTextBox2.Depth = 0;
-            this.materialTextBox2.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialTextBox2.Hint = "Password";
-            this.materialTextBox2.LeadingIcon = null;
-            this.materialTextBox2.Location = new System.Drawing.Point(48, 319);
-            this.materialTextBox2.MaxLength = 50;
-            this.materialTextBox2.MouseState = MaterialSkin.MouseState.OUT;
-            this.materialTextBox2.Multiline = false;
-            this.materialTextBox2.Name = "materialTextBox2";
-            this.materialTextBox2.Password = true;
-            this.materialTextBox2.Size = new System.Drawing.Size(304, 50);
-            this.materialTextBox2.TabIndex = 14;
-            this.materialTextBox2.Text = "";
-            this.materialTextBox2.TrailingIcon = null;
+            this.tb2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tb2.AnimateReadOnly = false;
+            this.tb2.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tb2.Depth = 0;
+            this.tb2.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.tb2.Hint = "Password";
+            this.tb2.LeadingIcon = null;
+            this.tb2.Location = new System.Drawing.Point(48, 319);
+            this.tb2.MaxLength = 50;
+            this.tb2.MouseState = MaterialSkin.MouseState.OUT;
+            this.tb2.Multiline = false;
+            this.tb2.Name = "tb2";
+            this.tb2.Password = true;
+            this.tb2.Size = new System.Drawing.Size(304, 50);
+            this.tb2.TabIndex = 14;
+            this.tb2.Text = "";
+            this.tb2.TrailingIcon = null;
             // 
-            // materialButton1
+            // mb1
             // 
-            this.materialButton1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.materialButton1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.materialButton1.BackColor = System.Drawing.Color.White;
-            this.materialButton1.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.materialButton1.Depth = 0;
-            this.materialButton1.HighEmphasis = true;
-            this.materialButton1.Icon = null;
-            this.materialButton1.Location = new System.Drawing.Point(166, 424);
-            this.materialButton1.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.materialButton1.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialButton1.Name = "materialButton1";
-            this.materialButton1.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.materialButton1.Size = new System.Drawing.Size(68, 36);
-            this.materialButton1.TabIndex = 15;
-            this.materialButton1.Text = "Log In";
-            this.materialButton1.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.materialButton1.UseAccentColor = false;
-            this.materialButton1.UseVisualStyleBackColor = false;
-            this.materialButton1.Click += new System.EventHandler(this.materialButton1_Click);
+            this.mb1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.mb1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.mb1.BackColor = System.Drawing.Color.White;
+            this.mb1.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.mb1.Depth = 0;
+            this.mb1.HighEmphasis = true;
+            this.mb1.Icon = null;
+            this.mb1.Location = new System.Drawing.Point(166, 424);
+            this.mb1.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.mb1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.mb1.Name = "mb1";
+            this.mb1.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.mb1.Size = new System.Drawing.Size(68, 36);
+            this.mb1.TabIndex = 15;
+            this.mb1.Text = "Log In";
+            this.mb1.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.mb1.UseAccentColor = false;
+            this.mb1.UseVisualStyleBackColor = false;
+            this.mb1.Click += new System.EventHandler(this.materialButton1_Click);
             // 
             // pb1
             // 
@@ -116,13 +116,14 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(400, 535);
-            this.Controls.Add(this.materialButton1);
-            this.Controls.Add(this.materialTextBox2);
-            this.Controls.Add(this.materialTextBox1);
+            this.Controls.Add(this.mb1);
+            this.Controls.Add(this.tb2);
+            this.Controls.Add(this.tb1);
             this.Controls.Add(this.pb1);
             this.MinimumSize = new System.Drawing.Size(400, 535);
             this.Name = "Login";
             this.Text = "Dentil";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Login_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.pb1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -131,9 +132,9 @@
 
         #endregion
         private MySql.Data.MySqlClient.CustomInstaller customInstaller1;
-        private MaterialSkin.Controls.MaterialTextBox materialTextBox1;
-        private MaterialSkin.Controls.MaterialTextBox materialTextBox2;
-        private MaterialSkin.Controls.MaterialButton materialButton1;
+        private MaterialSkin.Controls.MaterialTextBox tb1;
+        private MaterialSkin.Controls.MaterialTextBox tb2;
+        private MaterialSkin.Controls.MaterialButton mb1;
         private System.Windows.Forms.PictureBox pb1;
     }
 }

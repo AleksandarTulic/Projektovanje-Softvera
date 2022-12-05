@@ -19,19 +19,37 @@ namespace DentilNew
         public Login()
         {
             InitializeComponent();
+            changeTheme();
+        }
 
+        public void changeTheme()
+        {
             var materialSkinManager = MaterialSkinManager.Instance;
             materialSkinManager.AddFormToManage(this);
-            materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
-            materialSkinManager.ColorScheme = new ColorScheme(Primary.BlueGrey800, Primary.BlueGrey900, Primary.BlueGrey500, Accent.LightBlue200, TextShade.WHITE);
+            materialSkinManager.ColorScheme = Program.theme.DefaultColorPalette;
+            materialSkinManager.Theme = Program.theme.DefaultTheme;
         }
 
         private void materialButton1_Click(object sender, EventArgs e)
         {
-            //Treatment t = new Treatment();
-            //Tooth t = new Tooth();
-            Tooth t = new Tooth();
-            t.ShowDialog();
+            bool tmp = Program.loginController.select(tb1.Text, tb2.Text);
+
+            if (tmp)
+            {
+                this.Hide();
+                Main main = new Main(this);
+                main.Show();
+
+                tb1.Text = "";
+                tb2.Text = "";
+            }
+            else
+                MessageBox.Show("Login Failed! \nTry Again.", "Failure", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void Login_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Environment.Exit(Environment.ExitCode);
         }
     }
 }

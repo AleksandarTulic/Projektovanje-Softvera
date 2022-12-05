@@ -15,9 +15,9 @@ namespace DentilNew.model.dao
         private static readonly string SQL_SELECT = "select w.id, w.name, w.surname, w.address, w.phone, w.email, w.username, p.jobStart, p.jobEnd " +
             "from dentist as d inner join personal as p on p.id=d.id " +
             "inner join working as w on w.id=d.id " +
-            "where w.usename=@username and w.password=@password";
+            "where w.username=@username and w.password=@password and p.jobEnd is null";
 
-        public static DentistDTO select(String username, String password)
+        public DentistDTO select(String username, String password)
         {
             DentistDTO dto = null;
             try
@@ -28,7 +28,7 @@ namespace DentilNew.model.dao
 
                     using (MySqlCommand cmd = con.CreateCommand())
                     {
-                        cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                        cmd.CommandType = System.Data.CommandType.Text;
                         cmd.CommandText = SQL_SELECT;
                         cmd.Parameters.AddWithValue("@username", username);
                         cmd.Parameters["@username"].Direction = System.Data.ParameterDirection.Input;
@@ -36,13 +36,14 @@ namespace DentilNew.model.dao
                         cmd.Parameters["@password"].Direction = System.Data.ParameterDirection.Input;
                         MySqlDataReader reader = cmd.ExecuteReader();
 
+
                         while (reader.Read())
                         {
                             Object[] values = new Object[reader.FieldCount];
                             int fieldCount = reader.GetValues(values);
 
                             dto = new DentistDTO((string)values[0], (string)values[1], (string)values[2], (string)values[3],
-                                (string)values[4], (string)values[5], (string)values[6], (string)values[7], (string)values[8]);
+                                (string)values[4], (string)values[5], (string)values[6], ((DateTime)values[7]).ToString("yyyy-MM-dd"), values[8] + "" == "" ? null : ((DateTime)values[8]).ToString("yyyy-MM-dd"));
                         }
                     }
                 }
