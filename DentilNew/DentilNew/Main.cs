@@ -27,9 +27,15 @@ namespace DentilNew
 
         //Patients
         private List<PatientDTO> arrPatient = new List<PatientDTO>();
+        private static readonly int PAGE_PATIENT_NUMBER = 3;
+        private static int SELECTED_PAGE = 1;
+        private static int MAX_PAGES_NUMBER = 1;
         
         //Visits
         private List<VisitDTO> arrVisit = new List<VisitDTO>();
+        private static readonly int PAGE_VISIT_NUMBER = 3;
+        private static int SELECTED_PAGE_VISIT = 1;
+        private static int MAX_PAGES_NUMBER_VISIT = 1;
 
         //Add Visit
         private List<ProblemDTO> arrProblem = new List<ProblemDTO>();
@@ -42,6 +48,7 @@ namespace DentilNew
             InitializeComponent();
             changeTheme();
             configure();
+            loadElements_1();
         }
 
         public void changeTheme()
@@ -71,11 +78,36 @@ namespace DentilNew
 
         private void loadElements_1()
         {
-            Patients_dgv1.Rows.Clear();
+            Patients_dgv1.Items.Clear();
             Patients_dgv1.Refresh();
             this.arrPatient = Program.patientController.select();
-            foreach (PatientDTO i in arrPatient)
-                Patients_dgv1.Rows.Add(i.Id, i.Name, i.Surname);
+            MAX_PAGES_NUMBER = arrPatient.Count() / PAGE_PATIENT_NUMBER + 1;
+            int i;
+            for(i = (SELECTED_PAGE - 1)* PAGE_PATIENT_NUMBER; i < Math.Min(SELECTED_PAGE * PAGE_PATIENT_NUMBER, this.arrPatient.Count); i++)
+            {
+                string[] elements = { arrPatient[i].Id, arrPatient[i].Name, arrPatient[i].Surname};
+                var arrItems = new ListViewItem(elements);
+                Patients_dgv1.Items.Add(arrItems);
+            }
+        }
+
+
+        private void Patients_pageD_Click(object sender, EventArgs e)
+        {
+            if (SELECTED_PAGE != 1)
+            {
+                SELECTED_PAGE--;
+                loadElements_1();
+            }
+        }
+
+        private void Patients_pageU_Click(object sender, EventArgs e)
+        {
+            if (SELECTED_PAGE < MAX_PAGES_NUMBER)
+            {
+                SELECTED_PAGE++;
+                loadElements_1();
+            }
         }
 
         //ADD PATIENT
@@ -91,7 +123,7 @@ namespace DentilNew
             DialogResult dialogResult = MessageBox.Show("Are you sure?", "Delete patient", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
-                bool tmp = Program.patientController.delete(arrPatient[Patients_dgv1.CurrentCell.RowIndex].Id);
+                bool tmp = Program.patientController.delete(arrPatient[Patients_dgv1.SelectedIndices[0]].Id);
                 if (tmp)
                     loadElements_1();
             }         
@@ -109,21 +141,23 @@ namespace DentilNew
         //VIEW PATIENT
         private void Patients_b1_Click(object sender, EventArgs e)
         {
-            AddPatient addPatient = new AddPatient(arrPatient[Patients_dgv1.CurrentCell.RowIndex]);
+            AddPatient addPatient = new AddPatient(arrPatient[Patients_dgv1.SelectedIndices[0]]);
             addPatient.ShowDialog();
         }
 
         //SEARCH PATIENTS
         private void Patients_b5_Click(object sender, EventArgs e)
         {
-            Patients_dgv1.Rows.Clear();
+            Patients_dgv1.Items.Clear();
             Patients_dgv1.Refresh();
 
             for (int i = 0; i < arrPatient.Count(); i++)
             {
                 if (arrPatient[i].Id.ToLower().Contains(Patients_tb1.Text.ToLower()) || arrPatient[i].Name.ToLower().Contains(Patients_tb1.Text.ToLower()) || arrPatient[i].Surname.ToLower().Contains(Patients_tb1.Text.ToLower()))
                 {
-                    Patients_dgv1.Rows.Add(arrPatient[i].Id, arrPatient[i].Name, arrPatient[i].Surname);
+                    string[] elements = { arrPatient[i].Id, arrPatient[i].Name, arrPatient[i].Surname };
+                    var arrItems = new ListViewItem(elements);
+                    Patients_dgv1.Items.Add(arrItems);
                 }
             }
         }
@@ -138,21 +172,44 @@ namespace DentilNew
 
         private void loadElements_2()
         {
-            Visits_dgv1.Rows.Clear();
+            Visits_dgv1.Items.Clear();
             Visits_dgv1.Refresh();
             this.arrVisit = Program.visitController.select();
-            foreach (VisitDTO i in arrVisit)
+            MAX_PAGES_NUMBER_VISIT = arrVisit.Count() / PAGE_VISIT_NUMBER + 1;
+            int i;
+            for (i = (SELECTED_PAGE_VISIT - 1) * PAGE_VISIT_NUMBER; i < Math.Min(SELECTED_PAGE_VISIT * PAGE_VISIT_NUMBER, this.arrVisit.Count); i++)
             {
-                CommonNameSurname patient = i.Patient;
-                CommonNameSurname dentist = i.Dentist;
-                Visits_dgv1.Rows.Add(patient.Name + " " + patient.Surname, dentist.Name + " " + dentist.Surname, i.Date);
+                CommonNameSurname patient = arrVisit[i].Patient;
+                CommonNameSurname dentist = arrVisit[i].Dentist;
+                string patientName = patient.Name + " " + patient.Surname;
+                string dentistName = dentist.Name + " " + dentist.Surname;
+                string[] elements = { patientName, dentistName, arrVisit[i].Date };
+                var arrItems = new ListViewItem(elements);
+                Visits_dgv1.Items.Add(arrItems);
+            }
+        }
+        private void Visits_pageD_Click(object sender, EventArgs e)
+        {
+            if (SELECTED_PAGE_VISIT != 1)
+            {
+                SELECTED_PAGE_VISIT--;
+                loadElements_2();
+            }
+        }
+
+        private void Visits_pageU_Click(object sender, EventArgs e)
+        {
+            if (SELECTED_PAGE_VISIT < MAX_PAGES_NUMBER_VISIT)
+            {
+                SELECTED_PAGE_VISIT++;
+                loadElements_2();
             }
         }
 
         //SEARCH
         private void Visits_b5_Click(object sender, EventArgs e)
         {
-            Visits_dgv1.Rows.Clear();
+            Visits_dgv1.Items.Clear();
             Visits_dgv1.Refresh();
 
             for (int i = 0; i < arrVisit.Count(); i++)
@@ -162,7 +219,13 @@ namespace DentilNew
 
                 if (tmpPatient.ToLower().Contains(Visits_tb1.Text.ToLower()) || tmpDentist.ToLower().Contains(Visits_tb1.Text.ToLower()))
                 {
-                    Visits_dgv1.Rows.Add(tmpPatient, tmpDentist, arrVisit[i].Date);
+                    CommonNameSurname patient = arrVisit[i].Patient;
+                    CommonNameSurname dentist = arrVisit[i].Dentist;
+                    string patientName = patient.Name + " " + patient.Surname;
+                    string dentistName = dentist.Name + " " + dentist.Surname;
+                    string[] elements = { patientName, dentistName, arrVisit[i].Date };
+                    var arrItems = new ListViewItem(elements);
+                    Patients_dgv1.Items.Add(arrItems);
                 }
             }
         }
@@ -170,7 +233,7 @@ namespace DentilNew
         //PREVIOUS
         private void Visits_b1_Click(object sender, EventArgs e)
         {
-            Visits_dgv1.Rows.Clear();
+            Visits_dgv1.Items.Clear();
             Visits_dgv1.Refresh();
 
             for (int i = 0; i < arrVisit.Count(); i++)
@@ -181,7 +244,9 @@ namespace DentilNew
                 {
                     string tmpPatient = arrVisit[i].Patient.Name + " " + arrVisit[i].Patient.Surname;
                     string tmpDentist = arrVisit[i].Dentist.Name + " " + arrVisit[i].Dentist.Surname;
-                    Visits_dgv1.Rows.Add(tmpPatient, tmpDentist, arrVisit[i].Date);
+                    string[] elements = { tmpPatient, tmpDentist, arrVisit[i].Date };
+                    var arrItems = new ListViewItem(elements);
+                    Patients_dgv1.Items.Add(arrItems);
                 }
             }
         }
@@ -189,7 +254,7 @@ namespace DentilNew
         //TODAY
         private void Visits_b2_Click(object sender, EventArgs e)
         {
-            Visits_dgv1.Rows.Clear();
+            Visits_dgv1.Items.Clear();
             Visits_dgv1.Refresh();
 
             for (int i = 0; i < arrVisit.Count(); i++)
@@ -200,7 +265,9 @@ namespace DentilNew
                 {
                     string tmpPatient = arrVisit[i].Patient.Name + " " + arrVisit[i].Patient.Surname;
                     string tmpDentist = arrVisit[i].Dentist.Name + " " + arrVisit[i].Dentist.Surname;
-                    Visits_dgv1.Rows.Add(tmpPatient, tmpDentist, arrVisit[i].Date);
+                    string[] elements = { tmpPatient, tmpDentist, arrVisit[i].Date };
+                    var arrItems = new ListViewItem(elements);
+                    Patients_dgv1.Items.Add(arrItems);
                 }
             }
         }
@@ -208,14 +275,14 @@ namespace DentilNew
         //VIEW
         private void Visits_b3_Click(object sender, EventArgs e)
         {
-            ViewVisit vv = new ViewVisit(this.arrVisit[Visits_dgv1.CurrentCell.RowIndex]);
+            ViewVisit vv = new ViewVisit(this.arrVisit[Visits_dgv1.SelectedIndices[0]]);
             vv.ShowDialog();
         }
 
         //DELETE
         private void Visits_b4_Click(object sender, EventArgs e)
         {
-            bool tmp = Program.visitController.delete(arrVisit[Visits_dgv1.CurrentCell.RowIndex].Id);
+            bool tmp = Program.visitController.delete(arrVisit[Visits_dgv1.SelectedIndices[0]].Id);
             Program.notification.manageModalResult(this, tmp, 1);
             if (tmp)
                 loadElements_2();
@@ -438,13 +505,15 @@ namespace DentilNew
             //Personal Data
             PersonalData_ms1.Checked = Program.theme.DefaultTheme == MaterialSkinManager.Themes.LIGHT ? false : true;
 
-            Patients_dgv1.Columns[0].HeaderCell.Style.Font = new Font("Tahoma", 9.75F, FontStyle.Bold);
-            Patients_dgv1.Columns[1].HeaderCell.Style.Font = new Font("Tahoma", 9.75F, FontStyle.Bold);
-            Patients_dgv1.Columns[2].HeaderCell.Style.Font = new Font("Tahoma", 9.75F, FontStyle.Bold);
+//            Patients_dgv1.Columns[0].HeaderCell.Style.Font = new Font("Tahoma", 9.75F, FontStyle.Bold);
+//            Patients_dgv1.Columns[1].HeaderCell.Style.Font = new Font("Tahoma", 9.75F, FontStyle.Bold);
+//            Patients_dgv1.Columns[2].HeaderCell.Style.Font = new Font("Tahoma", 9.75F, FontStyle.Bold);
 
-            Visits_dgv1.Columns[0].HeaderCell.Style.Font = new Font("Tahoma", 9.75F, FontStyle.Bold);
-            Visits_dgv1.Columns[1].HeaderCell.Style.Font = new Font("Tahoma", 9.75F, FontStyle.Bold);
-            Visits_dgv1.Columns[2].HeaderCell.Style.Font = new Font("Tahoma", 9.75F, FontStyle.Bold);
+//          Visits_dgv1.Columns[0].HeaderCell.Style.Font = new Font("Tahoma", 9.75F, FontStyle.Bold);
+//          Visits_dgv1.Columns[1].HeaderCell.Style.Font = new Font("Tahoma", 9.75F, FontStyle.Bold);
+//          Visits_dgv1.Columns[2].HeaderCell.Style.Font = new Font("Tahoma", 9.75F, FontStyle.Bold);
         }
+
+        
     }
 }

@@ -32,11 +32,14 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.View = new MaterialSkin.Controls.MaterialTabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.Patients_dgv1 = new System.Windows.Forms.DataGridView();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.surname = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Patients_dgv1 = new MaterialSkin.Controls.MaterialListView();
+            this.id = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.name = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.surname = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.Patients_pageD = new MaterialSkin.Controls.MaterialButton();
+            this.Patients_pageU = new MaterialSkin.Controls.MaterialButton();
+            this.materialButton3 = new MaterialSkin.Controls.MaterialButton();
             this.Patients_b5 = new MaterialSkin.Controls.MaterialButton();
             this.Patients_tb1 = new System.Windows.Forms.TextBox();
             this.Patients_b1 = new MaterialSkin.Controls.MaterialButton();
@@ -44,17 +47,19 @@
             this.Patients_b4 = new MaterialSkin.Controls.MaterialButton();
             this.Patients_b2 = new MaterialSkin.Controls.MaterialButton();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.Visits_dgv1 = new MaterialSkin.Controls.MaterialListView();
+            this.patients = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.dentist = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.date = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panel2 = new System.Windows.Forms.Panel();
+            this.Visits_pageD = new MaterialSkin.Controls.MaterialButton();
+            this.Visits_pageU = new MaterialSkin.Controls.MaterialButton();
             this.Visits_b4 = new MaterialSkin.Controls.MaterialButton();
             this.Visits_b5 = new MaterialSkin.Controls.MaterialButton();
             this.Visits_tb1 = new System.Windows.Forms.TextBox();
             this.Visits_b3 = new MaterialSkin.Controls.MaterialButton();
             this.Visits_b1 = new MaterialSkin.Controls.MaterialButton();
             this.Visits_b2 = new MaterialSkin.Controls.MaterialButton();
-            this.Visits_dgv1 = new System.Windows.Forms.DataGridView();
-            this.PatientName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dentist = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.AddVisit_b6 = new MaterialSkin.Controls.MaterialButton();
             this.AddVisit_b4 = new System.Windows.Forms.Button();
@@ -102,11 +107,9 @@
             this.ni1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.View.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Patients_dgv1)).BeginInit();
             this.panel1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Visits_dgv1)).BeginInit();
             this.tabPage3.SuspendLayout();
             this.tabPage4.SuspendLayout();
             this.PersonalData_p4.SuspendLayout();
@@ -152,36 +155,49 @@
             // 
             // Patients_dgv1
             // 
-            this.Patients_dgv1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.Patients_dgv1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Patients_dgv1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Patients_dgv1.AutoSizeTable = false;
+            this.Patients_dgv1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.Patients_dgv1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.Patients_dgv1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.id,
             this.name,
             this.surname});
+            this.Patients_dgv1.Depth = 0;
             this.Patients_dgv1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Patients_dgv1.FullRowSelect = true;
+            this.Patients_dgv1.HideSelection = false;
             this.Patients_dgv1.Location = new System.Drawing.Point(3, 3);
+            this.Patients_dgv1.MinimumSize = new System.Drawing.Size(200, 100);
+            this.Patients_dgv1.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.Patients_dgv1.MouseState = MaterialSkin.MouseState.OUT;
             this.Patients_dgv1.MultiSelect = false;
             this.Patients_dgv1.Name = "Patients_dgv1";
+            this.Patients_dgv1.OwnerDraw = true;
             this.Patients_dgv1.Size = new System.Drawing.Size(879, 391);
             this.Patients_dgv1.TabIndex = 4;
+            this.Patients_dgv1.UseCompatibleStateImageBehavior = false;
+            this.Patients_dgv1.View = System.Windows.Forms.View.Details;
             // 
             // id
             // 
-            this.id.HeaderText = "ID";
-            this.id.Name = "id";
+            this.id.Text = "ID";
+            this.id.Width = 293;
             // 
             // name
             // 
-            this.name.HeaderText = "Name";
-            this.name.Name = "name";
+            this.name.Text = "Name";
+            this.name.Width = 293;
             // 
             // surname
             // 
-            this.surname.HeaderText = "Surname";
-            this.surname.Name = "surname";
+            this.surname.Text = "Surname";
+            this.surname.Width = 293;
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.Patients_pageD);
+            this.panel1.Controls.Add(this.Patients_pageU);
+            this.panel1.Controls.Add(this.materialButton3);
             this.panel1.Controls.Add(this.Patients_b5);
             this.panel1.Controls.Add(this.Patients_tb1);
             this.panel1.Controls.Add(this.Patients_b1);
@@ -193,6 +209,71 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(879, 44);
             this.panel1.TabIndex = 3;
+            // 
+            // Patients_pageD
+            // 
+            this.Patients_pageD.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.Patients_pageD.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.Patients_pageD.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.Patients_pageD.Depth = 0;
+            this.Patients_pageD.HighEmphasis = true;
+            this.Patients_pageD.Icon = null;
+            this.Patients_pageD.Location = new System.Drawing.Point(430, 6);
+            this.Patients_pageD.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.Patients_pageD.MouseState = MaterialSkin.MouseState.HOVER;
+            this.Patients_pageD.Name = "Patients_pageD";
+            this.Patients_pageD.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.Patients_pageD.Size = new System.Drawing.Size(64, 36);
+            this.Patients_pageD.TabIndex = 7;
+            this.Patients_pageD.Text = "<";
+            this.Patients_pageD.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.Patients_pageD.UseAccentColor = false;
+            this.Patients_pageD.UseVisualStyleBackColor = true;
+            this.Patients_pageD.Click += new System.EventHandler(this.Patients_pageD_Click);
+            // 
+            // Patients_pageU
+            // 
+            this.Patients_pageU.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.Patients_pageU.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.Patients_pageU.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.Patients_pageU.Depth = 0;
+            this.Patients_pageU.HighEmphasis = true;
+            this.Patients_pageU.Icon = null;
+            this.Patients_pageU.Location = new System.Drawing.Point(502, 6);
+            this.Patients_pageU.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.Patients_pageU.MouseState = MaterialSkin.MouseState.HOVER;
+            this.Patients_pageU.Name = "Patients_pageU";
+            this.Patients_pageU.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.Patients_pageU.Size = new System.Drawing.Size(64, 36);
+            this.Patients_pageU.TabIndex = 6;
+            this.Patients_pageU.Text = ">";
+            this.Patients_pageU.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.Patients_pageU.UseAccentColor = false;
+            this.Patients_pageU.UseVisualStyleBackColor = true;
+            this.Patients_pageU.Click += new System.EventHandler(this.Patients_pageU_Click);
+            // 
+            // materialButton3
+            // 
+            this.materialButton3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.materialButton3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.materialButton3.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.materialButton3.Depth = 0;
+            this.materialButton3.HighEmphasis = true;
+            this.materialButton3.Icon = null;
+            this.materialButton3.Location = new System.Drawing.Point(157, 6);
+            this.materialButton3.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.materialButton3.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialButton3.Name = "materialButton3";
+            this.materialButton3.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.materialButton3.Size = new System.Drawing.Size(90, 36);
+            this.materialButton3.TabIndex = 8;
+            this.materialButton3.Text = "Add Visit";
+            this.materialButton3.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.materialButton3.UseAccentColor = false;
+            this.materialButton3.UseVisualStyleBackColor = true;
             // 
             // Patients_b5
             // 
@@ -219,9 +300,9 @@
             // 
             this.Patients_tb1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.Patients_tb1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Patients_tb1.Location = new System.Drawing.Point(504, 9);
+            this.Patients_tb1.Location = new System.Drawing.Point(601, 9);
             this.Patients_tb1.Name = "Patients_tb1";
-            this.Patients_tb1.Size = new System.Drawing.Size(287, 27);
+            this.Patients_tb1.Size = new System.Drawing.Size(190, 27);
             this.Patients_tb1.TabIndex = 4;
             // 
             // Patients_b1
@@ -256,7 +337,7 @@
             this.Patients_b3.Depth = 0;
             this.Patients_b3.HighEmphasis = true;
             this.Patients_b3.Icon = null;
-            this.Patients_b3.Location = new System.Drawing.Point(157, 6);
+            this.Patients_b3.Location = new System.Drawing.Point(340, 6);
             this.Patients_b3.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.Patients_b3.MouseState = MaterialSkin.MouseState.HOVER;
             this.Patients_b3.Name = "Patients_b3";
@@ -278,7 +359,7 @@
             this.Patients_b4.Depth = 0;
             this.Patients_b4.HighEmphasis = true;
             this.Patients_b4.Icon = null;
-            this.Patients_b4.Location = new System.Drawing.Point(238, 6);
+            this.Patients_b4.Location = new System.Drawing.Point(255, 6);
             this.Patients_b4.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.Patients_b4.MouseState = MaterialSkin.MouseState.HOVER;
             this.Patients_b4.Name = "Patients_b4";
@@ -315,8 +396,8 @@
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.panel2);
             this.tabPage2.Controls.Add(this.Visits_dgv1);
+            this.tabPage2.Controls.Add(this.panel2);
             this.tabPage2.ForeColor = System.Drawing.SystemColors.ControlText;
             this.tabPage2.ImageKey = "menu_12.png";
             this.tabPage2.Location = new System.Drawing.Point(4, 42);
@@ -327,8 +408,50 @@
             this.tabPage2.Text = "Visits";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // Visits_dgv1
+            // 
+            this.Visits_dgv1.AutoSizeTable = false;
+            this.Visits_dgv1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.Visits_dgv1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.Visits_dgv1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.patients,
+            this.dentist,
+            this.date});
+            this.Visits_dgv1.Depth = 0;
+            this.Visits_dgv1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Visits_dgv1.FullRowSelect = true;
+            this.Visits_dgv1.HideSelection = false;
+            this.Visits_dgv1.Location = new System.Drawing.Point(3, 3);
+            this.Visits_dgv1.MinimumSize = new System.Drawing.Size(200, 100);
+            this.Visits_dgv1.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.Visits_dgv1.MouseState = MaterialSkin.MouseState.OUT;
+            this.Visits_dgv1.MultiSelect = false;
+            this.Visits_dgv1.Name = "Visits_dgv1";
+            this.Visits_dgv1.OwnerDraw = true;
+            this.Visits_dgv1.Size = new System.Drawing.Size(879, 391);
+            this.Visits_dgv1.TabIndex = 5;
+            this.Visits_dgv1.UseCompatibleStateImageBehavior = false;
+            this.Visits_dgv1.View = System.Windows.Forms.View.Details;
+            // 
+            // patients
+            // 
+            this.patients.Text = "Patients";
+            this.patients.Width = 293;
+            // 
+            // dentist
+            // 
+            this.dentist.Text = "Dentist";
+            this.dentist.Width = 293;
+            // 
+            // date
+            // 
+            this.date.Text = "Date";
+            this.date.Width = 293;
+            // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.Visits_pageD);
+            this.panel2.Controls.Add(this.Visits_pageU);
             this.panel2.Controls.Add(this.Visits_b4);
             this.panel2.Controls.Add(this.Visits_b5);
             this.panel2.Controls.Add(this.Visits_tb1);
@@ -340,6 +463,50 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(879, 44);
             this.panel2.TabIndex = 1;
+            // 
+            // Visits_pageD
+            // 
+            this.Visits_pageD.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.Visits_pageD.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.Visits_pageD.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.Visits_pageD.Depth = 0;
+            this.Visits_pageD.HighEmphasis = true;
+            this.Visits_pageD.Icon = null;
+            this.Visits_pageD.Location = new System.Drawing.Point(404, 5);
+            this.Visits_pageD.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.Visits_pageD.MouseState = MaterialSkin.MouseState.HOVER;
+            this.Visits_pageD.Name = "Visits_pageD";
+            this.Visits_pageD.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.Visits_pageD.Size = new System.Drawing.Size(64, 36);
+            this.Visits_pageD.TabIndex = 12;
+            this.Visits_pageD.Text = "<";
+            this.Visits_pageD.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.Visits_pageD.UseAccentColor = false;
+            this.Visits_pageD.UseVisualStyleBackColor = true;
+            this.Visits_pageD.Click += new System.EventHandler(this.Visits_pageD_Click);
+            // 
+            // Visits_pageU
+            // 
+            this.Visits_pageU.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.Visits_pageU.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.Visits_pageU.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.Visits_pageU.Depth = 0;
+            this.Visits_pageU.HighEmphasis = true;
+            this.Visits_pageU.Icon = null;
+            this.Visits_pageU.Location = new System.Drawing.Point(476, 5);
+            this.Visits_pageU.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.Visits_pageU.MouseState = MaterialSkin.MouseState.HOVER;
+            this.Visits_pageU.Name = "Visits_pageU";
+            this.Visits_pageU.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.Visits_pageU.Size = new System.Drawing.Size(64, 36);
+            this.Visits_pageU.TabIndex = 11;
+            this.Visits_pageU.Text = ">";
+            this.Visits_pageU.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.Visits_pageU.UseAccentColor = false;
+            this.Visits_pageU.UseVisualStyleBackColor = true;
+            this.Visits_pageU.Click += new System.EventHandler(this.Visits_pageU_Click);
             // 
             // Visits_b4
             // 
@@ -388,9 +555,9 @@
             // 
             this.Visits_tb1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.Visits_tb1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Visits_tb1.Location = new System.Drawing.Point(503, 9);
+            this.Visits_tb1.Location = new System.Drawing.Point(622, 9);
             this.Visits_tb1.Name = "Visits_tb1";
-            this.Visits_tb1.Size = new System.Drawing.Size(287, 27);
+            this.Visits_tb1.Size = new System.Drawing.Size(168, 27);
             this.Visits_tb1.TabIndex = 8;
             this.Visits_tb1.MouseEnter += new System.EventHandler(this.Visits_tb1_MouseEnter);
             // 
@@ -459,36 +626,6 @@
             this.Visits_b2.UseAccentColor = false;
             this.Visits_b2.UseVisualStyleBackColor = true;
             this.Visits_b2.Click += new System.EventHandler(this.Visits_b2_Click);
-            // 
-            // Visits_dgv1
-            // 
-            this.Visits_dgv1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.Visits_dgv1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Visits_dgv1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.PatientName,
-            this.dentist,
-            this.Date});
-            this.Visits_dgv1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Visits_dgv1.Location = new System.Drawing.Point(3, 3);
-            this.Visits_dgv1.MultiSelect = false;
-            this.Visits_dgv1.Name = "Visits_dgv1";
-            this.Visits_dgv1.Size = new System.Drawing.Size(879, 435);
-            this.Visits_dgv1.TabIndex = 0;
-            // 
-            // PatientName
-            // 
-            this.PatientName.HeaderText = "Patient";
-            this.PatientName.Name = "PatientName";
-            // 
-            // dentist
-            // 
-            this.dentist.HeaderText = "Dentist";
-            this.dentist.Name = "dentist";
-            // 
-            // Date
-            // 
-            this.Date.HeaderText = "Date";
-            this.Date.Name = "Date";
             // 
             // tabPage3
             // 
@@ -1194,13 +1331,11 @@
             this.Resize += new System.EventHandler(this.Main_Resize);
             this.View.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.Patients_dgv1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Visits_dgv1)).EndInit();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
             this.tabPage4.ResumeLayout(false);
@@ -1230,14 +1365,9 @@
         private MaterialSkin.Controls.MaterialButton Patients_b2;
         private MaterialSkin.Controls.MaterialButton Patients_b4;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.DataGridView Patients_dgv1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn name;
-        private System.Windows.Forms.DataGridViewTextBoxColumn surname;
         private MaterialSkin.Controls.MaterialButton Patients_b1;
         private MaterialSkin.Controls.MaterialButton Patients_b5;
         private System.Windows.Forms.TextBox Patients_tb1;
-        private System.Windows.Forms.DataGridView Visits_dgv1;
         private System.Windows.Forms.Panel panel2;
         private MaterialSkin.Controls.MaterialButton Visits_b1;
         private MaterialSkin.Controls.MaterialButton Visits_b2;
@@ -1245,9 +1375,6 @@
         private MaterialSkin.Controls.MaterialButton Visits_b5;
         private System.Windows.Forms.TextBox Visits_tb1;
         private MaterialSkin.Controls.MaterialButton Visits_b4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PatientName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dentist;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Date;
         private MaterialSkin.Controls.MaterialTextBox PersonalData_tb1;
         private MaterialSkin.Controls.MaterialLabel PersonalData_ml1;
         private System.Windows.Forms.Panel PersonalData_p1;
@@ -1288,5 +1415,18 @@
         private System.Windows.Forms.Button AddVisit_b4;
         private System.Windows.Forms.Button AddVisit_b5;
         private MaterialSkin.Controls.MaterialButton AddVisit_b6;
+        private MaterialSkin.Controls.MaterialButton Patients_pageD;
+        private MaterialSkin.Controls.MaterialButton Patients_pageU;
+        private MaterialSkin.Controls.MaterialButton materialButton3;
+        private MaterialSkin.Controls.MaterialListView Patients_dgv1;
+        private System.Windows.Forms.ColumnHeader id;
+        private System.Windows.Forms.ColumnHeader name;
+        private System.Windows.Forms.ColumnHeader surname;
+        private MaterialSkin.Controls.MaterialListView Visits_dgv1;
+        private System.Windows.Forms.ColumnHeader patients;
+        private System.Windows.Forms.ColumnHeader dentist;
+        private System.Windows.Forms.ColumnHeader date;
+        private MaterialSkin.Controls.MaterialButton Visits_pageD;
+        private MaterialSkin.Controls.MaterialButton Visits_pageU;
     }
 }
