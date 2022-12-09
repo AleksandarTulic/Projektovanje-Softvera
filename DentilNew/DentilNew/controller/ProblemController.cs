@@ -25,8 +25,19 @@ namespace DentilNew.controller
         public bool insert(List<ProblemDTO> arrProblem)
         {
             bool flag = true;
-            foreach (ProblemDTO i in arrProblem)
-                flag = flag && dao.insert(i);
+            Task<bool> []arrTask = new Task<bool>[arrProblem.Count];
+            for (int i = 0; i < arrProblem.Count; i++)
+            {
+                Object arg = i;
+                arrTask[i] = Task<bool>.Factory.StartNew((Object obj) => {
+                    bool flagRes = dao.insert(arrProblem[(int)obj]);
+                    return flagRes;
+                }, arg);
+            }
+
+            Task.WaitAll(arrTask);
+            foreach (Task<bool> i in arrTask)
+                flag = flag && i.Result;
 
             return flag;
         }

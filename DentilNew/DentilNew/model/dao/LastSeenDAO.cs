@@ -92,18 +92,12 @@ namespace DentilNew.model.dao
                         {
                             Object[] values = new Object[reader.FieldCount];
                             int fieldCount = reader.GetValues(values);
-
-                            for (int i = 0; i < fieldCount; i++)
-                            {
-                                Console.WriteLine("Ispis: " + values[i]);
-                            }
-
                             arr.Add(new LastSeenDTO((int)values[0], ((DateTime)values[1]).ToString("yyyy-MM-dd"), (string)(values[2] + ""), (string)values[3], (string)values[4], (string)values[5]));
                         }
                     }
                 }
             }
-            catch (MySqlException ex)
+            catch (Exception ex)
             {
                 MyLogger.Logger.log(ex.Message);
             }

@@ -12,7 +12,6 @@ namespace DentilNew.model.dao
 {
     internal class ProblemDAO
     {
-        //need design for further implementation
         private static readonly string SQL_SELECT_WITH_IDVISIT = "select tp.id, tp.name, p.idTooth from problem as p inner join typeproblem as tp on p.idTypeProblem=tp.id where p.idVisit=@idVisit";
         private static readonly string SQL_INSERT = "insert into problem(idTypeProblem, idTooth, idVisit) values(@idTypeProblem, @idTooth, @idVisit)";
         private static readonly string SQL_DELETE_WITH_IDTOOTH = "delete from problem as p where p.idTooth=@idTooth";
@@ -46,7 +45,7 @@ namespace DentilNew.model.dao
                     }
                 }
             }
-            catch (MySqlException ex)
+            catch (Exception ex)
             {
                 MyLogger.Logger.log(ex.Message);
             }

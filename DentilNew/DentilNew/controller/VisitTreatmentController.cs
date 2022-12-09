@@ -21,8 +21,24 @@ namespace DentilNew.controller
         {
             bool flag = true;
 
+            Task<bool>[] arrTask = new Task<bool>[arrVisitTreatment.Count];
+            for (int i = 0; i < arrVisitTreatment.Count; i++)
+            {
+                Object arg = arrVisitTreatment[i];
+                arrTask[i] = Task<bool>.Factory.StartNew((Object obj) => {
+                    bool flagRes = dao.insert((VisitTreatmentDTO)obj);
+                    return flagRes;
+                }, arg);
+            }
+
+            Task.WaitAll(arrTask);
+            foreach (Task<bool> i in arrTask)
+                flag = flag && i.Result;
+
+            /*
             foreach (VisitTreatmentDTO i in arrVisitTreatment)
                 flag = flag && dao.insert(i);
+            */
 
             return flag;
         }

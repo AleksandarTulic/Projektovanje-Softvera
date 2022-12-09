@@ -75,5 +75,13 @@ namespace DentilNew.model.theme
         {
             get { return defaultColorScheme; }
         }
+
+        public bool setValue(string value)
+        {
+            if (colorPalette[value] == DefaultColorPalette)
+                return true;
+
+            return false;
+        }
     }
 }

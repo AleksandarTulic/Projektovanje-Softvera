@@ -1,6 +1,6 @@
 ﻿namespace DentilNew.view.modal_input
 {
-    partial class AddPatient
+    partial class SinglePatient
     {
         /// <summary>
         /// Required designer variable.

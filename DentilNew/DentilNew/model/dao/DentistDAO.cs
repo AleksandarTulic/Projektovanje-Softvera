@@ -48,7 +48,7 @@ namespace DentilNew.model.dao
                     }
                 }
             }
-            catch (MySqlException ex)
+            catch (Exception ex)
             {
                 MyLogger.Logger.log(ex.Message);
             }

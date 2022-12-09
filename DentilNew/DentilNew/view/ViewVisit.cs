@@ -69,7 +69,7 @@ namespace DentilNew.view
         private void b1_Click(object sender, EventArgs e)
         {
             Console.WriteLine(Program.patientController.selectWithId(dto.IdPatient));
-            AddPatient ap = new AddPatient(Program.patientController.selectWithId(dto.IdPatient));
+            SinglePatient ap = new SinglePatient(Program.patientController.selectWithId(dto.IdPatient));
             ap.ShowDialog();
         }
 

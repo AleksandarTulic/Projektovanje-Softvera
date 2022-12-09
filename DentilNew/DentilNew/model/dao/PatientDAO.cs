@@ -13,7 +13,7 @@ namespace DentilNew.model.dao
     internal class PatientDAO
     {
         private static readonly string SQL_SELECT_WITH_ID = "select id, name, surname, address, phone, email from patient as p where p.id=@id";
-        private static readonly string SQL_SELECT = "select id, name, surname, address, phone, email from patient";
+        private static readonly string SQL_SELECT = "select id, name, surname, email, phone, address from patient";
         private static readonly string SQL_INSERT = "insert into patient(id, name, surname, address, phone, email) values(@id, @name, @surname, @address, @phone, @email)";
         private static readonly string SQL_UPDATE = "update patient as p set p.id=@idNew,p.name=@name,p.surname=@surname,p.address=@address,p.phone=@phone,p.email=@email where p.id=@idOld";
         private static readonly string SQL_DELETE = "delete from patient as p where p.id=@id";
@@ -44,7 +44,7 @@ namespace DentilNew.model.dao
                     }
                 }
             }
-            catch (MySqlException ex)
+            catch (Exception ex)
             {
                 MyLogger.Logger.log(ex.Message);
             }
@@ -80,7 +80,7 @@ namespace DentilNew.model.dao
                     }
                 }
             }
-            catch (MySqlException ex)
+            catch (Exception ex)
             {
                 MyLogger.Logger.log(ex.Message);
             }
@@ -152,7 +152,6 @@ namespace DentilNew.model.dao
                         cmd.Parameters["@email"].Direction = System.Data.ParameterDirection.Input;
                         cmd.Parameters.AddWithValue("@idOld", oldId);
                         cmd.Parameters["@idOld"].Direction = System.Data.ParameterDirection.Input;
-                        Console.WriteLine(cmd);
                         flag = cmd.ExecuteNonQuery() >= 1;
                     }
                 }

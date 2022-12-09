@@ -113,7 +113,6 @@ E:\DentilNew\DentilNew\obj\Debug\DentilNew.csproj.SuggestedBindingRedirects.cach
 E:\DentilNew\DentilNew\obj\Debug\DentilNew.Login.resources
 E:\DentilNew\DentilNew\obj\Debug\DentilNew.Main.resources
 E:\DentilNew\DentilNew\obj\Debug\DentilNew.Properties.Resources.resources
-E:\DentilNew\DentilNew\obj\Debug\DentilNew.view.modal_input.AddPatient.resources
 E:\DentilNew\DentilNew\obj\Debug\DentilNew.Tooth.resources
 E:\DentilNew\DentilNew\obj\Debug\DentilNew.Treatment.resources
 E:\DentilNew\DentilNew\obj\Debug\DentilNew.TypeProblem.resources
@@ -127,3 +126,4 @@ E:\DentilNew\DentilNew\obj\Debug\DentilNew.view.modal_select.SelectTreatment.res
 E:\DentilNew\DentilNew\obj\Debug\DentilNew.view.ViewVisit.resources
 E:\DentilNew\DentilNew\obj\Debug\DentilNew.view.ViewDescription.resources
 E:\DentilNew\DentilNew\obj\Debug\DentilNew.view.ViewLastSeen.resources
+E:\DentilNew\DentilNew\obj\Debug\DentilNew.view.modal_input.SinglePatient.resources

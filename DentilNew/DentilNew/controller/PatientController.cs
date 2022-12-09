@@ -24,8 +24,22 @@ namespace DentilNew.controller
 
         public bool delete(string id)
         {
-            Program.visitController.deleteWithIdPatient(id);
-            Program.appointmentController.deleteWithIdPatient(id);
+            Task task1 = new Task( () =>
+            {
+                Program.visitController.deleteWithIdPatient(id);
+            });
+
+            Task task2 = new Task(() =>
+            {
+                Program.appointmentController.deleteWithIdPatient(id);
+            });
+
+            task1.Start();
+            task2.Start();
+
+            task1.Wait();
+            task2.Wait();
+
             return dao.delete(id);
         }
 

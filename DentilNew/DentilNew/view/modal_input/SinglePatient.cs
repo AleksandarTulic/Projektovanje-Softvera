@@ -13,7 +13,7 @@ using System.Windows.Forms;
 
 namespace DentilNew.view.modal_input
 {
-    public partial class AddPatient : MaterialForm
+    public partial class SinglePatient : MaterialForm
     {
         private int howMuchChanged = 0;
         private Dictionary<int, int> mapProgressBarValue = new Dictionary<int, int>();
@@ -21,7 +21,7 @@ namespace DentilNew.view.modal_input
         private bool flagUpdate = false;
         private string oldId = "";
 
-        public AddPatient()
+        public SinglePatient()
         {
             fillProgressBarValues();
             InitializeComponent();
@@ -35,7 +35,7 @@ namespace DentilNew.view.modal_input
             materialSkinManager.Theme = Program.theme.DefaultTheme;
             materialSkinManager.ColorScheme = Program.theme.DefaultColorPalette;
         }
-        public AddPatient(PatientDTO dto, string oldId) : this()
+        public SinglePatient(PatientDTO dto, string oldId) : this()
         {
             this.oldId = oldId;
             tb1.Text = dto.Id;
@@ -50,7 +50,7 @@ namespace DentilNew.view.modal_input
             this.flagUpdate = true;
         }
 
-        public AddPatient(PatientDTO dto) : this()
+        public SinglePatient(PatientDTO dto) : this()
         {
             tb1.Text = dto.Id;
             tb2.Text = dto.Name;
@@ -85,7 +85,11 @@ namespace DentilNew.view.modal_input
                     else
                         Program.notification.manageModalResult(this, Program.patientController.insert(dto), 1);
                 }
+                else
+                    Program.notification.manageModalResult(this, false, 1);
             }
+            else
+                Program.notification.manageModalResult(this, false, 1);
         }
 
         private void tb5_KeyPress(object sender, KeyPressEventArgs e)

@@ -13,7 +13,7 @@ namespace DentilNew.model.notification
         public void manageModalResult(MaterialForm form, bool flag, int idMessage)
         {
             if (!flag)
-                MessageBox.Show("Operation not possible. \nCheck the possible parameter values in help.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Operation not possible..", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             else
                 MessageBox.Show("Operation successfull.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }

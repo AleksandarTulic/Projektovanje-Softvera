@@ -19,10 +19,10 @@ namespace DentilNew.controller
 
         public bool insert(VisitDTO dto, List<VisitTreatmentDTO> arrVisitTreatment, List<ProblemDTO> arrProblem)
         {
-            dto.Id = dao.selectLastID() + 1;
-            bool flag = dao.insert(dto);
+            dto.Id = dao.insert(dto);
+            bool flag = false;
 
-            if (flag)
+            if (dto.Id >= 0)
             {
                 foreach (VisitTreatmentDTO i in arrVisitTreatment)
                     i.IdVisit = dto.Id;
@@ -30,8 +30,16 @@ namespace DentilNew.controller
                 foreach (ProblemDTO i in arrProblem)
                     i.IdVisit = dto.Id;
 
-                flag = flag && Program.problemController.insert(arrProblem);
-                flag = flag && Program.visitTreatmentController.insert(arrVisitTreatment);
+                Task<bool> task1 = Task<bool>.Factory.StartNew(() => { return Program.problemController.insert(arrProblem); });
+                Task<bool> task2 = Task<bool>.Factory.StartNew(() => { return Program.visitTreatmentController.insert(arrVisitTreatment); });
+
+                task1.Wait();
+                task2.Wait();
+
+                flag = true;
+                flag = flag && task1.Result;
+                flag = flag && task2.Result;
+
                 Program.lastSeenController.insert(new LastSeenDTO(dto.Id, Program.dto.Id));
             }
 
@@ -40,9 +48,18 @@ namespace DentilNew.controller
 
         public bool delete(int id)
         {
-            Program.lastSeenController.delete(id);
-            Program.visitTreatmentController.delete(id);
-            Program.problemController.deleteWithIdVisit(id);
+            Task task1 = new Task(() => { Program.lastSeenController.delete(id); });
+            Task task2 = new Task(() => { Program.visitTreatmentController.delete(id); });
+            Task task3 = new Task(() => { Program.problemController.deleteWithIdVisit(id); });
+
+            task1.Start();
+            task2.Start();
+            task3.Start();
+
+            task1.Wait();
+            task2.Wait();
+            task3.Wait();
+
             return dao.delete(id);
         }
 
@@ -51,8 +68,20 @@ namespace DentilNew.controller
             List<int> arrIdVisit = dao.selectWithIdPatient(idPatient);
             bool flag = true;
 
-            foreach (int i in arrIdVisit)
-                flag = flag && delete(i);
+            Task<bool>[] arrTask = new Task<bool>[arrIdVisit.Count];
+
+            for (int i = 0; i < arrIdVisit.Count; i++)
+            {
+                Object arg = i;
+                arrTask[i] = Task<bool>.Factory.StartNew((Object obj) => {
+                    bool flagRes = delete(arrIdVisit[(int)obj]);
+                    return flagRes;
+                }, arg);
+            }
+
+            Task.WaitAll(arrTask);
+            foreach (Task<bool> i in arrTask)
+                flag = flag && i.Result;
 
             return flag;
         }

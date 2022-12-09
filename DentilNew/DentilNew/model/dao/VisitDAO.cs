@@ -13,9 +13,8 @@ namespace DentilNew.model.dao
     internal class VisitDAO
     {
         private static readonly string SQL_SELECT = "select v.id, v.idPatient, v.date, v.idDentist, p.name, p.surname, d.name, d.surname from visit as v inner join working as d on d.id=v.idDentist inner join patient as p on v.idPatient=p.id order by v.date desc";
-        private static readonly string SQL_SELECT_LAST_ID = "select max(v.id) as 'id' from visit as v";
         private static readonly string SQL_SELECT_WITH_IDPATIENT = "select v.id from visit as v where v.idPatient=@idPatient";
-        private static readonly string SQL_INSERT = "insert into visit(id, idPatient, date, idDentist) values(@id, @idPatient, @date, @idDentist)";
+        private static readonly string SQL_INSERT = "insert into visit(idPatient, date, idDentist) values(@idPatient, @date, @idDentist);select last_insert_id()";
         private static readonly string SQL_DELETE = "delete from visit as v where v.id=@id";
 
         public List<VisitDTO> select()
@@ -43,7 +42,7 @@ namespace DentilNew.model.dao
                     }
                 }
             }
-            catch (MySqlException ex)
+            catch (Exception ex)
             {
                 MyLogger.Logger.log(ex.Message);
             }
@@ -78,7 +77,7 @@ namespace DentilNew.model.dao
                     }
                 }
             }
-            catch (MySqlException ex)
+            catch (Exception ex)
             {
                 MyLogger.Logger.log(ex.Message);
             }
@@ -86,7 +85,7 @@ namespace DentilNew.model.dao
             return arr;
         }
 
-        public int selectLastID()
+        public int insert(VisitDTO dto)
         {
             int res = -1;
             try
@@ -98,48 +97,14 @@ namespace DentilNew.model.dao
                     using (MySqlCommand cmd = con.CreateCommand())
                     {
                         cmd.CommandType = System.Data.CommandType.Text;
-                        cmd.CommandText = SQL_SELECT_LAST_ID;
-                        MySqlDataReader reader = cmd.ExecuteReader();
-
-                        while (reader.Read())
-                        {
-                            Object[] values = new Object[reader.FieldCount];
-                            int fieldCount = reader.GetValues(values);
-                            res = (int)values[0];
-                        }
-                    }
-                }
-            }
-            catch (MySqlException ex)
-            {
-                MyLogger.Logger.log(ex.Message);
-            }
-
-            return res;
-        }
-
-        public bool insert(VisitDTO dto)
-        {
-            bool flag = false;
-            try
-            {
-                using (MySqlConnection con = new MySqlConnection(Connection.Conn.ConString))
-                {
-                    con.Open();
-
-                    using (MySqlCommand cmd = con.CreateCommand())
-                    {
-                        cmd.CommandType = System.Data.CommandType.Text;
                         cmd.CommandText = SQL_INSERT;
-                        cmd.Parameters.AddWithValue("@id", dto.Id);
-                        cmd.Parameters["@id"].Direction = System.Data.ParameterDirection.Input;
                         cmd.Parameters.AddWithValue("@idPatient", dto.IdPatient);
                         cmd.Parameters["@idPatient"].Direction = System.Data.ParameterDirection.Input;
                         cmd.Parameters.AddWithValue("@date", dto.Date);
                         cmd.Parameters["@date"].Direction = System.Data.ParameterDirection.Input;
                         cmd.Parameters.AddWithValue("@idDentist", dto.IDDentist);
                         cmd.Parameters["@idDentist"].Direction = System.Data.ParameterDirection.Input;
-                        flag = cmd.ExecuteNonQuery() >= 1;
+                        res = Convert.ToInt32(cmd.ExecuteScalar());
                     }
                 }
             }
@@ -148,7 +113,7 @@ namespace DentilNew.model.dao
                 MyLogger.Logger.log(ex.Message);
             }
 
-            return flag;
+            return res;
         }
 
         public bool delete(int id)

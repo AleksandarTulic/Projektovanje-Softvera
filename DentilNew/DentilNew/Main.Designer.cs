@@ -300,9 +300,9 @@
             // 
             this.Patients_tb1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.Patients_tb1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Patients_tb1.Location = new System.Drawing.Point(601, 9);
+            this.Patients_tb1.Location = new System.Drawing.Point(631, 10);
             this.Patients_tb1.Name = "Patients_tb1";
-            this.Patients_tb1.Size = new System.Drawing.Size(190, 27);
+            this.Patients_tb1.Size = new System.Drawing.Size(160, 27);
             this.Patients_tb1.TabIndex = 4;
             // 
             // Patients_b1
@@ -559,7 +559,6 @@
             this.Visits_tb1.Name = "Visits_tb1";
             this.Visits_tb1.Size = new System.Drawing.Size(168, 27);
             this.Visits_tb1.TabIndex = 8;
-            this.Visits_tb1.MouseEnter += new System.EventHandler(this.Visits_tb1_MouseEnter);
             // 
             // Visits_b3
             // 
@@ -1325,6 +1324,7 @@
             this.DrawerTabControl = this.View;
             this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MinimumSize = new System.Drawing.Size(899, 554);
             this.Name = "Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Dentil";
