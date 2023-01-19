@@ -32,6 +32,7 @@ public class PatientController extends HttpServlet {
 			if ("insertPatient".equals(what)) {
 				PatientFactory pFactory = PatientFactory.getInstance();
 				PatientDTO dto = pFactory.get(request);
+				//System.out.println(dto);
 				boolean flag = false;
 
 				if (dto != null) {

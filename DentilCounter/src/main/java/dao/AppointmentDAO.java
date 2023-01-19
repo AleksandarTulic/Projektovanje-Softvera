@@ -172,7 +172,7 @@ public class AppointmentDAO {
 	}
 	
 	private String setRightValue(String value) {
-		return "".equals(value) ? "-" : value;
+		return "".equals(value) ? "$" : value;
 	}
 	
 	public List<AppointmentDTO> selectSameDayAndDentist(Date date, String idDentist){

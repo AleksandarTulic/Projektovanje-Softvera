@@ -37,7 +37,7 @@ namespace DentilNew.model.dao
                             Object[] values = new Object[reader.FieldCount];
                             int fieldCount = reader.GetValues(values);
 
-                            arr.Add((int)values[0]);
+                            arr.Add(int.Parse(values[0] + ""));
                         }
                     }
                 }

@@ -202,7 +202,7 @@
 	        
 	        <div class="col-sm-3">
     			<label>How many</label>
-   				<input onchange="changePerPage(this.value)" type="number" value="8" style="max-width: 40px" min="4" max="20">
+   				<input onchange="changePerPage(this.value)" type="number" id="perPageIDView" value="8" style="max-width: 40px" min="4" max="20">
     		</div>
 	        <div class="col-sm-9">
 	        	&nbsp;

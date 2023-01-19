@@ -14,7 +14,7 @@ public class BackupManager implements ServletContextListener {
 	@Override
 	public void contextInitialized(ServletContextEvent event) {
 		scheduler = Executors.newSingleThreadScheduledExecutor();
-		scheduler.scheduleAtFixedRate(new Backup(), 0, 7, TimeUnit.SECONDS);
+		scheduler.scheduleAtFixedRate(new Backup(), 0, 7, TimeUnit.DAYS);
 	}
 	
 	@Override

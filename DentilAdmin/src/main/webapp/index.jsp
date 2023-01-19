@@ -17,6 +17,7 @@
   		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   		<script src="js/pagination.js"></script>
 	</head>
+	
 	<body>
 		<%@ include file="WEB-INF/header.jsp" %>
 	</body>

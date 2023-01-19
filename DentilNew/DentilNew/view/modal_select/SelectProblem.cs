@@ -48,8 +48,10 @@ namespace DentilNew.view.modal_select
 
             lb1.Items.Add(new MaterialListBoxItem(""));
             for (int i = 0; i < arrTooth.Count; i++)
+            {
                 lb2.Items.Add(new MaterialListBoxItem(arrTooth[i] + ""));
-
+                //Console.WriteLine(i + " " + arrTooth[i]);
+            }
             lb2.Items.Add(new MaterialListBoxItem(""));
         }
 

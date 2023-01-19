@@ -103,16 +103,16 @@
     <Compile Include="controller\TypeProblemController.cs" />
     <Compile Include="controller\VisitController.cs" />
     <Compile Include="controller\VisitTreatmentController.cs" />
-    <Compile Include="Login.cs">
+    <Compile Include="view\Login.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Login.Designer.cs">
+    <Compile Include="view\Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
-    <Compile Include="Main.cs">
+    <Compile Include="view\Main.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Main.Designer.cs">
+    <Compile Include="view\Main.Designer.cs">
       <DependentUpon>Main.cs</DependentUpon>
     </Compile>
     <Compile Include="model\dao\AppointmentDAO.cs" />
@@ -142,9 +142,9 @@
     <Compile Include="model\dto\VisitTreatmentDTO.cs" />
     <Compile Include="model\fileManagement\FileOperations.cs" />
     <Compile Include="model\logger\MyLogger.cs" />
-    <Compile Include="model\notification\Notification.cs" />
+    <Compile Include="controller\notification\Notification.cs" />
     <Compile Include="model\security\Crypt.cs" />
-    <Compile Include="model\theme\Theme.cs" />
+    <Compile Include="controller\theme\Theme.cs" />
     <Compile Include="model\validation\IValidation.cs" />
     <Compile Include="model\validation\PatientValidation.cs" />
     <Compile Include="model\validation\Validation.cs" />
@@ -204,10 +204,10 @@
     <Compile Include="view\ViewVisit.Designer.cs">
       <DependentUpon>ViewVisit.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Login.resx">
+    <EmbeddedResource Include="view\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Main.resx">
+    <EmbeddedResource Include="view\Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -286,8 +286,8 @@
     <Content Include="images\operations\trash.png" />
     <Content Include="images\tooth.ico" />
     <Content Include="model\dao\connection\conf.txt" />
-    <Content Include="model\theme\conf\colorPalette.txt" />
-    <Content Include="model\theme\conf\theme.txt" />
+    <Content Include="controller\theme\conf\colorPalette.txt" />
+    <Content Include="controller\theme\conf\theme.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

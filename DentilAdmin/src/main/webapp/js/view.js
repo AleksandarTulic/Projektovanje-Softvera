@@ -23,6 +23,12 @@ function searchByInputValue(value){
 			tr[i].setAttribute("hidden", "");
 		}
 	}
+	
+	//console.log(document.getElementById("perPageIDView").value);
+	if (value + "" === ""){
+		//console.log("Proslo ...");
+		$('#myTableBody').pageMe({pagerSelector:'#myPager',showPrevNext:true,hidePageNumbers:false,perPage:Number(document.getElementById("perPageIDView").value)});
+	}
 }
 
 function updateUserDefaultInput(someClassName){

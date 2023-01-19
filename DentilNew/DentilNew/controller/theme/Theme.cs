@@ -16,8 +16,8 @@ namespace DentilNew.model.theme
         private Dictionary<string, MaterialSkinManager.Themes> theme = new Dictionary<string, MaterialSkinManager.Themes>();
         private ColorScheme defaultColorScheme = new ColorScheme(Primary.BlueGrey800, Primary.BlueGrey900, Primary.BlueGrey500, Accent.LightBlue200, TextShade.WHITE);
         private MaterialSkinManager.Themes defaultTheme = MaterialSkinManager.Themes.LIGHT;
-        private string themePath = "..\\..\\model\\theme\\conf\\theme.txt";
-        private string colorPalettePath = "..\\..\\model\\theme\\conf\\colorPalette.txt";
+        private string themePath = "..\\..\\controller\\theme\\conf\\theme.txt";
+        private string colorPalettePath = "..\\..\\controller\\theme\\conf\\colorPalette.txt";
 
         public Theme()
         {

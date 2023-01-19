@@ -144,8 +144,8 @@ create table if not exists TypeProblem(
 
 create table if not exists Problem(
 	idTypeProblem int not null,
-    idTooth int not null, #ovo cu vjerojatno morati promijeniti da je moguce null
-    IdVisit int not null,
+    idTooth int unsigned, #ovo cu vjerojatno morati promijeniti da je moguce null
+    idVisit int not null,
     foreign key(idVisit) references Visit(id)
     on update cascade
     on delete restrict,
@@ -155,7 +155,7 @@ create table if not exists Problem(
     foreign key(idTooth) references Tooth(id)
     on update cascade
     on delete restrict,
-    primary key(idVisit, idTypeProblem, idTooth)
+    primary key(idVisit, idTypeProblem)
 );
 
 create table if not exists Treatment(
@@ -177,11 +177,17 @@ create table if not exists VisitTreatment(
     primary key(idTreatment, idVisit)
 );
 
-insert into Working(id, name, surname, email, phone, address, username, password, role_name) values('1111111111111', 'A1', 'A11', 'a1@gmail.com', '11111', 'Ulica 1', 'a1', 'f55ff16f66f43360266b95db6f8fec01d76031054306ae4a4b380598f6cfd114', 'admin');
-insert into Working(id, name, surname, email, phone, address, username, password, role_name) values('2222222222222', 'A2', 'A22', 'a2@gmail.com', '22222', 'Ulica 2', 'a2', 'f55ff16f66f43360266b95db6f8fec01d76031054306ae4a4b380598f6cfd114', 'counter');
-insert into Working(id, name, surname, email, phone, address, username, password, role_name) values('3333333333333', 'A3', 'A33', 'a3@gmail.com', '33333', 'Ulica 3', 'a3', 'f55ff16f66f43360266b95db6f8fec01d76031054306ae4a4b380598f6cfd114', 'dentist');
+#sifra ista kao i username
+#password=korisnikAdmin
+insert into Working(id, name, surname, email, phone, address, username, password, role_name) values('1111111111111', 'Admin_Ime', 'Admin_Prezime', 'a1@gmail.com', '11111', 'Ulica 1', 'korisnikAdmin', 'c9becaa0c96a9c1fe6ef464c01a7bbba9190cd8e78e2eb659137c6e604ddcc2c', 'admin');
 
-insert into Patient(id, name, surname, email, phone, address) values('4444444444444', 'A4', 'A44', 'a4@gmail.com', '44444', 'Ulica 4');
+#password=korisnikCounter
+insert into Working(id, name, surname, email, phone, address, username, password, role_name) values('2222222222222', 'Counter_Ime', 'Counter_Prezime', 'a2@gmail.com', '22222', 'Ulica 2', 'korisnikCounter', '3ce7aa4880c825464cae462a135108656f9c6bc9d2624a3adc791b506ddd5f43', 'counter');
+
+#password=korisnikDentist
+insert into Working(id, name, surname, email, phone, address, username, password, role_name) values('3333333333333', 'Dentist_Ime', 'Dentist_Prezime', 'a3@gmail.com', '33333', 'Ulica 3', 'korisnikDentist', '6838fdbef998cc68f69455ee75c5f956a0ea183d4036407977de1e1f61f7e51d', 'dentist');
+
+insert into Patient(id, name, surname, email, phone, address) values('4444444444444', 'Patient_Ime', 'Patient_Prezime', 'a4@gmail.com', '44444', 'Ulica 4');
 
 insert into Personal values('2222222222222', '2019-02-05', null);
 insert into Personal values('3333333333333', '2020-05-02', null);

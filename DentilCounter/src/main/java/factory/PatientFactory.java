@@ -99,8 +99,8 @@ public class PatientFactory extends UserFactory{
 				if ("".equals(address)) 
 					address = null;
 				
-				PatientDTO dto = new PatientDTO(id, name, surname, address, phone, email);
-
+				PatientDTO dto = new PatientDTO(id, name, surname, email, phone, address);
+				//System.out.println(dto);
 				return check(dto);
 			}catch (Exception e) {
 				MyLogger.logger.log(Level.SEVERE, e.getMessage());
