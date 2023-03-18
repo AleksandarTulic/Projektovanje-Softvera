@@ -1,0 +1,26 @@
+package dto;
+
+public class DentistDTO extends PersonalDTO{
+	
+	public DentistDTO() {
+		super();
+	}
+	
+	public DentistDTO(String name, String surname) {
+		super(name, surname);
+	}
+	
+	public DentistDTO(String id, String name, String surname) {
+		super(id, name, surname);
+	}
+	
+	public DentistDTO(String id, String name, String surname, String address, String phone, String email, String username, String password, String role_name, String jobStart, String jobEnd) {
+		super(id, name, surname, address, phone, email, username, password, role_name, jobStart, jobEnd);
+	}
+	
+	public DentistDTO(String id, String name, String surname, String address, 
+			String phone, String email, String username, String password, 
+			String role_name, String jobStart, String jobEnd, ShiftDTO shift, ScheduleDTO schedule) {
+		super(id, name, surname, address, phone, email, username, password, role_name, jobStart, jobEnd, shift, schedule);
+	}
+}

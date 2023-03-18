@@ -1,0 +1,6 @@
+Koristim Factory Design Pattern kada treba da se kreira neki DTO objekat jer 
+ipak oni mogu da se mijenjaju u zavisnosti od potreba pa onda ovde samo na jednom mjestu promijenimo nacin
+njihovog kreiranja a ne da moramo voditi racuna na svakom mjestu gdje ih kreiramo
+
+Dovoljno je da se kreiramo samo po jedan objekat njih pa sam zato koristio singleton design pattern sto ce tice kreiranja
+ovih Factory objekata.

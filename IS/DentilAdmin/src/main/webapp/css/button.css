@@ -1,0 +1,13 @@
+.normalButton:hover{
+	background-color: #222 !important;
+	color: white !important;
+}
+
+#AddSchedule:hover, #AddShift:hover, #DeleteShift:hover, #DeleteSchedule:hover{
+	background-color: #222;
+	color: white;
+}
+
+.hoverSortButton{
+	cursor: pointer !important;
+}
