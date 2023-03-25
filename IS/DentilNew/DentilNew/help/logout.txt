@@ -1,0 +1,1 @@
+Odabirom Logout taba odjavljujete se sa sistema. Kada kliknete na Logout, iskočiće Vam prozor sa pitanjem da li ste sigurni da želite da se odjavite sa sistema.

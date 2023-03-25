@@ -1,0 +1,9 @@
+Nakon uspješne prijave na sistem, otvara se početna stranica, odnosno tab Patients. U ovom tabu su prikazani svi pacijenti. Sa donje strane se nalaze dodatne funkcionalnosti koje će biti objašnjene u nastavku.
+1. Dugme VIEW omogućava pregled detaljnih informacija o svakom korisniku. Da bi se vidjele ove informacije, potrebno je prvo u tabeli označiti pacijenta, a zatim kliknuti na dugme VIEW.
+2. Dugme ADD služi za dodavanje novog pacijenta. Sve što je potrebno je kliknuti na dugme, a zatim u novootvorenom prozoru unijeti lične podatke o osobi, odnosno pacijentu.
+3. Dugme ADD VISIT nije još implementirano.
+4. Dugme UPDATE služi da se ažuriraju neke informacije o pacijentu. Potrebno je prvo u tabeli selektovati pacijenta, a zatim kliknuti dugme. Nakon toga se otvara novi prozor u kojem se unose izmjene.
+5. Dugme DELETE služi za brisanje pacijenta. Potrebno je prvo u tabeli selektovati pacijenta, a zatim kliknuti dugme. Zapravo informacije o pacijentu neće biti obrisane iz baze, nego će se samo flag postaviti na nula.
+6. Dugme RECOVERY služi da vratimo pacijenta koji je "obrisan" akcijom dugmeta DELETE. Nakon klika na ovo dugme, otvara se novi prozor u kojem je potrebno unijeti JMBG osobe da bi se njeni podaci opet proglasili aktivnim.
+7. Dugmad koja su označena simbolima < i > služe za prebacivanja na sljedeću stranicu liste pacijenata.
+8. Dugme SEARCH omogućava pretragu liste pacijenata na osnovu vrijednosti JMBG, imena, prezimena itd.
