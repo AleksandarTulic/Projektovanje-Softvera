@@ -7,11 +7,11 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON Dentil.Dentist TO 'admin'@'localhost';
 GRANT SELECT, INSERT, UPDATE, DELETE ON Dentil.Counter TO 'admin'@'localhost';
 GRANT SELECT, INSERT, UPDATE, DELETE ON Dentil.Shift TO 'admin'@'localhost';
 GRANT SELECT, INSERT, UPDATE, DELETE ON Dentil.Schedule TO 'admin'@'localhost';
-GRANT SELECT, DELETE ON Dentil.Appointment TO 'admin'@'localhost';
+GRANT SELECT, UPDATE, DELETE ON Dentil.Appointment TO 'admin'@'localhost';
 GRANT SELECT, DELETE ON Dentil.HistoryVisit TO 'admin'@'localhost';
 GRANT SELECT, DELETE ON Dentil.Problem TO 'admin'@'localhost';
 GRANT SELECT, DELETE ON Dentil.VisitService TO 'admin'@'localhost';
-GRANT SELECT, DELETE ON Dentil.Visit TO 'admin'@'localhost';
+GRANT SELECT, UPDATE, DELETE ON Dentil.Visit TO 'admin'@'localhost';
 GRANT SELECT ON Dentil.Patient TO 'admin'@'localhost';
 GRANT SELECT ON Dentil.Service TO 'admin'@'localhost';
 GRANT SELECT ON Dentil.TypeProblem TO 'admin'@'localhost';
@@ -29,6 +29,6 @@ GRANT SELECT ON Dentil.Shift TO 'counter'@'localhost';
 GRANT SELECT, DELETE ON Dentil.HistoryVisit TO 'counter'@'localhost';
 GRANT SELECT, DELETE ON Dentil.Problem TO 'counter'@'localhost';
 GRANT SELECT, DELETE ON Dentil.VisitService TO 'counter'@'localhost';
-GRANT SELECT, DELETE ON Dentil.Visit TO 'counter'@'localhost';
+GRANT SELECT, UPDATE, DELETE ON Dentil.Visit TO 'counter'@'localhost';
 
 #only admin can do updates and delete on admin, personal, dentist, counter because they created them

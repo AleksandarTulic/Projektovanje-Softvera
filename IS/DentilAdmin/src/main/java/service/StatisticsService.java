@@ -2,6 +2,7 @@ package service;
 
 import java.util.*;
 
+import dao.ConnectionPool;
 import dao.DentistDAO;
 import dao.PatientDAO;
 import dao.PersonalDAO;
@@ -11,18 +12,17 @@ public class StatisticsService {
 	private DentistDAO dentistDAO = new DentistDAO();
 	private PatientDAO patientDAO = new PatientDAO();
 	private PersonalDAO personalDAO = new PersonalDAO();
-	private static final Boolean ACTIVE = true;
 	
 	public Long getNumberOfDentists() {
-		return dentistDAO.selectNumberOfDentists(ACTIVE);
+		return dentistDAO.selectNumberOfDentists(ConnectionPool.ACTIVE);
 	}
 	
 	public Long getNumberOfPersonal() {
-		return patientDAO.selectNumberOfPatients(ACTIVE);
+		return personalDAO.selectNumberOfPersonal(ConnectionPool.ACTIVE);	
 	}
 	
 	public Long getNumberOfPatients() {
-		return patientDAO.selectNumberOfPatients(ACTIVE);
+		return patientDAO.selectNumberOfPatients(ConnectionPool.ACTIVE);
 	}
 	
 	public List<PairDTO<String, Double>> selectDentistEarned(){

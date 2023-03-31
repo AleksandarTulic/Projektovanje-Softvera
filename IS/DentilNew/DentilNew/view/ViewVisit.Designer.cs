@@ -69,9 +69,9 @@
             this.l2.Location = new System.Drawing.Point(280, 93);
             this.l2.MouseState = MaterialSkin.MouseState.HOVER;
             this.l2.Name = "l2";
-            this.l2.Size = new System.Drawing.Size(82, 19);
+            this.l2.Size = new System.Drawing.Size(60, 19);
             this.l2.TabIndex = 1;
-            this.l2.Text = "Treatments";
+            this.l2.Text = "Services";
             // 
             // lb2
             // 
@@ -156,7 +156,7 @@
             this.tb1.AnimateReadOnly = false;
             this.tb1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tb1.Depth = 0;
-            this.tb1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.tb1.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.tb1.LeadingIcon = null;
             this.tb1.Location = new System.Drawing.Point(29, 154);
             this.tb1.MaxLength = 50;
@@ -175,7 +175,7 @@
             this.tb2.AnimateReadOnly = false;
             this.tb2.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tb2.Depth = 0;
-            this.tb2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.tb2.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.tb2.LeadingIcon = null;
             this.tb2.Location = new System.Drawing.Point(29, 260);
             this.tb2.MaxLength = 50;
@@ -194,7 +194,7 @@
             this.tb3.AnimateReadOnly = false;
             this.tb3.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tb3.Depth = 0;
-            this.tb3.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.tb3.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.tb3.LeadingIcon = null;
             this.tb3.Location = new System.Drawing.Point(29, 398);
             this.tb3.MaxLength = 50;
@@ -213,7 +213,7 @@
             this.tb4.AnimateReadOnly = false;
             this.tb4.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tb4.Depth = 0;
-            this.tb4.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.tb4.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.tb4.LeadingIcon = null;
             this.tb4.Location = new System.Drawing.Point(29, 497);
             this.tb4.MaxLength = 50;

@@ -67,7 +67,7 @@ namespace DentilNew.view
         //SHOW MORE INFO OF PATIENT
         private void b1_Click(object sender, EventArgs e)
         {
-            Console.WriteLine(Program.patientController.selectWithId(dto.IdPatient));
+            Console.WriteLine("IdPatient: " + dto.IdPatient);
             SinglePatient ap = new SinglePatient(Program.patientController.selectWithId(dto.IdPatient));
             ap.ShowDialog();
         }

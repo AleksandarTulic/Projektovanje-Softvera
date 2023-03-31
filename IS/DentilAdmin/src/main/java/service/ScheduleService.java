@@ -1,11 +1,11 @@
 package service;
 
 import dto.ScheduleDTO;
+import dao.ConnectionPool;
 import dao.ScheduleDAO;
 
 public class ScheduleService {
 	private ScheduleDAO dao = new ScheduleDAO();
-	private static final Boolean ACTIVE = true;
 	
 	public boolean insert(ScheduleDTO dto) {
 		return dao.insert(dto);
@@ -16,6 +16,6 @@ public class ScheduleService {
 	}
 	
 	public Long selectNumberOfSchedules(){
-		return dao.selectNumberOfSchedules(ACTIVE);
+		return dao.selectNumberOfSchedules(ConnectionPool.ACTIVE);
 	}
 }

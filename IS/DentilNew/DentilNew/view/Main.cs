@@ -22,7 +22,6 @@ namespace DentilNew
     public partial class Main : MaterialForm
     {
         //GLOBAL
-        private static readonly int VisibleTime = 1000;
         private MaterialSkinManager ThemeManager = MaterialSkinManager.Instance;
         private Login login = null;
 
@@ -86,13 +85,14 @@ namespace DentilNew
 
             if (flag)
             {
+                Patients_pageD.Enabled = false;
                 this.tmpArrPatient.Clear();
                 for (int i = 0; i < this.arrPatient.Count; i++)
                     this.tmpArrPatient.Add(i);
             }
 
             SELECTED_PAGE_PATIENT = returnToStart ? 1 : SELECTED_PAGE_PATIENT;
-            Patients_pageD.Enabled = !returnToStart;
+            Patients_pageD.Enabled = SELECTED_PAGE_PATIENT != 1;
 
             MAX_PAGES_NUMBER_PATIENT = this.tmpArrPatient.Count % PAGE_PATIENT_NUMBER == 0 ? this.tmpArrPatient.Count() / PAGE_PATIENT_NUMBER : this.tmpArrPatient.Count() / PAGE_PATIENT_NUMBER + 1;
             for(int i = (SELECTED_PAGE_PATIENT - 1) * PAGE_PATIENT_NUMBER; i < Math.Min(SELECTED_PAGE_PATIENT * PAGE_PATIENT_NUMBER, this.tmpArrPatient.Count); i++)
@@ -102,7 +102,7 @@ namespace DentilNew
                 Patients_dgv1.Items.Add(arrItems);
             }
 
-            Patients_pageU.Enabled = SELECTED_PAGE_PATIENT != MAX_PAGES_NUMBER_PATIENT;
+            Patients_pageU.Enabled = SELECTED_PAGE_PATIENT != MAX_PAGES_NUMBER_PATIENT && MAX_PAGES_NUMBER_PATIENT >= 1;
         }
 
 
@@ -221,13 +221,14 @@ namespace DentilNew
             
             if (flag)
             {
+                Visits_pageD.Enabled = false;
                 this.tmpArrVisit.Clear();
                 for (int i = 0; i < this.arrVisit.Count; i++)
                     this.tmpArrVisit.Add(i);
             }
 
             SELECTED_PAGE_VISIT = returnToStart ? 1 : SELECTED_PAGE_VISIT;
-            Visits_pageD.Enabled = returnToStart ? false : true;
+            Visits_pageD.Enabled = !(SELECTED_PAGE_VISIT == 1);
 
             MAX_PAGES_NUMBER_VISIT = this.tmpArrVisit.Count % PAGE_VISIT_NUMBER == 0 ? this.tmpArrVisit.Count() / PAGE_VISIT_NUMBER : this.tmpArrVisit.Count() / PAGE_VISIT_NUMBER + 1;
             for (int i = (SELECTED_PAGE_VISIT - 1) * PAGE_VISIT_NUMBER; i < Math.Min(SELECTED_PAGE_VISIT * PAGE_VISIT_NUMBER, this.tmpArrVisit.Count); i++)
@@ -242,7 +243,7 @@ namespace DentilNew
                 Visits_dgv1.Items.Add(arrItems);
             }
 
-            Visits_pageU.Enabled = SELECTED_PAGE_VISIT != MAX_PAGES_NUMBER_VISIT;
+            Visits_pageU.Enabled = SELECTED_PAGE_VISIT != MAX_PAGES_NUMBER_VISIT && MAX_PAGES_NUMBER_VISIT >= 1;
         }
         private void Visits_pageD_Click(object sender, EventArgs e)
         {

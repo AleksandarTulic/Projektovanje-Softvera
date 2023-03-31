@@ -13,7 +13,7 @@ namespace DentilNew.model.dao
     internal class ServiceDAO
     {
         private static readonly string SQL_SELECT = "select id, name from service as s where s.active=1";
-        private static readonly string SQL_INSERT = "insert into service(name) values(@name)";
+        private static readonly string SQL_INSERT = "insert into service(name, cost) values(@name, @cost)";
         private static readonly string SQL_UPDATE = "update service as s set s.active=0 where s.id=@id";
 
         public List<ServiceDTO> select()
@@ -49,7 +49,7 @@ namespace DentilNew.model.dao
             return arr;
         }
 
-        public bool insert(string name)
+        public bool insert(string name, double cost)
         {
             bool flag = false;
             try
@@ -64,6 +64,8 @@ namespace DentilNew.model.dao
                         cmd.CommandText = SQL_INSERT;
                         cmd.Parameters.AddWithValue("@name", name);
                         cmd.Parameters["@name"].Direction = System.Data.ParameterDirection.Input;
+                        cmd.Parameters.AddWithValue("@cost", cost);
+                        cmd.Parameters["@cost"].Direction = System.Data.ParameterDirection.Input;
                         flag = cmd.ExecuteNonQuery() >= 1;
                     }
                 }

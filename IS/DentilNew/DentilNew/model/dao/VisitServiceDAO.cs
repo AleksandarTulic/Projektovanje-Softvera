@@ -12,7 +12,7 @@ namespace DentilNew.model.dao
 {
     public class VisitServiceDAO
     {
-        private static readonly string SQL_SELECT_WITH_IDVISIT = "select s.id, s.name, vt.description from visitservice as vt inner join service as s on vt.idService=s.id where vt.idVisit=@idVisit and s.active=1";
+        private static readonly string SQL_SELECT_WITH_IDVISIT = "select s.id, s.name, vt.description from visitservice as vt inner join service as s on vt.idService=s.id where vt.idVisit=@idVisit";
         private static readonly string SQL_INSERT = "insert into visitservice(idVisit, idService, description) values(@idVisit, @idService, @description)";
 
         public List<VisitServiceDTO> selectWithIdVisit(int idVisit)

@@ -8,16 +8,16 @@ import logger.MyLogger;
 
 public class AppointmentDAO {
 	private static ConnectionPool connectionPool = ConnectionPool.getConnectionPool();
-	private static final String SQL_DELETE_WITH_IDPERSONAL = "delete from appointment as w where w.idPersonal=?;";
+	private static final String SQL_CHANGE_APPOINTMENT_STATE = "update appointment as a set a.active=? where a.idDentist=?;";
 	
-	public boolean deleteWithIdPersonal(String id) {
+	public boolean dentistChangeAppointmentState(String idDentist, Boolean active) {
 		boolean res = false;
 		Connection conn = null;
-		Object []values = new Object[] {id};
+		Object []values = new Object[] {active, idDentist};
 		
 		try {
 			conn = connectionPool.checkOut();
-			PreparedStatement pre = DAOUtil.prepareStatement(conn, SQL_DELETE_WITH_IDPERSONAL, false, values);
+			PreparedStatement pre = DAOUtil.prepareStatement(conn, SQL_CHANGE_APPOINTMENT_STATE, false, values);
 			int result = pre.executeUpdate();
 			
 			res = result > 0 ? true : false;

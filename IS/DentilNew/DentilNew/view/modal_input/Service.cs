@@ -1,4 +1,5 @@
-﻿using MaterialSkin;
+﻿using DentilNew.model.logger;
+using MaterialSkin;
 using MaterialSkin.Controls;
 using System;
 using System.Collections.Generic;
@@ -32,9 +33,31 @@ namespace DentilNew
         {
             bool flag = false;
             if (tb1.Text.Length >= 2)
-                flag = Program.treatmentController.insert(tb1.Text);
+            {
+                try
+                {
+                    flag = Program.treatmentController.insert(tb1.Text, double.Parse(tb2.Text));
+                }
+                catch (Exception ex)
+                {
+                    MyLogger.Logger.log(ex.Message);
+                }
+            }
 
             Program.notification.manageModalResult(this, flag, 1);
+        }
+
+        private void checkIfNumber(KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && !char.IsPunctuation(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void tb2_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            checkIfNumber(e);
         }
     }
 }

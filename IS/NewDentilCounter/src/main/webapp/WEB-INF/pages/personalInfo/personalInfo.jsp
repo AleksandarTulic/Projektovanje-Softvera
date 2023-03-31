@@ -1,8 +1,7 @@
 <jsp:include page="../../../index.jsp"></jsp:include>
 
 <%@ page import="dto.*" %>
-<%@ page import="java.util.List" %>
-<jsp:useBean id='personalService' class='service.PersonalService' scope='application'></jsp:useBean> 
+<%@ page import="java.util.List" %> 
 
 <%
 	PersonalDTO dto = (PersonalDTO)request.getSession().getAttribute("aaaa");

@@ -1,0 +1,4 @@
+1 - prikaz modala(forme) za dodavanje korisnika(ista za sve korisnike - samo se ya dentist i counter koristi jobStart, a za admin-a ne)
+2 - unos vrijednosti
+3 - posto smo dodali admin-a onda se njemu salje qr token koji skeniramo npr sa google authenticator i procitamo kod(koristimo dvofaktorsku autentifikaciju)
+4 - primjer skeniranih tokena

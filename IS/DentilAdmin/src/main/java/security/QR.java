@@ -24,6 +24,10 @@ public class QR {
 	public static final String SAVE_PATH = System.getProperty("catalina.home") + File.separator + "Dentil" 
 + File.separator + "qr";
 	
+	static {
+		new File(SAVE_PATH).mkdirs();
+	}
+	
 	private String generateSecretKey() {
         SecureRandom random = new SecureRandom();
         byte[] bytes = new byte[20];

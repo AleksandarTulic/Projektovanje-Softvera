@@ -1,0 +1,4 @@
+1 - prikaz forme kada dodajemo counter-a(pogledaj crveno zaokruzeno ako se sjecate kod admina jobStart zasjencen)
+2 - namjerno nismo unijeli jobStart kao i pogresnu formu email-a
+3 - unijeli smo jobStart ali nismo popravili email
+4 - uspjesno dodavanje counter-a(isto sve sto smo radili za counter-a vazi i za dentist-a)

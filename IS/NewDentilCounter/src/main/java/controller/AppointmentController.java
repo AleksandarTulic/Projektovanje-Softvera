@@ -20,7 +20,8 @@ import factory.AppointmentFactory;
 @WebServlet("/Appointment/*")
 public class AppointmentController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
+	private static final AppointmentService aService = new AppointmentService();
+	
     public AppointmentController() {
         super();
     }
@@ -29,40 +30,35 @@ public class AppointmentController extends HttpServlet {
 		String what = request.getParameter("what");
 		
 		try {
+			String json = "";
 			if ("insertAppointment".equals(what)) {
 				AppointmentFactory aFactory = AppointmentFactory.getInstance();
 				AppointmentDTO dto = aFactory.get(request, true);
 				boolean flag = false;
 
 				if (dto != null) {
-					AppointmentService aService = new AppointmentService();
 					flag = aService.insert(dto);
 				}
 				
-				String json = new Gson().toJson("{\"message\": \"" + Notification.getMessage(flag) + "\", \"alertType\": \"" + Notification.getAlert(flag) + "\", \"flag\": \"" + flag + "\"}");
-				
-				response.setContentType("application/json");
-				response.setCharacterEncoding("UTF-8");
-				response.getWriter().write(json);
+				json = new Gson().toJson("{\"message\": \"" + Notification.getMessage(flag) + "\", \"alertType\": \"" + Notification.getAlert(flag) + "\", \"flag\": \"" + flag + "\"}");
 			}else if ("deleteAppointment".equals(what)) {
 				request.setAttribute("howLong", "1");
 				AppointmentFactory aFactory = AppointmentFactory.getInstance();
 				AppointmentDTO dto = aFactory.get(request, false);
 				boolean flag = false;
 				
-				System.out.println(dto);
+				//System.out.println(dto);
 				
 				if (dto != null) {
-					AppointmentService aService = new AppointmentService();
 					flag = aService.delete(dto);
 				}
 				
-				String json = new Gson().toJson("{\"message\": \"" + Notification.getMessage(flag) + "\", \"alertType\": \"" + Notification.getAlert(flag) + "\", \"flag\": \"" + flag + "\"}");
-				
-				response.setContentType("application/json");
-				response.setCharacterEncoding("UTF-8");
-				response.getWriter().write(json);
+				json = new Gson().toJson("{\"message\": \"" + Notification.getMessage(flag) + "\", \"alertType\": \"" + Notification.getAlert(flag) + "\", \"flag\": \"" + flag + "\"}");
 			}
+			
+			response.setContentType("application/json");
+			response.setCharacterEncoding("UTF-8");
+			response.getWriter().write(json);
 		}catch (Exception e) {
 			MyLogger.logger.log(Level.SEVERE, e.getMessage());
 		}

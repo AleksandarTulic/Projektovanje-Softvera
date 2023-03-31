@@ -13,6 +13,10 @@ public class MyLogger {
 		 + System.currentTimeMillis() + ".log";
 	
 	static {
+		new File(LOG_PATH).getParentFile().mkdirs();
+	}
+	
+	static {
 		LogManager.getLogManager().reset();
 		logger.setLevel(Level.ALL);
 		

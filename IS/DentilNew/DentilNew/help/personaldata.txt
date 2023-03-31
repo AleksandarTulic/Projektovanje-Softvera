@@ -1,1 +1,5 @@
-U okviru taba Personal data nalaze se lični podaci o trenutno prijavljenom korisniku kao i datum otkada je stupio u radni odnos. Na donjoj strani prozora se nalazi mogućnost promjene teme. Pored LIGHT i DARK teme, moguće je i izabrati iz palete boja određenu boju(BlueGrey, Green, Blue) u koju će biti obojena dugmad.
+The "Personal data" tab contains personal data about the currently registered user, as well as the date of employment. 
+
+At the bottom of the window is the option to change the theme. 
+
+In addition to the LIGHT and DARK themes, it is also possible to choose from the color palette a certain color (BlueGrey, Green, Blue) in which the interface will be painted.

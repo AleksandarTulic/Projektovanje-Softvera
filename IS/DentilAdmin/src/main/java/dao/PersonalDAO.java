@@ -29,6 +29,7 @@ public class PersonalDAO {
 	private static final String SQL_SELECT_UNEMPLOYED_BY_YEAR = "select count(*) as 'column1', YEAR(jobEnd) as 'column2' from personal where jobEnd is not null group by YEAR(jobStart);";
 	private static final String SQL_SELECT_WITH_ID = "select w.id, w.name, w.surname, w.email, w.phone, w.address, w.username, null as 'password', w.role_name, w.active, p.jobStart, null as 'jobEnd' from personal as p inner join worker as w on w.id=p.id where w.id=?;";
 	private static final String SQL_DELETE = "update personal as p set p.jobEnd=date(now()) where p.id=?;";
+	private static final String SQL_UNDELETE = "update personal as p set p.jobEnd=null where p.id=?;";
 	
 	private static final Map<PairDTO<String, String>, String> map = 
 			new HashMap<>();
@@ -241,6 +242,27 @@ public class PersonalDAO {
 		try {
 			conn = connectionPool.checkOut();
 			PreparedStatement pre = DAOUtil.prepareStatement(conn, SQL_DELETE, false, values);
+			int result = pre.executeUpdate();
+			
+			res = result == 1 ? true : false;
+			pre.close();
+		}catch (Exception e) {
+			MyLogger.logger.log(Level.SEVERE, e.getMessage());
+		}finally {
+			connectionPool.checkIn(conn);
+		}
+		
+		return res;
+	}
+	
+	public boolean unDelete(String id) {
+		boolean res = false;
+		Connection conn = null;
+		Object []values = new Object[] {id};
+		
+		try {
+			conn = connectionPool.checkOut();
+			PreparedStatement pre = DAOUtil.prepareStatement(conn, SQL_UNDELETE, false, values);
 			int result = pre.executeUpdate();
 			
 			res = result == 1 ? true : false;

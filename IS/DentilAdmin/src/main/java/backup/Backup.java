@@ -1,6 +1,7 @@
 package backup;
 
 import java.io.File;
+import java.io.PrintWriter;
 import java.util.logging.Level;
 import java.util.Date;
 import logger.MyLogger;
@@ -10,6 +11,28 @@ public class Backup implements Runnable{
 			+ File.separator + "Dentil" + File.separator + "Backup";
 	private static final String DB_NAME = "dentil";
 	private static final String DB_USER = "root";
+	
+	private static final String PASSWORD_FILE = "password.txt";
+	private static final String PASSWORD_FILE_CONTENT_1 = "[mysqldump]";
+	private static final String PASSWORD_FILE_CONTENT_2 = "# The following password will be sent to mysqldump";
+	private static final String PASSWORD_FILE_CONTENT_3 = "password=\"localhost\"";
+	
+	static {
+		new File(SAVE_PATH).mkdirs();
+		File f = new File(SAVE_PATH + File.separator + PASSWORD_FILE);
+		
+		try {
+			f.createNewFile();
+			PrintWriter pw = new PrintWriter(f);
+			pw.println(PASSWORD_FILE_CONTENT_1);
+			pw.println(PASSWORD_FILE_CONTENT_2);
+			pw.println(PASSWORD_FILE_CONTENT_3);
+			
+			pw.close();
+		}catch (Exception e) {
+			
+		}
+	}
 	
 	@SuppressWarnings("deprecation")
 	@Override

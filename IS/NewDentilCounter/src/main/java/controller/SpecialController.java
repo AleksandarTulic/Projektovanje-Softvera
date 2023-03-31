@@ -36,13 +36,10 @@ public class SpecialController extends HttpServlet {
 		String what = request.getParameter("what");
 		
 		try {
+			String json = "";
 			if ("getDentists".equals(what)) {
 				List<DentistDTO> dto = dService.select();
-				String json = new Gson().toJson(dto);
-				
-				response.setContentType("application/json");
-				response.setCharacterEncoding("UTF-8");
-				response.getWriter().write(json);
+				json = new Gson().toJson(dto);
 			}else if ("getAppointmentsSameDayAndDentist".equals(what)) {
 				String date = request.getParameter("date");
 				String idDentist = request.getParameter("idDentist");
@@ -50,7 +47,7 @@ public class SpecialController extends HttpServlet {
 				Long left = 0L;
 				Long right = Long.MAX_VALUE;
 				
-				System.out.println(date + " " + idDentist);
+				//System.out.println(date + " " + idDentist);
 				
 				try {
 					dateValue = Date.valueOf(date);
@@ -62,11 +59,7 @@ public class SpecialController extends HttpServlet {
 				
 				List<AppointmentDTO> dto = aService.selectSameDayAndDentist(dateValue, idDentist, left, right);
 				
-				String json = new Gson().toJson(dto);
-				
-				response.setContentType("application/json");
-				response.setCharacterEncoding("UTF-8");
-				response.getWriter().write(json);
+				json = new Gson().toJson(dto);
 			}else if ("getNumberOfAppointmentsSameDayAndDentist".equals(what)){
 				String date = request.getParameter("date");
 				String idDentist = request.getParameter("idDentist");
@@ -78,12 +71,12 @@ public class SpecialController extends HttpServlet {
 					MyLogger.logger.log(Level.SEVERE, e.getMessage());
 				}
 				
-				String json = new Gson().toJson(aService.selectNumberOfSameDayAndDentist(dateValue, idDentist));
-				
-				response.setContentType("application/json");
-				response.setCharacterEncoding("UTF-8");
-				response.getWriter().write(json);
+				json = new Gson().toJson(aService.selectNumberOfSameDayAndDentist(dateValue, idDentist));
 			}
+			
+			response.setContentType("application/json");
+			response.setCharacterEncoding("UTF-8");
+			response.getWriter().write(json);
 		}catch (Exception e) {
 			MyLogger.logger.log(Level.SEVERE, e.getMessage());
 		}

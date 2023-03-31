@@ -18,6 +18,7 @@ public class ConnectionPool {
 	private Vector<Connection> usedConnections;
 	private Vector<Connection> freeConnections;
 	private static ConnectionPool connectionPool;
+	public static final Boolean ACTIVE = true;
 	
 	public static ConnectionPool getConnectionPool() {
 	   return connectionPool;

@@ -4,19 +4,19 @@ import java.sql.Date;
 import java.util.List;
 
 import dao.AppointmentDAO;
+import dao.ConnectionPool;
 import dto.AppointmentDTO;
 
 public class AppointmentService {
 	private AppointmentDAO dao = new AppointmentDAO();
-	private static final Boolean active = true;
 	
 	public List<AppointmentDTO> selectSameDayAndDentist(Date date, String idDentist,
 			Long left, Long right) {
-		return dao.selectSameDayAndDentist(date, idDentist, left, right, active);
+		return dao.selectSameDayAndDentist(date, idDentist, left, right, ConnectionPool.ACTIVE);
 	}
 	
 	public Long selectNumberOfSameDayAndDentist(Date date, String idDentist) {
-		return dao.selectNumberOfSameDayAndDentist(date, idDentist, active);
+		return dao.selectNumberOfSameDayAndDentist(date, idDentist, ConnectionPool.ACTIVE);
 	}
 	
 	public boolean insert(AppointmentDTO dto) {
@@ -24,7 +24,7 @@ public class AppointmentService {
 	}
 	
 	public boolean delete(AppointmentDTO dto) {
-		return dao.delete(dto, !active);
+		return dao.delete(dto, !ConnectionPool.ACTIVE);
 	}
 	
 	public List<AppointmentDTO> selectWithLike(String idPatient, String patientName, 
@@ -37,7 +37,7 @@ public class AppointmentService {
 				dentistSurname, date,
 				orderBy, orderByType,
 				left, right,
-				active);
+				ConnectionPool.ACTIVE);
 	}
 	
 	public Long getNumberOfAppointments(String idPatient, String patientName, 
@@ -46,6 +46,6 @@ public class AppointmentService {
 		return dao.getNumberOfAppointments(idPatient, patientName, 
 				patientSurname, dentistName, 
 				dentistSurname, date,
-				active);
+				ConnectionPool.ACTIVE);
 	}
 }

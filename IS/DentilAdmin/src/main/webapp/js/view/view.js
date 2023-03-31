@@ -74,10 +74,14 @@ function setViewMore(prefix, i){
 			document.getElementById(prefix + "Username").value = res.username;
 			document.getElementById(prefix + "Role").value = res.role_name;
 			
+			//console.log("Job: " + res.jobStart);
 			if (res.jobStart + "" !== "undefined"){
+				document.getElementById(prefix + "JobStart").removeAttribute("readonly");
 				var jobStart = new Date(res.jobStart);
 				//console.log(jobStart.getFullYear() + "-" + (jobStart.getMonth() + 1 < 10 ? "0" + (jobStart.getMonth() + 1) : (jobStart.getMonth() + 1)) + "-" + (jobStart.getDate() < 10 ? "0" + jobStart.getDate() : jobStart.getDate()));
 				document.getElementById(prefix + "JobStart").value = jobStart.getFullYear() + "-" + (jobStart.getMonth() + 1 < 10 ? "0" + (jobStart.getMonth() + 1) : (jobStart.getMonth() + 1)) + "-" + (jobStart.getDate() < 10 ? "0" + jobStart.getDate() : jobStart.getDate());
+			}else{
+				document.getElementById(prefix + "JobStart").setAttribute("readonly", "");
 			}
 		}
 	});

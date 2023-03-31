@@ -31,6 +31,7 @@ public class AppointmentDAO {
 			new HashMap<>();
 	
 	private static final String SQL_GET_NUMBER_OF_APPOINTMENTS = "select count(a.startDate) as numberOfAppointments from appointment as a inner join worker as w on w.id=a.idDentist inner join patient as p on a.idPatient=p.id where (p.id like ? and p.name like ? and p.surname like ? and w.name like ? and w.surname like ? and a.startDate like ?) and a.active=?";
+	private static final String SQL_DELETE_RECOVER_PATIENTS_APPOINTMENTS = "update appointment as a set a.active=? where a.idPatient=?;";
 	
 	static {
 		mapSelectAppointments.put(new PairDTO<String, String>("patient", "asc"), SQL_SELECT_WITH_LIKE_1 + "concat(p.name, p.surname) asc" + SQL_SELECT_WITH_LIKE_2 );
@@ -186,6 +187,29 @@ public class AppointmentDAO {
 		try {
 			conn = connectionPool.checkOut();
 			PreparedStatement pre = DAOUtil.prepareStatement(conn, SQL_DELETE, false, values);
+			int result = pre.executeUpdate();
+			
+			res = result >= 1 ? true : false;
+
+			pre.close();
+		}catch (Exception e) {
+			MyLogger.logger.log(Level.SEVERE, e.getMessage());
+		}finally {
+			connectionPool.checkIn(conn);
+		}
+		
+		return res;
+	}
+	
+	public boolean deleteRecoverPatientsAppointments(String idPatient, Boolean active) {
+		boolean res = false;
+		Connection conn = null;
+		
+		Object []values = new Object[] {active, idPatient};
+		
+		try {
+			conn = connectionPool.checkOut();
+			PreparedStatement pre = DAOUtil.prepareStatement(conn, SQL_DELETE_RECOVER_PATIENTS_APPOINTMENTS, false, values);
 			int result = pre.executeUpdate();
 			
 			res = result >= 1 ? true : false;

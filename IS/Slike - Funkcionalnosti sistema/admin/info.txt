@@ -1,0 +1,1 @@
+kada pises brisanje korisnika(unutar foldera view) onda odmah poslije toga radi i recover korisnika

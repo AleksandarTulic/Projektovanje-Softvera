@@ -104,9 +104,9 @@
             this.l1.Location = new System.Drawing.Point(17, 80);
             this.l1.MouseState = MaterialSkin.MouseState.HOVER;
             this.l1.Name = "l1";
-            this.l1.Size = new System.Drawing.Size(121, 19);
+            this.l1.Size = new System.Drawing.Size(99, 19);
             this.l1.TabIndex = 6;
-            this.l1.Text = "Select Treatment";
+            this.l1.Text = "Select Service";
             // 
             // l2
             // 
@@ -136,7 +136,7 @@
             this.mtb1.TabIndex = 12;
             this.mtb1.Text = "";
             // 
-            // SelectTreatment
+            // SelectServices
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -149,8 +149,8 @@
             this.Controls.Add(this.b1);
             this.Controls.Add(this.l1);
             this.MinimumSize = new System.Drawing.Size(532, 421);
-            this.Name = "SelectTreatment";
-            this.Text = "Treatment";
+            this.Name = "SelectServices";
+            this.Text = "Services";
             this.ResumeLayout(false);
             this.PerformLayout();
 

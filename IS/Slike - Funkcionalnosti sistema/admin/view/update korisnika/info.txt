@@ -1,0 +1,4 @@
+1 - brijdnosti prije update-a
+2 - vrijednosti promijenite prije samog update-a
+3 - nismo unijeli sifru - vrsi se validacija
+4 - uspjesno smo update-ovali podatke

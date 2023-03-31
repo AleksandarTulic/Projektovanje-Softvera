@@ -48,7 +48,6 @@
             this.lv1.Depth = 0;
             this.lv1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lv1.FullRowSelect = true;
-            this.lv1.GridLines = true;
             this.lv1.HideSelection = false;
             this.lv1.Location = new System.Drawing.Point(3, 64);
             this.lv1.MinimumSize = new System.Drawing.Size(200, 100);
@@ -84,15 +83,15 @@
             this.ch4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.ch4.Width = 150;
             // 
-            // ViewLastSeen
+            // ViewHistoryVisit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(606, 450);
             this.Controls.Add(this.lv1);
             this.MinimumSize = new System.Drawing.Size(606, 450);
-            this.Name = "ViewLastSeen";
-            this.Text = "Last Seen";
+            this.Name = "ViewHistoryVisit";
+            this.Text = "History of visit";
             this.ResumeLayout(false);
 
         }

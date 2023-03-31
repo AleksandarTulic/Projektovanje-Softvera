@@ -40,7 +40,6 @@
             this.mbtnRecovery = new MaterialSkin.Controls.MaterialButton();
             this.Patients_pageD = new MaterialSkin.Controls.MaterialButton();
             this.Patients_pageU = new MaterialSkin.Controls.MaterialButton();
-            this.materialButton3 = new MaterialSkin.Controls.MaterialButton();
             this.Patients_b5 = new MaterialSkin.Controls.MaterialButton();
             this.Patients_tb1 = new System.Windows.Forms.TextBox();
             this.Patients_b1 = new MaterialSkin.Controls.MaterialButton();
@@ -194,24 +193,23 @@
             // id
             // 
             this.id.Text = "ID";
-            this.id.Width = 293;
+            this.id.Width = 315;
             // 
             // name
             // 
             this.name.Text = "Name";
-            this.name.Width = 293;
+            this.name.Width = 315;
             // 
             // surname
             // 
             this.surname.Text = "Surname";
-            this.surname.Width = 293;
+            this.surname.Width = 320;
             // 
             // panel1
             // 
             this.panel1.Controls.Add(this.mbtnRecovery);
             this.panel1.Controls.Add(this.Patients_pageD);
             this.panel1.Controls.Add(this.Patients_pageU);
-            this.panel1.Controls.Add(this.materialButton3);
             this.panel1.Controls.Add(this.Patients_b5);
             this.panel1.Controls.Add(this.Patients_tb1);
             this.panel1.Controls.Add(this.Patients_b1);
@@ -234,7 +232,7 @@
             this.mbtnRecovery.Depth = 0;
             this.mbtnRecovery.HighEmphasis = true;
             this.mbtnRecovery.Icon = null;
-            this.mbtnRecovery.Location = new System.Drawing.Point(388, 6);
+            this.mbtnRecovery.Location = new System.Drawing.Point(296, 6);
             this.mbtnRecovery.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.mbtnRecovery.MouseState = MaterialSkin.MouseState.HOVER;
             this.mbtnRecovery.Name = "mbtnRecovery";
@@ -290,28 +288,6 @@
             this.Patients_pageU.UseAccentColor = false;
             this.Patients_pageU.UseVisualStyleBackColor = true;
             this.Patients_pageU.Click += new System.EventHandler(this.Patients_pageU_Click);
-            // 
-            // materialButton3
-            // 
-            this.materialButton3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.materialButton3.AutoSize = false;
-            this.materialButton3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.materialButton3.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.materialButton3.Depth = 0;
-            this.materialButton3.HighEmphasis = true;
-            this.materialButton3.Icon = null;
-            this.materialButton3.Location = new System.Drawing.Point(145, 6);
-            this.materialButton3.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.materialButton3.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialButton3.Name = "materialButton3";
-            this.materialButton3.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.materialButton3.Size = new System.Drawing.Size(83, 36);
-            this.materialButton3.TabIndex = 8;
-            this.materialButton3.Text = "Add Visit";
-            this.materialButton3.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.materialButton3.UseAccentColor = false;
-            this.materialButton3.UseVisualStyleBackColor = true;
             // 
             // Patients_b5
             // 
@@ -376,7 +352,7 @@
             this.Patients_b3.Depth = 0;
             this.Patients_b3.HighEmphasis = true;
             this.Patients_b3.Icon = null;
-            this.Patients_b3.Location = new System.Drawing.Point(314, 6);
+            this.Patients_b3.Location = new System.Drawing.Point(222, 6);
             this.Patients_b3.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.Patients_b3.MouseState = MaterialSkin.MouseState.HOVER;
             this.Patients_b3.Name = "Patients_b3";
@@ -399,7 +375,7 @@
             this.Patients_b4.Depth = 0;
             this.Patients_b4.HighEmphasis = true;
             this.Patients_b4.Icon = null;
-            this.Patients_b4.Location = new System.Drawing.Point(236, 6);
+            this.Patients_b4.Location = new System.Drawing.Point(144, 6);
             this.Patients_b4.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.Patients_b4.MouseState = MaterialSkin.MouseState.HOVER;
             this.Patients_b4.Name = "Patients_b4";
@@ -477,17 +453,17 @@
             // patients
             // 
             this.patients.Text = "Patients";
-            this.patients.Width = 293;
+            this.patients.Width = 315;
             // 
             // dentist
             // 
             this.dentist.Text = "Dentist";
-            this.dentist.Width = 293;
+            this.dentist.Width = 315;
             // 
             // date
             // 
             this.date.Text = "Date";
-            this.date.Width = 293;
+            this.date.Width = 320;
             // 
             // panel2
             // 
@@ -736,9 +712,9 @@
             this.AddVisit_l3.Location = new System.Drawing.Point(653, 18);
             this.AddVisit_l3.MouseState = MaterialSkin.MouseState.HOVER;
             this.AddVisit_l3.Name = "AddVisit_l3";
-            this.AddVisit_l3.Size = new System.Drawing.Size(82, 19);
+            this.AddVisit_l3.Size = new System.Drawing.Size(60, 19);
             this.AddVisit_l3.TabIndex = 6;
-            this.AddVisit_l3.Text = "Treatments";
+            this.AddVisit_l3.Text = "Services";
             // 
             // AddVisit_l2
             // 
@@ -906,7 +882,7 @@
             this.tabPage4.ImageKey = "menu_1.png";
             this.tabPage4.Location = new System.Drawing.Point(4, 42);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Size = new System.Drawing.Size(894, 441);
+            this.tabPage4.Size = new System.Drawing.Size(969, 441);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Personal data";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -1325,7 +1301,7 @@
             this.tabPage6.Location = new System.Drawing.Point(4, 42);
             this.tabPage6.Name = "tabPage6";
             this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage6.Size = new System.Drawing.Size(894, 441);
+            this.tabPage6.Size = new System.Drawing.Size(969, 441);
             this.tabPage6.TabIndex = 5;
             this.tabPage6.Tag = "0";
             this.tabPage6.Text = "Help";
@@ -1344,7 +1320,7 @@
             this.mrtbHelp.Name = "mrtbHelp";
             this.mrtbHelp.ReadOnly = true;
             this.mrtbHelp.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
-            this.mrtbHelp.Size = new System.Drawing.Size(674, 435);
+            this.mrtbHelp.Size = new System.Drawing.Size(749, 435);
             this.mrtbHelp.TabIndex = 1;
             this.mrtbHelp.Text = "";
             // 
@@ -1485,7 +1461,7 @@
             this.tabPage5.ImageKey = "menu_6.png";
             this.tabPage5.Location = new System.Drawing.Point(4, 42);
             this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Size = new System.Drawing.Size(894, 441);
+            this.tabPage5.Size = new System.Drawing.Size(969, 441);
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "Logout";
             this.tabPage5.UseVisualStyleBackColor = true;
@@ -1624,7 +1600,6 @@
         private MaterialSkin.Controls.MaterialButton AddVisit_b6;
         private MaterialSkin.Controls.MaterialButton Patients_pageD;
         private MaterialSkin.Controls.MaterialButton Patients_pageU;
-        private MaterialSkin.Controls.MaterialButton materialButton3;
         private MaterialSkin.Controls.MaterialListView Patients_dgv1;
         private System.Windows.Forms.ColumnHeader id;
         private System.Windows.Forms.ColumnHeader name;

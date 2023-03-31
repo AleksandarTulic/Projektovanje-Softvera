@@ -33,6 +33,7 @@ public class PatientController extends HttpServlet {
 		String what = request.getParameter("what");
 		
 		try {
+			String json = "";
 			if ("insertPatient".equals(what)) {
 				PatientFactory pFactory = PatientFactory.getInstance();
 				PatientDTO dto = pFactory.get(request);
@@ -47,42 +48,29 @@ public class PatientController extends HttpServlet {
 					if (pService.selectWithIdPatient(dto.getId()) != null)
 						patientExists = "Patient already exists with given id.";
 				
-				String json = new Gson().toJson("{\"message\": \"" + (patientExists.equals("") ? Notification.getMessage(flag) : patientExists) + "\", \"alertType\": \"" + Notification.getAlert(flag) + "\", \"flag\": \"" + flag + "\"}");
-				
-				response.setContentType("application/json");
-				response.setCharacterEncoding("UTF-8");
-				response.getWriter().write(json);
+				json = new Gson().toJson("{\"message\": \"" + (patientExists.equals("") ? Notification.getMessage(flag) : patientExists) + "\", \"alertType\": \"" + Notification.getAlert(flag) + "\", \"flag\": \"" + flag + "\"}");
 			}else if ("updatePatient".equals(what)) {
 				PatientFactory pFactory = PatientFactory.getInstance();
 				PatientDTO dto = pFactory.get(request);
 				String oldId = request.getParameter("oldID");
-				PatientService pService = new PatientService();
-				boolean flag = pService.update(dto, oldId);
-				String json = new Gson().toJson("{\"message\": \"" + Notification.getMessage(flag) + "\", \"alertType\": \"" + Notification.getAlert(flag) + "\", \"flag\": \"" + flag + "\"}");
 				
-				response.setContentType("application/json");
-				response.setCharacterEncoding("UTF-8");
-				response.getWriter().write(json);
+				boolean flag = pService.update(dto, oldId);
+				json = new Gson().toJson("{\"message\": \"" + Notification.getMessage(flag) + "\", \"alertType\": \"" + Notification.getAlert(flag) + "\", \"flag\": \"" + flag + "\"}");
 			}else if ("deletePatient".equals(what)) {
 				String id = request.getParameter("id");
-				PatientService pService = new PatientService();
-				boolean flag = pService.delete(id);
-				String json = new Gson().toJson("{\"message\": \"" + Notification.getMessage(flag) + "\", \"alertType\": \"" + Notification.getAlert(flag) + "\", \"flag\": \"" + flag + "\"}");
 				
-				response.setContentType("application/json");
-				response.setCharacterEncoding("UTF-8");
-				response.getWriter().write(json);
+				boolean flag = pService.delete(id);
+				json = new Gson().toJson("{\"message\": \"" + Notification.getMessage(flag) + "\", \"alertType\": \"" + Notification.getAlert(flag) + "\", \"flag\": \"" + flag + "\"}");
 			}else if ("recoverPatient".equals(what)) {
 				String id = request.getParameter("id");
-				PatientService pService = new PatientService();
 				
 				boolean flag = pService.updateSetActive(id);
-				String json = new Gson().toJson("{\"message\": \"" + Notification.getMessage(flag) + "\", \"alertType\": \"" + Notification.getAlert(flag) + "\", \"flag\": \"" + flag + "\"}");
-				
-				response.setContentType("application/json");
-				response.setCharacterEncoding("UTF-8");
-				response.getWriter().write(json);
+				json = new Gson().toJson("{\"message\": \"" + Notification.getMessage(flag) + "\", \"alertType\": \"" + Notification.getAlert(flag) + "\", \"flag\": \"" + flag + "\"}");
 			}
+			
+			response.setContentType("application/json");
+			response.setCharacterEncoding("UTF-8");
+			response.getWriter().write(json);
 		}catch (Exception e) {
 			MyLogger.logger.log(Level.SEVERE, e.getMessage());
 		}

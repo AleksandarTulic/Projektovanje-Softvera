@@ -17,9 +17,9 @@ namespace DentilNew.controller
             return dao.select();
         }
 
-        public bool insert(string name)
+        public bool insert(string name, double cost)
         {
-            return dao.insert(name);
+            return dao.insert(name, cost);
         }
 
         public bool delete(int id)

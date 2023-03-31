@@ -1,1 +1,9 @@
-U okviru taba Add Visit se otvara mogućnost dodavanja nove posjete. Sve što je potrebno je odabrati pacijenta iz combo box-a, a zatim sa desne strane u okviru prozora Problems i Treatments dodati koji su problemi u pitanju i načini liječenja. Nakon svega toga, potrebno je kliknuti na dugme ADD VISIT.
+Within the "Add Visit" tab, the option to add a new examination result. 
+
+All that is required is to select the patient from the combobox, and then from the right side in the window Problems and Services(treatments) add the problems in question and the methods of treatment(or services used). 
+
+It is important to note that the only thing required to add an examination result is actually just selecting a user, everything else is optional.
+
+There is a possibility that the patient you want to select is not offered in the combobox, in that case you can use the button "ADD PATIENT".
+
+After all that, you need to click on the "ADD VISIT" button.

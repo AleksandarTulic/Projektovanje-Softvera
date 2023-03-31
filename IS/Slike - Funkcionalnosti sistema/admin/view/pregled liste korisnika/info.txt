@@ -1,0 +1,5 @@
+1 - samo sam kliknu na dugme users na meniju
+2 - pretrazuje korisnike koristeci "search by"(odnosi se na vrijednosti prve cetiri kolone tabele)
+3 - kao i prethodno samo druga vrijednost
+4 - koristim pagination
+5 - sortiranje po id-u(moguce sortiranje po prvih 4 kolona)

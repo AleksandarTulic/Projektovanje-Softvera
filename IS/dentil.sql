@@ -82,7 +82,7 @@ create table if not exists Schedule(
     foreign key(idPersonal) references Personal(id)
     on update cascade
     on delete restrict,
-    primary key(idShift, date, idPersonal)
+    primary key(date, idPersonal)
 );
 
 create table if not exists Appointment(
@@ -111,6 +111,7 @@ create table if not exists Visit(
     idPatient char(13) not null,
     date DATE not null,
     idDentist char(13) not null,
+    active tinyint not null default 1,
     foreign key(idDentist) references Dentist(id)
     on update cascade
     on delete restrict,
@@ -136,6 +137,7 @@ create table if not exists HistoryVisit(
 
 create table if not exists Tooth(
 	id int unsigned not null,
+    active tinyint not null default 1,
     #babyTooth tinyint not null default(false),
     primary key(id)
 );
@@ -143,6 +145,7 @@ create table if not exists Tooth(
 create table if not exists TypeProblem(
 	id int auto_increment not null,
     name varchar(200) not null check(length(name)>=2),
+    active tinyint not null default 1,
     primary key(id)
 );
 
@@ -166,6 +169,7 @@ create table if not exists Service(
 	id int auto_increment not null,
     name varchar(200) not null check(length(name)>=2),
     cost double not null check(cost>=0.0),
+    active tinyint not null default 1,
     primary key(id)
 );
 
@@ -197,7 +201,7 @@ insert into Patient(id, name, surname, email, phone, address) values('4444444444
 insert into Personal values('2222222222222', '2019-02-05', null);
 insert into Personal values('3333333333333', '2020-05-02', null);
 
-insert into admin values('1111111111111', 'TW3JRTPFKOOGKSU3KX4TUCYZJ27OIR26');
+insert into admin values('1111111111111', 'FTQCYXSCL7MKI7PHW5SU7UIFY7G5C2A7');
 insert into counter values('2222222222222');
 insert into dentist values('3333333333333');
 
@@ -207,54 +211,54 @@ insert into shift values(2, '14:00:00', '22:00:00');
 insert into schedule values(1, '2022-10-22', '2222222222222', '1111111111111');
 insert into schedule values(2, '2022-10-23', '3333333333333', '1111111111111');
 
-insert into Tooth values(1);
-insert into Tooth values(2);
-insert into Tooth values(3);
-insert into Tooth values(4);
-insert into Tooth values(5);
-insert into Tooth values(6);
-insert into Tooth values(7);
-insert into Tooth values(8);
-insert into Tooth values(9);
-insert into Tooth values(10);
-insert into Tooth values(11);
-insert into Tooth values(12);
-insert into Tooth values(13);
-insert into Tooth values(14);
-insert into Tooth values(15);
-insert into Tooth values(16);
-insert into Tooth values(17);
-insert into Tooth values(18);
-insert into Tooth values(19);
-insert into Tooth values(20);
-insert into Tooth values(21);
-insert into Tooth values(22);
-insert into Tooth values(23);
-insert into Tooth values(24);
-insert into Tooth values(25);
-insert into Tooth values(26);
-insert into Tooth values(27);
-insert into Tooth values(28);
-insert into Tooth values(29);
-insert into Tooth values(30);
-insert into Tooth values(31);
-insert into Tooth values(32);
+insert into Tooth(id) values(1);
+insert into Tooth(id) values(2);
+insert into Tooth(id) values(3);
+insert into Tooth(id) values(4);
+insert into Tooth(id) values(5);
+insert into Tooth(id) values(6);
+insert into Tooth(id) values(7);
+insert into Tooth(id) values(8);
+insert into Tooth(id) values(9);
+insert into Tooth(id) values(10);
+insert into Tooth(id) values(11);
+insert into Tooth(id) values(12);
+insert into Tooth(id) values(13);
+insert into Tooth(id) values(14);
+insert into Tooth(id) values(15);
+insert into Tooth(id) values(16);
+insert into Tooth(id) values(17);
+insert into Tooth(id) values(18);
+insert into Tooth(id) values(19);
+insert into Tooth(id) values(20);
+insert into Tooth(id) values(21);
+insert into Tooth(id) values(22);
+insert into Tooth(id) values(23);
+insert into Tooth(id) values(24);
+insert into Tooth(id) values(25);
+insert into Tooth(id) values(26);
+insert into Tooth(id) values(27);
+insert into Tooth(id) values(28);
+insert into Tooth(id) values(29);
+insert into Tooth(id) values(30);
+insert into Tooth(id) values(31);
+insert into Tooth(id) values(32);
 
-insert into TypeProblem values(1, 'Split tooth');
-insert into TypeProblem values(2, 'Cracked cusp');
-insert into TypeProblem values(3, 'Cracked tooth');
-insert into TypeProblem values(4, 'Craze lines');
-insert into TypeProblem values(5, 'Dental decay');
-insert into TypeProblem values(6, 'Gum disease');
+insert into TypeProblem(id, name) values(1, 'Split tooth');
+insert into TypeProblem(id, name) values(2, 'Cracked cusp');
+insert into TypeProblem(id, name) values(3, 'Cracked tooth');
+insert into TypeProblem(id, name) values(4, 'Craze lines');
+insert into TypeProblem(id, name) values(5, 'Dental decay');
+insert into TypeProblem(id, name) values(6, 'Gum disease');
 
 #www.dentalhealth.org/dental-decay
 #https://www.carecredit.com/dentistry/costs/
 
-insert into Service values(1, 'Dental Implants', 3000.00);
-insert into Service values(2, 'Dental Crown', 500.00);
-insert into Service values(3, 'Tooth Extraction', 219.00);
-insert into Service values(4, 'Teeth Cleaning', 75.00);
-insert into Service values(5, 'Root Canal', 300.00);
-insert into Service values(6, 'Wisdom Teeth Removal (impacted tooth)', 225.00);
-insert into Service values(7, 'Professional Teeth Whitening', 300.00);
-insert into Service values(8, 'Full Mouth Dental Reconstruction', 30000.00);
+insert into Service(id, name, cost) values(1, 'Dental Implants', 3000.00);
+insert into Service(id, name, cost) values(2, 'Dental Crown', 500.00);
+insert into Service(id, name, cost) values(3, 'Tooth Extraction', 219.00);
+insert into Service(id, name, cost) values(4, 'Teeth Cleaning', 75.00);
+insert into Service(id, name, cost) values(5, 'Root Canal', 300.00);
+insert into Service(id, name, cost) values(6, 'Wisdom Teeth Removal (impacted tooth)', 225.00);
+insert into Service(id, name, cost) values(7, 'Professional Teeth Whitening', 300.00);
+insert into Service(id, name, cost) values(8, 'Full Mouth Dental Reconstruction', 30000.00);

@@ -3,7 +3,16 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h2 class="modal-title">Add User</h2>
+                <div class="col-sm-4" style="padding-left: 0px;">
+                	<h2 class="modal-title">Add User</h2>
+                </div>
+                
+                <div class="col-sm-1">
+                	&nbsp;
+                </div>
+                
+                <div class="col-sm-7" id="insertMessage">
+                </div>
             </div>
             <div class="modal-body">
                 <form id="insertForm">
@@ -149,11 +158,11 @@
 				data: obj,
 				success: function(res){
 					var resObj = JSON.parse(res);
-					var elements = document.getElementById("messageResult");
+					var elements = document.getElementById("insertMessage");
 					elements.innerHTML = "<div class=\"" + resObj.alertType + "\"> " + resObj.message + "</div>";
 					
 					setInterval(function(){
-						document.getElementById("messageResult").innerHTML = "";
+						document.getElementById("insertMessage").innerHTML = "";
 					}, 3000);
 					
 					if (resObj.flag + "" === "true"){
@@ -164,11 +173,11 @@
 				}
 			});
 		}else{
-			var elements = document.getElementById("messageResult");
+			var elements = document.getElementById("insertMessage");
 			elements.innerHTML = "<div class=\"" + "alert alert-danger" + "\"> " + "Inserted values are not corrent.\nLook up in help correct form of values." + "</div>";
 			
 			setInterval(function(){
-				document.getElementById("messageResult").innerHTML = "";
+				document.getElementById("insertMessage").innerHTML = "";
 			}, 3000);
 		}
 	}

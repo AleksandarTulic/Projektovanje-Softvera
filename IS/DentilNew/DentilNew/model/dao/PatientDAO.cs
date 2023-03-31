@@ -78,7 +78,10 @@ namespace DentilNew.model.dao
                             Object[] values = new Object[reader.FieldCount];
                             int fieldCount = reader.GetValues(values);
 
-                            res = new PatientDTO((string)values[0], (string)values[1], (string)values[2], (string)values[3], (string)values[4], (string)values[5]);
+                            res = new PatientDTO((string)values[0], (string)values[1], (string)values[2],
+                                values[3] != DBNull.Value ? (string)values[3] : null,
+                                values[4] != DBNull.Value ? (string)values[4] : null,
+                               values[5] != DBNull.Value ? (string)values[5] : null);
                         }
                     }
                 }

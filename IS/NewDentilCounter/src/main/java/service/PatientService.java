@@ -2,19 +2,23 @@ package service;
 
 import java.util.List;
 
+import dao.AppointmentDAO;
+import dao.ConnectionPool;
 import dao.PatientDAO;
+import dao.VisitDAO;
 import dto.PatientDTO;
 
 public class PatientService {
 	private PatientDAO dao = new PatientDAO();
-	private static final Boolean active = true;
+	private AppointmentDAO appointmentDAO = new AppointmentDAO();
+	private VisitDAO visitDAO = new VisitDAO();
 	
 	public Long getNumberOfPatients(String value) {
-		return dao.getNumberOfPatients(value, active);
+		return dao.getNumberOfPatients(value, ConnectionPool.ACTIVE);
 	}
 	
 	public List<PatientDTO> getPatients(String value, String orderBy, String orderByType, Long left, Long right){
-		return dao.getPatients(value, orderBy, orderByType, left, right, active);
+		return dao.getPatients(value, orderBy, orderByType, left, right, ConnectionPool.ACTIVE);
 	}
 	
 	public boolean insert(PatientDTO dto) {
@@ -26,10 +30,14 @@ public class PatientService {
 	}
 	
 	public boolean updateSetActive(String id) {
-		return dao.updateSetActive(id, active);
+		//appointmentDAO.deleteRecoverPatientsAppointments(id, ConnectionPool.ACTIVE);
+		visitDAO.deleteRecoverPatientsVisitss(id, ConnectionPool.ACTIVE);
+		return dao.updateSetActive(id, ConnectionPool.ACTIVE);
 	}
 	
 	public boolean delete(String id) {
+		appointmentDAO.deleteRecoverPatientsAppointments(id, !ConnectionPool.ACTIVE);
+		visitDAO.deleteRecoverPatientsVisitss(id, !ConnectionPool.ACTIVE);
 		return dao.delete(id);
 	}
 	

@@ -1,9 +1,15 @@
-Nakon uspješne prijave na sistem, otvara se početna stranica, odnosno tab Patients. U ovom tabu su prikazani svi pacijenti. Sa donje strane se nalaze dodatne funkcionalnosti koje će biti objašnjene u nastavku.
-1. Dugme VIEW omogućava pregled detaljnih informacija o svakom korisniku. Da bi se vidjele ove informacije, potrebno je prvo u tabeli označiti pacijenta, a zatim kliknuti na dugme VIEW.
-2. Dugme ADD služi za dodavanje novog pacijenta. Sve što je potrebno je kliknuti na dugme, a zatim u novootvorenom prozoru unijeti lične podatke o osobi, odnosno pacijentu.
-3. Dugme ADD VISIT nije još implementirano.
-4. Dugme UPDATE služi da se ažuriraju neke informacije o pacijentu. Potrebno je prvo u tabeli selektovati pacijenta, a zatim kliknuti dugme. Nakon toga se otvara novi prozor u kojem se unose izmjene.
-5. Dugme DELETE služi za brisanje pacijenta. Potrebno je prvo u tabeli selektovati pacijenta, a zatim kliknuti dugme. Zapravo informacije o pacijentu neće biti obrisane iz baze, nego će se samo flag postaviti na nula.
-6. Dugme RECOVERY služi da vratimo pacijenta koji je "obrisan" akcijom dugmeta DELETE. Nakon klika na ovo dugme, otvara se novi prozor u kojem je potrebno unijeti JMBG osobe da bi se njeni podaci opet proglasili aktivnim.
-7. Dugmad koja su označena simbolima < i > služe za prebacivanja na sljedeću stranicu liste pacijenata.
-8. Dugme SEARCH omogućava pretragu liste pacijenata na osnovu vrijednosti JMBG, imena, prezimena itd.
+After successful login to the system, the home page, ie the Patients tab, opens. All patients are shown in this tab. On the bottom side are additional functionalities that will be further explained below.
+
+- The VIEW button allows seeing detailed information about each user. In order to see this information, first select the patient in the table and then click the VIEW button.
+
+- The ADD button is used to add a new patient. All that is required is to click on the button, and then in the newly opened window, enter personal information about the person, that is, the patient.
+
+- The UPDATE button is used to update some patient information. It is necessary to first select the patient in the table, and then click the button. After that, a new window opens in which changes can be made.
+
+- The DELETE button is used to delete a patient. It is necessary to first select the patient in the table, and then click the button. In actuality the patient information will not be deleted from the database, but only it will be made so that it is not visible to the system.
+
+- The RECOVERY button serves to return the patient who was "deleted" by the DELETE button action. After clicking on this button, a new window will open in which you need to enter the person's id in order to declare their data active again.
+
+- The buttons marked with the symbols < and > are used to switch to the next page of the patient list.
+
+- The SEARCH button allows you to search the list of patients based on the id value, first name, last name.
